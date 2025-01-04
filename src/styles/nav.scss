@@ -1,0 +1,53 @@
+.navbar {
+    transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+
+    &:hover {
+        width: 275px;
+
+        .nav_text {
+            display: flex;
+            flex-direction: row;
+            transition: opacity 0.25s ease 0.12s;
+        }
+
+        li {
+            pointer-events: auto;
+        }
+    } 
+
+    li {
+        pointer-events: none;
+        cursor: pointer;
+    }
+}
+
+.li_dropdown-active {
+    position: relative; // Đảm bảo dropdown được định vị chính xác
+
+    &:hover {
+        .navbar_li-dropdown {
+            opacity: 1; // Đặt opacity thành 1 khi hover
+            pointer-events: auto; // Cho phép nhận sự kiện hover
+            animation: slideIn 0.3s forwards; // Chạy animation khi hover
+        }
+    }
+}
+
+.navbar_li-dropdown {
+    opacity: 0; 
+    pointer-events: none; 
+    transform: translateX(-20px); 
+    transition: opacity 0.3s ease, transform 0.3s ease; 
+
+    // Định nghĩa animation
+    @keyframes slideIn {
+        0% {
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+}

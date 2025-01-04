@@ -1,7 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  images: {
+    domains: ['vrtechvn.com'], // Thêm hostname vào đây
+  },
 };
 
 export default nextConfig;

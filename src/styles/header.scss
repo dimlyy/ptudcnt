@@ -1,0 +1,66 @@
+.header_li-dropdown-active{
+    &:hover {
+        .header_li-dropdown{
+            opacity: 1;
+            pointer-events: auto;
+            animation: slideOn 0.3s forwards; // Chạy animation khi hover
+        }  
+    }
+}
+
+.header_li-dropdown{
+    opacity: 0; // Đặt opacity ban đầu là 0
+    pointer-events: none; // Không cho phép nhận sự kiện hover
+    transition: opacity 0.3s ease, transform 0.3s ease; // Thêm transition cho opacity và transform
+
+    // Định nghĩa animation
+    @keyframes slideOn {
+        0% {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+}
+
+.cart-dropdown {
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    transform: translateX(100%);
+    opacity: 0;
+}
+
+.cart-dropdown.active {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+
+.user-btn {
+
+    &:hover {
+      .user-dropdown {
+        opacity: 1;
+        pointer-events: auto;
+        animation: slideOn 0.3s forwards; 
+      }
+    }
+}
+
+.user-dropdown {
+    opacity: 0; 
+    pointer-events: none; 
+    transition: opacity 0.3s ease, transform 0.3s ease;
+
+    &::after{
+        content: '';
+        width: 100px;
+        height: 20px;
+        background-color: transparent;
+        position: absolute;
+        top: -15px;
+        right: 0;
+    }
+}
