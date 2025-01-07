@@ -6,8 +6,8 @@ const Slider = () => {
   const videoSrc= window.innerWidth < 760 ? 'assets/video/smallHero.mp4' : 'assets/video/hero.mp4';
 
   return (
-    <div className='w-full p-4 h-92 relative'>
-        <video className='rounded-md' autoPlay muted playsInline={true} loop key={videoSrc}>
+    <div className='w-full p-4 pb-0 h-92 relative'>
+        <video className='rounded-md rounded-b-none' autoPlay muted playsInline={true} loop key={videoSrc}>
             <source src={videoSrc} type="video/mp4"/>
         </video>
 

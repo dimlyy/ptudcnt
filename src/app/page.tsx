@@ -1,6 +1,7 @@
 import HeroSection from "@components/Home/HeroSection";
-import Modal3D from "@components/Home/Modal3D";
+import Modal from "@components/Home/Modal/Modal";
 import Highlight from "@components/Home/Highlight";
+import CarouselItem from "@components/Home/CarouselItem";
 
 
 
@@ -9,7 +10,8 @@ export default function Home() {
     <div className="mt-4">
       <HeroSection/>
       <Highlight/>
-      <Modal3D/>
+      <Modal/>
+      <CarouselItem/>
     </div>
   );
 }

@@ -1,6 +1,5 @@
-// src/app/layout.js
+// src/app/layout.tsx
 import React from "react";
-
 import "@styles/globals.scss";
 import Header from "../components/Layout/Header";
 import Nav from "../components/Layout/Nav";
@@ -17,15 +16,18 @@ const RootLayout: React.FC<React.PropsWithChildren<unknown>> = ({
           href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"
         />
       </head>
-      <body>
-        <div className="md:ml-[var(--sticky-nav)]">
-          <div>
-            <Nav />
-          </div>
-          <div>
-            <Header />
-            <main>{children}</main>
-            <Footer />
+      <body data-theme="dark">
+        {/* Tạo root div để bao quanh toàn bộ nội dung */}
+        <div id="root">
+          <div className="md:ml-[var(--sticky-nav)] bg-[var(--background-color)]">
+            <div>
+              <Nav />
+            </div>
+            <div>
+              <Header />
+              <main>{children}</main>
+              <Footer />
+            </div>
           </div>
         </div>
       </body>

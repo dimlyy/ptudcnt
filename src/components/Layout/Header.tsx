@@ -45,11 +45,11 @@ const Header = () => {
           </div>
 
           {/* Search Bar */}
-          <div className="relative flex flex-row grow shrink basis-auto items-center rounded-3xl max-h-[inherit] mx-5 bg-[var(--container-color)]">
-            <div className="mx-5 pd-4 flex w-full items-center border h-11 rounded-3xl overflow-hidden">
+          <div className="relative flex flex-row grow shrink basis-auto items-center rounded-3xl max-h-[inherit] mx-10 bg-[var(--container-color)]">
+            <div className="pd-4 flex w-full items-center border h-11 rounded-3xl overflow-hidden">
                 <form className="flex flex-row relative w-full h-full items-center">
                   <input
-                    className="flex min-w-[270px] h-full w-full bg-transparent pl-3 pr-11 outline-none"
+                    className="flex min-w-[270px] h-full w-full text-[var(--text-color)] bg-transparent pl-3 pr-11 outline-none"
                     placeholder="Tìm kiếm..."
                   />
                   <button
@@ -65,17 +65,17 @@ const Header = () => {
           {/* Infomatiom Contact */}
           <div className="flex flex-row m-h-[inherit] items-center justify-end mr-[-10px]">
             <div className="px-3 flex flex-row items-center">
-              <i className="uil uil-envelope-download flex text-3xl mr-2"/>
+              <i className="uil uil-envelope-download flex text-3xl mr-2 text-[var(--text-color)]"/>
               <div className="flex flex-col">
-                <span className="text-medium">dimlytad@gmail.com</span>
+                <span className="text-medium text-[var(--text-color)]">dimlytad@gmail.com</span>
                 <span className="text-sm text-[var(--btn-color)]">+0378808834</span>
               </div>
             </div>
 
             <div className="px-3 flex flex-row items-center">
-              <i className="uil uil-dribbble flex text-3xl mr-2"/>
+              <i className="uil mt-1 uil-dribbble flex text-3xl mr-2 text-[var(--text-color)]"/>
               <div className="flex flex-col">
-                <span className="text-medium">Toàn quốc</span>
+                <span className="text-medium text-[var(--text-color)]">Toàn quốc</span>
                 <span className="text-sm text-[var(--btn-color)]">Miễn phí giao hàng</span>
               </div>
             </div>
@@ -84,11 +84,11 @@ const Header = () => {
       </div>
 
       {/* Header row 2 */}
-      <div className="bg-slate-200 w-full mx-auto h-14">
+      <div className="bg-[var(--container-color)] w-full mx-auto h-14">
         <div className="container flex flex-row items-center px-4 h-full">
 
           {/* Catergorie */}
-          <div className="flex flex-rows h-11 items-center justify-center rounded-full bg-[var(--container-color)]">
+          <div className="flex flex-rows h-11 items-center justify-center rounded-full bg-[var(--text-color)]">
               <span className="flex items-center justify-center h-9 w-9 bg-[var(--btn-color)] rounded-full mx-2 pd-3">
                 <i className="uil uil-bars text-[var(--container-color)]"/>
               </span>
@@ -98,25 +98,25 @@ const Header = () => {
           {/* Menu  */}
           <div className="flex flex-row shrink grow basis-auto items-center h-full">
             <ul className="flex flex-row h-full items-center">
-              <li className="flex h-full ml-6 relative text-sm">
+              <li className="flex text-[var(--text-color)] h-full ml-6 relative text-sm">
                 <Link href="#" className="flex h-full items-center">
                   Sản phẩm
                 </Link>
               </li>
 
-              <li className="flex h-full ml-6 relative text-sm">
+              <li className="flex text-[var(--text-color)] h-full ml-6 relative text-sm">
                 <Link href="#" className="flex h-full items-center">
                   Tin tức
                 </Link>
               </li>
 
-              <li className="flex h-full ml-6 relative text-sm">
+              <li className="flex text-[var(--text-color)] h-full ml-6 relative text-sm">
                 <Link href="#" className="flex h-full items-center">
                    Giới thiệu sản phẩm
                 </Link>
               </li>
 
-              <li className="flex h-full ml-6 relative text-sm header_li-dropdown-active">
+              <li className="flex text-[var(--text-color)] h-full ml-6 relative text-sm header_li-dropdown-active">
                 <Link href="#" className="flex h-full items-center">
                    Sản phẩm nổi bật
                 {liDropDown &&
@@ -152,7 +152,7 @@ const Header = () => {
                 </div>}
               </li>
 
-              <li className="flex h-full ml-6 relative text-sm">
+              <li className="flex text-[var(--text-color)] h-full ml-6 relative text-sm">
                 <Link href="#" className="flex h-full items-center">
                    Liên hệ
                 </Link>
@@ -164,7 +164,7 @@ const Header = () => {
           {/* Menu Cart */}
           <div className="flex flex-row items-center h-full">
             {/* User */}
-            <div className="flex user-btn relative mr-6 h-11 w-11 bg-[var(--container-color)] rounded-full">
+            <div className="flex user-btn relative mr-6 h-11 w-11 bg-[var(--text-color)] rounded-full">
                 <button className="flex relative h-full w-full items-center justify-center">
                   <span>
                     <i className="uil uil-user text-xl"/>
@@ -172,7 +172,7 @@ const Header = () => {
                 </button>
                 
                 {/* User Dropdown */}
-                <div className="user-dropdown absolute top-12 right-0 w-52 min-h-16 bg-[var(--container-color)] rounded-xl shadow-2xl">
+                <div className="user-dropdown absolute z-50 top-12 right-0 w-52 min-h-16 bg-[var(--container-color)] rounded-xl shadow-2xl">
                   <ul className="flex flex-col my-2 mx-3">
                     <li className="my-1">
                       <Link href="#">
@@ -201,7 +201,7 @@ const Header = () => {
             </div>
             
             {/* Wish list */}
-            <div className="flex mr-6 h-11 w-11 bg-[var(--container-color)] rounded-full">
+            <div className="flex mr-6 h-11 w-11 bg-[var(--text-color)] rounded-full">
                 <button
                 onClick={handleWishlistToggle}
                 className="flex relative h-full w-full items-center justify-center">
@@ -233,7 +233,7 @@ const Header = () => {
                   <div className="mt-2 flex relative flex-col h-full ">
 
                     <div className="w-full h-10 mt-2 border-b-2 border-slate-500">
-                      <span className="text-xl ml-3">Giỏ hàng</span>
+                      <span className="text-xl ml-3 text-[var(--title-color)]">Giỏ hàng</span>
                     </div>
 
                     {/* Close button */}
@@ -248,14 +248,14 @@ const Header = () => {
                         <li className="flex h-20 mt-2 w-full">
                           <Link href="#" className="flex flex-row items-center shrink grow basis-auto">
                              <Image
-                              src="https://vrtechvn.com/wp-content/uploads/2024/05/android_box_icon.jpg"
+                              src="/assets/images/navCatergories.png"
                               alt="categories"
-                              width={24}
-                              height={24}
+                              width={600}
+                              height={600}
                               className="flex max-w-none max-h-none w-14 h-14 object-contain"
                             />
                             <div className="flex flex-col whitespace-nowrap ml-2">
-                                <span className="leading-7 whitespace-nowrap uppercase">Iphone 16 promax</span>
+                                <span className="leading-7 whitespace-nowrap uppercase text-[var(--title-color)]">Iphone 16 promax</span>
                                 <span className="text-sm leading-7 text-[var(--btn-color)]">16.650.000 VND</span>
                             </div>
                           </Link>
@@ -269,14 +269,14 @@ const Header = () => {
                         <li className="flex h-20 mt-2 w-full">
                           <Link href="#" className="flex flex-row items-center shrink grow basis-auto">
                              <Image
-                              src="https://vrtechvn.com/wp-content/uploads/2024/05/android_box_icon.jpg"
+                              src="/assets/images/navCatergories.png"
                               alt="categories"
-                              width={24}
-                              height={24}
+                              width={600}
+                              height={600}
                               className="flex max-w-none max-h-none w-14 h-14 object-contain"
                             />
                             <div className="flex flex-col whitespace-nowrap ml-2">
-                                <span className="leading-7 whitespace-nowrap uppercase">Iphone 16 promax</span>
+                                <span className="leading-7 whitespace-nowrap uppercase text-[var(--title-color)]">Iphone 16 promax</span>
                                 <span className="text-sm leading-7 text-[var(--btn-color)]">16.650.000 VND</span>
                             </div>
                           </Link>
@@ -290,14 +290,14 @@ const Header = () => {
                         <li className="flex h-20 mt-2 w-full">
                           <Link href="#" className="flex flex-row items-center shrink grow basis-auto">
                              <Image
-                              src="https://vrtechvn.com/wp-content/uploads/2024/05/android_box_icon.jpg"
+                              src="/assets/images/navCatergories.png"
                               alt="categories"
-                              width={24}
-                              height={24}
+                              width={600}
+                              height={600}
                               className="flex max-w-none max-h-none w-14 h-14 object-contain"
                             />
                             <div className="flex flex-col whitespace-nowrap ml-2">
-                                <span className="leading-7 whitespace-nowrap uppercase">Iphone 16 promax</span>
+                                <span className="leading-7 whitespace-nowrap uppercase text-[var(--title-color)]">Iphone 16 promax</span>
                                 <span className="text-sm leading-7 text-[var(--btn-color)]">16.650.000 VND</span>
                             </div>
                           </Link>
@@ -307,10 +307,11 @@ const Header = () => {
                               </button>
                             </div>
                         </li>
+
                       </ul>
 
                       <div className="flex items-center h-12 w-full justify-center mb-8">
-                        <Link href="#" className="flex justify-center items-center bg-[var(--btn-color)] h-full rounded-2xl text-[var(--container-color)] w-60">Thanh toán</Link>
+                        <Link href="#" className="flex justify-center items-center bg-[var(--btn-color)] h-full rounded-2xl text-[var(--title-color)] w-60">Thanh toán</Link>
                       </div>
                   </div>
             </div>
@@ -339,7 +340,7 @@ const Header = () => {
                         <li className="flex h-20 mt-2 w-full">
                           <Link href="#" className="flex flex-row items-center shrink grow basis-auto">
                              <Image
-                              src="https://vrtechvn.com/wp-content/uploads/2024/05/android_box_icon.jpg"
+                              src="/assets/images/navCatergories.png"
                               alt="categories"
                               width={24}
                               height={24}
@@ -360,7 +361,7 @@ const Header = () => {
                         <li className="flex h-20 mt-2 w-full">
                           <Link href="#" className="flex flex-row items-center shrink grow basis-auto">
                              <Image
-                              src="https://vrtechvn.com/wp-content/uploads/2024/05/android_box_icon.jpg"
+                              src="/assets/images/navCatergories.png"
                               alt="categories"
                               width={24}
                               height={24}
@@ -381,7 +382,7 @@ const Header = () => {
                         <li className="flex h-20 mt-2 w-full">
                           <Link href="#" className="flex flex-row items-center shrink grow basis-auto">
                              <Image
-                              src="https://vrtechvn.com/wp-content/uploads/2024/05/android_box_icon.jpg"
+                              src="/assets/images/navCatergories.png"
                               alt="categories"
                               width={24}
                               height={24}
@@ -398,6 +399,7 @@ const Header = () => {
                               </button>
                             </div>
                         </li>
+
                       </ul>
 
                       <div className="flex items-center h-12 w-full justify-center mb-8">

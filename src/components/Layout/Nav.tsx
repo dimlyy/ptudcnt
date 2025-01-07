@@ -47,7 +47,7 @@ const Nav = () => {
         className={classNames(
           "navbar",
           "left-0 fixed h-[100vh] w-[var(--sticky-nav)] z-50 bg-[var(--container-color)]",
-          "flex-col border-[var(--border-color)] border-[1px]"
+          "flex-col border-[var(--text-color)] border-r-[1px]"
         )}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
@@ -59,8 +59,8 @@ const Nav = () => {
             "bg-[var(--btn-color)] justify-start text-[var(--body-color)]"
           )}
         >
-          <i className="uil uil-bars ml-[-2px] flex items-center justify-center text-[var(--body-color)] text-2xl" />
-          <span className="transition-opacity nav_text hidden text-[var(--container-color)] whitespace-nowrap ml-3 text-lg">
+          <i className="uil uil-bars ml-[-2px] flex items-center justify-center text-[var(--title-color)] text-2xl" />
+          <span className="transition-opacity nav_text hidden text-[var(--title-color)] whitespace-nowrap ml-3 text-lg">
             Tất cả sản phẩm
           </span>
         </div>
@@ -74,13 +74,13 @@ const Nav = () => {
               className="px-5 py-1 flex items-center min-w-1 min-h-11"
             >
               <Image
-                src="https://vrtechvn.com/wp-content/uploads/2024/05/android_box_icon.jpg"
+                src="/assets/images/navCatergories.png"
                 alt="categories"
-                width={24}
-                height={24}
-                className="flex max-w-none max-h-none w-5 h-5 object-contain"
+                width={600}
+                height={600}
+                className="flex max-w-none max-h-none w-6 h-6 object-contain"
               />
-              <span className="w-full justify-between hidden nav_text text-[var(--title-color-)] whitespace-nowrap font-medium ml-3 text-base">
+              <span className="w-full justify-between hidden nav_text text-[var(--title-color)] whitespace-nowrap font-medium ml-3 text-base">
                 Điện thoại
                 {isDropdown &&
                   <i className="uil uil-arrow-right ml-[-2px] flex items-center justify-center text-[var(--text-color)] text-2xl" />}
@@ -91,52 +91,53 @@ const Nav = () => {
             <div
               className={classNames(
                 "absolute m-0 top-0 right-[-220px] w-[var(--dropdown-width)] px-5 py-3",
-                "bg-[var(--body-color)] navbar_li-dropdown shadow-lg",
+                "bg-[var(--container-color)] navbar_li-dropdown shadow-lg",
               )}
             >
               <ul>
                 <li>
                   <Link href="#">
-                    <span className="uppercase py-2 flex items-center whitespace-nowrap font-medium text-base hover:text-cyan-600">
+                    <span className="uppercase py-2 flex items-center whitespace-nowrap font-medium text-base text-[var(--title-color)] hover:text-cyan-600">
                       Iphone
                     </span>
                   </Link>
                 </li>
-  
+
                 <li>
                   <Link href="#">
-                    <span className="uppercase py-2 flex items-center whitespace-nowrap font-medium text-base hover:text-cyan-600">
+                    <span className="uppercase py-2 flex items-center whitespace-nowrap font-medium text-base text-[var(--title-color)] hover:text-cyan-600">
                       Iphone
                     </span>
                   </Link>
                 </li>
-  
-                 <li>
+
+                <li>
                   <Link href="#">
-                    <span className="uppercase py-2 flex items-center whitespace-nowrap font-medium text-base hover:text-cyan-600">
+                    <span className="uppercase py-2 flex items-center whitespace-nowrap font-medium text-base text-[var(--title-color)] hover:text-cyan-600">
                       Iphone
                     </span>
                   </Link>
                 </li>
+            
               </ul>
             </div>}
           </li>
           
           <li className={classNames("relative max-w-full w-full",
-            {"li_dropdown-active": isNavbarHover}
+            {"li_dropdown-active" : isNavbarHover}
           )}>
             <Link
               href="#"
               className="px-5 py-1 flex items-center min-w-1 min-h-11"
             >
               <Image
-                src="https://vrtechvn.com/wp-content/uploads/2024/05/android_box_icon.jpg"
+                src="/assets/images/navCatergories.png"
                 alt="categories"
-                width={24}
-                height={24}
-                className="flex max-w-none max-h-none w-5 h-5 object-contain"
+                width={600}
+                height={600}
+                className="flex max-w-none max-h-none w-6 h-6 object-contain"
               />
-              <span className="w-full justify-between hidden nav_text text-[var(--title-color-)] whitespace-nowrap font-medium ml-3 text-base">
+              <span className="w-full justify-between hidden nav_text text-[var(--title-color)] whitespace-nowrap font-medium ml-3 text-base">
                 Điện thoại
                 {isDropdown &&
                   <i className="uil uil-arrow-right ml-[-2px] flex items-center justify-center text-[var(--text-color)] text-2xl" />}
@@ -147,52 +148,53 @@ const Nav = () => {
             <div
               className={classNames(
                 "absolute m-0 top-0 right-[-220px] w-[var(--dropdown-width)] px-5 py-3",
-                "bg-[var(--body-color)] navbar_li-dropdown shadow-lg",
+                "bg-[var(--container-color)] navbar_li-dropdown shadow-lg",
               )}
             >
               <ul>
                 <li>
                   <Link href="#">
-                    <span className="uppercase py-2 flex items-center whitespace-nowrap font-medium text-base hover:text-cyan-600">
+                    <span className="uppercase py-2 flex items-center whitespace-nowrap font-medium text-base text-[var(--title-color)] hover:text-cyan-600">
                       Iphone
                     </span>
                   </Link>
                 </li>
-  
+
                 <li>
                   <Link href="#">
-                    <span className="uppercase py-2 flex items-center whitespace-nowrap font-medium text-base hover:text-cyan-600">
+                    <span className="uppercase py-2 flex items-center whitespace-nowrap font-medium text-base text-[var(--title-color)] hover:text-cyan-600">
                       Iphone
                     </span>
                   </Link>
                 </li>
-  
-                 <li>
+
+                <li>
                   <Link href="#">
-                    <span className="uppercase py-2 flex items-center whitespace-nowrap font-medium text-base hover:text-cyan-600">
+                    <span className="uppercase py-2 flex items-center whitespace-nowrap font-medium text-base text-[var(--title-color)] hover:text-cyan-600">
                       Iphone
                     </span>
                   </Link>
                 </li>
+            
               </ul>
             </div>}
           </li>
 
           <li className={classNames("relative max-w-full w-full",
-            {"li_dropdown-active": isNavbarHover}
+            {"li_dropdown-active" : isNavbarHover}
           )}>
             <Link
               href="#"
               className="px-5 py-1 flex items-center min-w-1 min-h-11"
             >
               <Image
-                src="https://vrtechvn.com/wp-content/uploads/2024/05/android_box_icon.jpg"
+                src="/assets/images/navCatergories.png"
                 alt="categories"
-                width={24}
-                height={24}
-                className="flex max-w-none max-h-none w-5 h-5 object-contain"
+                width={600}
+                height={600}
+                className="flex max-w-none max-h-none w-6 h-6 object-contain"
               />
-              <span className="w-full justify-between hidden nav_text text-[var(--title-color-)] whitespace-nowrap font-medium ml-3 text-base">
+              <span className="w-full justify-between hidden nav_text text-[var(--title-color)] whitespace-nowrap font-medium ml-3 text-base">
                 Điện thoại
                 {isDropdown &&
                   <i className="uil uil-arrow-right ml-[-2px] flex items-center justify-center text-[var(--text-color)] text-2xl" />}
@@ -203,36 +205,38 @@ const Nav = () => {
             <div
               className={classNames(
                 "absolute m-0 top-0 right-[-220px] w-[var(--dropdown-width)] px-5 py-3",
-                "bg-[var(--body-color)] navbar_li-dropdown shadow-lg",
+                "bg-[var(--container-color)] navbar_li-dropdown shadow-lg",
               )}
             >
               <ul>
                 <li>
                   <Link href="#">
-                    <span className="uppercase py-2 flex items-center whitespace-nowrap font-medium text-base hover:text-cyan-600">
+                    <span className="uppercase py-2 flex items-center whitespace-nowrap font-medium text-base text-[var(--title-color)] hover:text-cyan-600">
                       Iphone
                     </span>
                   </Link>
                 </li>
-  
+
                 <li>
                   <Link href="#">
-                    <span className="uppercase py-2 flex items-center whitespace-nowrap font-medium text-base hover:text-cyan-600">
+                    <span className="uppercase py-2 flex items-center whitespace-nowrap font-medium text-base text-[var(--title-color)] hover:text-cyan-600">
                       Iphone
                     </span>
                   </Link>
                 </li>
-  
-                 <li>
+
+                <li>
                   <Link href="#">
-                    <span className="uppercase py-2 flex items-center whitespace-nowrap font-medium text-base hover:text-cyan-600">
+                    <span className="uppercase py-2 flex items-center whitespace-nowrap font-medium text-base text-[var(--title-color)] hover:text-cyan-600">
                       Iphone
                     </span>
                   </Link>
                 </li>
+            
               </ul>
             </div>}
           </li>
+
         </ul>
       </div>
     </div>
