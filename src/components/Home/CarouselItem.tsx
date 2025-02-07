@@ -3,8 +3,13 @@
 import React, { useRef, useState, useEffect } from "react";
 import ItemCarousel from "./ItemCarousel/ItemCarousel";
 import { carouselItems } from '@constants'; // Ensure this import is correct
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const CarouselItem = () => {
+  gsap.registerPlugin(ScrollTrigger);
+
   const carouselContainerRef = useRef([]);
   const [scrollPosition, setScrollPosition] = useState(Array(carouselItems.length).fill(false)); // Initialize with false
 
@@ -56,6 +61,25 @@ const CarouselItem = () => {
     }
   };
 
+  useGSAP(() => {
+    carouselContainerRef.current.forEach((carousel, index) => {
+      if (carousel) {
+        gsap.from(carousel, {
+          scrollTrigger: {
+            trigger: carousel,
+            start: '20% bottom',
+          },
+          opacity: 0,
+          y: 20,
+          duration: 0.5,
+          delay: index * 0.2, 
+        });
+      }
+    });
+  });
+  
+
+
   return (
     <section>
       {carouselItems.map((items, i) => (
@@ -80,7 +104,7 @@ const CarouselItem = () => {
 
           <button
             className="absolute right-0 top-1/2 transform -translate-y-1/2 rounded-full bg-gray-400 w-10 h-10"
-            onClick={() => handleOnNext(i)}
+            onClick={() => handleOnNext(i )}
           >
             <i className="uil uil-arrow-right text-base text-[var(--title-color)]"/>
           </button>
@@ -93,7 +117,7 @@ const CarouselItem = () => {
               <i className="uil uil-arrow-left text-base text-[var(--title-color)]"/>
             </button>
           )}
-        </ div>
+        </div>
       ))}
     </section>
   );

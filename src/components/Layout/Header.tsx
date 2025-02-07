@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import classNames from "classnames";
@@ -9,6 +9,30 @@ import "@styles/header.scss";
 
 
 const Header = () => {
+
+  const [inputPlaceholder, setInputPlaceholder] = useState("Tìm kiếm");
+
+  const typeWriterEffect = (text, setPlaceholder, delay = 150) => {
+    let index = 0;
+    const interval = setInterval(() => {
+      if (index <= text.length) {
+        setPlaceholder(text.substring(0, index));
+        index++;
+      } else {
+        clearInterval(interval);
+        // Sau khi kết thúc, chờ một khoảng thời gian rồi bắt đầu lại
+        setTimeout(() => {
+          typeWriterEffect(text, setPlaceholder, delay);
+        }, 2000); // Chờ 1 giây trước khi bắt đầu lại
+      }
+    }, delay);
+  };
+
+  useEffect(() => {
+    const text = "Tìm kiếm ở đây";
+    typeWriterEffect(text, setInputPlaceholder);
+  }, []);
+
   const liDropDown = true;
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isWishListOpen, setWishListOpen] = useState(false);
@@ -26,7 +50,7 @@ const Header = () => {
   return (
     <div>
       {/* Header row 1 */}
-      <div className="bg-[var(--body-color)] container w-full">
+      <div className="bg-[var(--body-color)] container max-w-full">
         <div className="h-20 px-4 flex flex-row justify-between items-center">
 
           {/* Logo */}
@@ -49,8 +73,8 @@ const Header = () => {
             <div className="pd-4 flex w-full items-center border h-11 rounded-3xl overflow-hidden">
                 <form className="flex flex-row relative w-full h-full items-center">
                   <input
-                    className="flex min-w-[270px] h-full w-full text-[var(--text-color)] bg-transparent pl-3 pr-11 outline-none"
-                    placeholder="Tìm kiếm..."
+                    className="flex lg:min-w-[270px] min-w-40 h-full w-full text-[var(--text-color)] bg-transparent pl-3 pr-11 outline-none"
+                    placeholder={inputPlaceholder}
                   />
                   <button
                     type="submit"
@@ -63,7 +87,7 @@ const Header = () => {
           </div>
 
           {/* Infomatiom Contact */}
-          <div className="flex flex-row m-h-[inherit] items-center justify-end mr-[-10px]">
+          <div className="lg:flex hidden flex-row m-h-[inherit] items-center justify-end mr-[-10px]">
             <div className="px-3 flex flex-row items-center">
               <i className="uil uil-envelope-download flex text-3xl mr-2 text-[var(--text-color)]"/>
               <div className="flex flex-col">
@@ -84,7 +108,7 @@ const Header = () => {
       </div>
 
       {/* Header row 2 */}
-      <div className="bg-[var(--container-color)] w-full mx-auto h-14">
+      <div className="hidden lg:flex bg-[var(--container-color)] w-full mx-auto h-14">
         <div className="container flex flex-row items-center px-4 h-full">
 
           {/* Catergorie */}
@@ -325,7 +349,7 @@ const Header = () => {
                   <div className="mt-2 flex relative flex-col h-full ">
 
                     <div className="w-full h-10 mt-2 border-b-2 border-slate-500">
-                      <span className="text-xl ml-3">Yêu thích</span>
+                      <span className="text-xl ml-3 text-[var(--title-color)]">Yêu thích</span>
                     </div>
 
                     {/* Close button */}
@@ -338,7 +362,7 @@ const Header = () => {
                       {/* Wishlist Item */}
                       <ul className="flex flex-col h-full mx-2 overflow-y-auto">
                         <li className="flex h-20 mt-2 w-full">
-                          <Link href="#" className="flex flex-row items-center shrink grow basis-auto">
+                          <Link href="#" className="flex flex-row items-center shrink grow basis-auto text-[var(--title-color)]">
                              <Image
                               src="/assets/images/navCatergories.png"
                               alt="categories"
@@ -357,53 +381,10 @@ const Header = () => {
                               </button>
                             </div>
                         </li>
-
-                        <li className="flex h-20 mt-2 w-full">
-                          <Link href="#" className="flex flex-row items-center shrink grow basis-auto">
-                             <Image
-                              src="/assets/images/navCatergories.png"
-                              alt="categories"
-                              width={24}
-                              height={24}
-                              className="flex max-w-none max-h-none w-14 h-14 object-contain"
-                            />
-                            <div className="flex flex-col whitespace-nowrap ml-2">
-                                <span className="leading-7 whitespace-nowrap uppercase">Iphone 16 promax</span>
-                                <span className="text-sm leading-7 text-[var(--btn-color)]">16.650.000 VND</span>
-                            </div>
-                          </Link>
-                            <div className="flex items-center">
-                              <button className="flex items-center">
-                                <i className="uil uil-multiply text-[var(--title-color)] "/>
-                              </button>
-                            </div>
-                        </li>
-
-                        <li className="flex h-20 mt-2 w-full">
-                          <Link href="#" className="flex flex-row items-center shrink grow basis-auto">
-                             <Image
-                              src="/assets/images/navCatergories.png"
-                              alt="categories"
-                              width={24}
-                              height={24}
-                              className="flex max-w-none max-h-none w-14 h-14 object-contain"
-                            />
-                            <div className="flex flex-col whitespace-nowrap ml-2">
-                                <span className="leading-7 whitespace-nowrap uppercase">Iphone 16 promax</span>
-                                <span className="text-sm leading-7 text-[var(--btn-color)]">16.650.000 VND</span>
-                            </div>
-                          </Link>
-                            <div className="flex items-center">
-                              <button className="flex items-center">
-                                <i className="uil uil-multiply text-[var(--title-color)] "/>
-                              </button>
-                            </div>
-                        </li>
-
                       </ul>
 
-                      <div className="flex items-center h-12 w-full justify-center mb-8">
-                        <Link href="#" className="flex justify-center items-center bg-[var(--btn-color)] h-full rounded-2xl text-[var(--container-color)] w-60">Thanh toán</Link>
+                      <div className="flex items-center h-12 w-full justify-center mb-8 text-[var(--title-color)]">
+                        <Link href="#" className="flex justify-center items-center bg-[var(--btn-color)] h-full rounded-2xl w-60">Thanh toán</Link>
                       </div>
                   </div>
             </div>

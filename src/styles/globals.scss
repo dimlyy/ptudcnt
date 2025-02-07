@@ -232,10 +232,10 @@ img {
 }
 
 
-@media screen and (max-width:999px) {
+@media screen and (max-width:1200px) {
   .container{
-    margin-left: var(--mb-1-5);
-    margin-right: var(--mb-1-5);
+    padding-left: var(--mb-1-5);
+    padding-right: var(--mb-1-5);
   }
 
   .button {

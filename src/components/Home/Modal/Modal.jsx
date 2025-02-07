@@ -7,12 +7,17 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { Canvas } from "@react-three/fiber";
 import { View } from "@react-three/drei";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import { animateWithGsapTimeline } from "@utils/animations";
 import Modal3D from "./Modal3D.jsx";
 import { models, sizes } from "@constants";
 
 const Model = () => {
+  gsap.registerPlugin(ScrollTrigger);
+
+  const modalHeading = useRef();
+
   const [size, setSize] = useState('small');
   const [model, setModel] = useState({
     id: 1,
@@ -52,13 +57,22 @@ const Model = () => {
   }, [size]);
 
   useGSAP(() => {
-    gsap.to('#heading', { y: 0, opacity: 1 });
-  }, []);
+    gsap.from(modalHeading.current, {
+      scrollTrigger: {
+        trigger: modalHeading.current,
+        start: '40% bottom'
+      },
+      opacity: 0,
+      y: 20,
+      duration: 1,
+      ease: 'power2.inOut',
+    })
+  });
 
   return (
     <section className="common-padding">
       <div className="max-w-full">
-        <h1 id="heading" className="mt-10 mb-[-50px] text-center text-3xl text-[var(--title-color)]">Chuyển màu và size để có thể tương tác</h1>
+        <h1 ref={modalHeading}   className="mt-10 mb-[-50px] text-center text-3xl text-[var(--title-color)]">Chuyển màu và size để có thể tương tác</h1>
 
         <div className="flex flex-col items-center mt-5">
           <div className="w-full h-[75vh] md:h-[75vh] overflow-hidden relative">

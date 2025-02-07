@@ -13,6 +13,13 @@ const replay = "/assets/images/replay.svg";
 const play = "/assets/images/play.svg";
 const pause = "/assets/images/pause.svg";
 
+const frame = "/assets/images/frame.png";
+const framevideo = "/assets/video/frame.mp4";
+
+const logo = "/assets/images/logo.png";
+
+export const logoImg = logo;
+
 
 export const highlightFirstVideo = highlightFirstmv;
 export const highlightSecondVideo = highlightSectmv;
@@ -27,3 +34,6 @@ export const yellowImg = yellow;
 export const blueImg = blue;
 export const whiteImg = white;
 export const blackImg = black;
+
+export const frameImg = frame;
+export const frameVideo = framevideo;
