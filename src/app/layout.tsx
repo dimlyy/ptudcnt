@@ -16,7 +16,7 @@ const RootLayout: React.FC<React.PropsWithChildren<unknown>> = ({
           href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"
         />
       </head>
-      <body data-theme="dark">
+      <body>
         {/* Tạo root div để bao quanh toàn bộ nội dung */}
         <div id="root">
           <div className="md:ml-[var(--sticky-nav)] bg-[var(--background-color)]">

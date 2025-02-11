@@ -1,125 +1,179 @@
-"use client"
-
+"use client";
 import React, { useRef, useState, useEffect } from "react";
-import ItemCarousel from "./ItemCarousel/ItemCarousel";
-import { carouselItems } from '@constants'; // Ensure this import is correct
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from "next/image";
+import Link from "next/link";
+
+import { carouselItems } from "@constants";
 
 const CarouselItem = () => {
-  gsap.registerPlugin(ScrollTrigger);
+  const carouselRefs = useRef<Array<HTMLDivElement | null>>([]);
 
-  const carouselContainerRef = useRef([]);
-  const [scrollPosition, setScrollPosition] = useState(Array(carouselItems.length).fill(false)); // Initialize with false
+  const handleScroll = (direction: "prev" | "next", index: number) => {
+    if (carouselRefs.current) {
+      const container = carouselRefs.current[index];
+      const scrollAmount = container.children[0].offsetWidth + 8;
+      console.log("scrollWidth:", container.scrollWidth);
+      console.log("clientWidth:", container.clientWidth);
+      console.log("scrollLeft:", container.scrollLeft);
 
-  const handleScroll = (index) => {
-    const scrollLeft = carouselContainerRef.current[index].scrollLeft;
-
-    setScrollPosition((prev) => {
-      const newPosition = [...prev];
-      newPosition[index] = scrollLeft > 0; // true if scrolled, false if at the start
-      return newPosition;
-    });
-  };
-
-  useEffect(() => {
-    carouselItems.forEach((_, i) => {
-      const container = carouselContainerRef.current[i];
-      if (container) {
-        // Pass a function reference to the event listener
-        container.addEventListener('scroll', () => handleScroll(i));
-      }
-    });
-
-    return () => {
-      carouselItems.forEach((_, i) => {
-        const container = carouselContainerRef.current[i];
-        if (container) {
-          // Cleanup the event listener correctly
-          container.removeEventListener('scroll', () => handleScroll(i));
+      if (direction === "next") {
+        if (
+          container.scrollLeft + container.clientWidth >=
+          container.scrollWidth - 1
+        ) {
+          // Nếu đã cuộn hết → Quay về đầu
+          container.scrollTo({ left: 0, behavior: "smooth" });
+        } else {
+          container.scrollBy({ left: scrollAmount, behavior: "smooth" });
         }
-      });
-    };
-  }, []); // Empty dependency array if carouselItems is static
-
-  const handleOnPrev = (index) => {
-    if (carouselContainerRef.current[index]) {
-      carouselContainerRef.current[index].scrollBy({
-        left: -620, // Scroll left for previous
-        behavior: "smooth",
-      });
-    }
-  };
-
-  const handleOnNext = (index) => {
-    if (carouselContainerRef.current[index]) {
-      carouselContainerRef.current[index].scrollBy({
-        left: 620, // Scroll right for next
-        behavior: "smooth",
-      });
-    }
-  };
-
-  useGSAP(() => {
-    carouselContainerRef.current.forEach((carousel, index) => {
-      if (carousel) {
-        gsap.from(carousel, {
-          scrollTrigger: {
-            trigger: carousel,
-            start: '20% bottom',
-          },
-          opacity: 0,
-          y: 20,
-          duration: 0.5,
-          delay: index * 0.2, 
-        });
+      } else {
+        // Chỉ scroll về trước, không nhảy đến cuối nếu về đầu
+        container.scrollBy({ left: -scrollAmount, behavior: "smooth" });
       }
-    });
-  });
-  
-
+    }
+  };
 
   return (
-    <section>
+    <div className="container bg-white rounded-lg mt-10">
       {carouselItems.map((items, i) => (
-        <div className="container px-4 mt-10 relative" key={i}>
+        <div
+          className="px-4"
+          key={i}
+        >
           {/* Title */}
-          <h1 className="text-[var(--title-color)] text-3xl text-left mb-5 p-3 pr-10 pl-5 inline-block bg-[var(--container-color)] rounded-3xl">
+          <h1 className="text-red-500 text-3xl text-left  p-3 pr-10 pl-5 inline-block bg-[var(--container-color)] rounded-3xl uppercase">
             {items.product}
           </h1>
 
-          {/* Carousel Container */}
-          <div
-            className="w-full min-h-72 flex flex-row whitespace-nowrap overflow-hidden overflow-x-auto"
-            ref={(el) => (carouselContainerRef.current[i] = el)}
-          >
-            {/* Carousel Items */}
-            <div className="flex flex-row gap-1"> {/* Added gap for spacing between items */}
-              {items.data.map((item, id) => (
-                <ItemCarousel key={id} items={item} />
+          <div className="w-full mt-2 gap-2 flex flex-row flex-nowrap mb-3 overflow-x-auto">
+            {items.dealImg &&
+              items.dealImg.map((item, index) => (
+                <Link
+                  href={item.link}
+                  key={index}
+                  className="flex-none basis-[85%] md:basis-[calc(50%-0.5rem)]"
+                >
+                  <Image
+                    src={item.img}
+                    alt="Deal Image"
+                    width={580}
+                    height={210}
+                    className="object-cover w-full h-auto rounded-xl"
+                  />
+                </Link>
               ))}
-            </div>
           </div>
 
-          <button
-            className="absolute right-0 top-1/2 transform -translate-y-1/2 rounded-full bg-gray-400 w-10 h-10"
-            onClick={() => handleOnNext(i )}
-          >
-            <i className="uil uil-arrow-right text-base text-[var(--title-color)]"/>
-          </button>
-
-          {scrollPosition[i] && (
-            <button
-              className="absolute left-0 top-1/2 transform -translate-y-1/2 rounded-full bg-gray-400 w-10 h-10"
-              onClick={() => handleOnPrev(i)}
+          {/* Carousel Container */}
+          <div className="w-full mx-2 relative">
+            <div
+              ref={(el) => carouselRefs.current[i] = el}
+              className="flex flex-row flex-nowrap gap-2 scroll-smooth scrollbar-hide overflow-hidden overflow-x-auto"
             >
-              <i className="uil uil-arrow-left text-base text-[var(--title-color)]"/>
+              {items.data.map((item, index) => (
+                <Link
+                  key={index}
+                  href={item.slug ? `/products/${item.slug}` : "#"}
+                  className="w-[46%] md:w-[calc(20%-0.4rem)] flex flex-col flex-none gap-1"
+                >
+                  <div className="flex flex-row gap-1">
+                    <span className="px-2 py-1 bg-[var(--btn-color)] text-[var(--title-color)] rounded-md text-xs">
+                      {Math.round((1 - item.discountPrice / item.price) * 100)}%
+                    </span>
+                    {item.instatement && (
+                      <span className="px-2 py-1 bg-gray-300 text-gray-500 rounded-md text-xs text-[0.5rem]">
+                        Trả góp 0%
+                      </span>
+                    )}
+                  </div>
+                  <div className="flex w-fit relative">
+                    <Image
+                      src={item.img}
+                      alt={item.alt}
+                      width={600}
+                      height={600}
+                      className="object-cover w-full h-auto"
+                    />
+                    <Image
+                      src={item.specialDealImg}
+                      alt="Special Deals"
+                      width={600}
+                      height={200}
+                      className="absolute bottom-0 object-cover w-full h-auto"
+                    />
+                  </div>
+
+                  <div className="flex flex-col mt-3 gap-1">
+                    <h3 className="text-sm line-clamp-2 leading-[1.4]">
+                      {item.label}
+                    </h3>
+                    <div className="flex flex-row gap-2 items-center">
+                      <span className="text-red-500">
+                        {item.discountPrice.toLocaleString("vi-VN")}đ
+                      </span>
+                      <span className="line-through text-xs text-gray-400">
+                        {item.price.toLocaleString("vi-VN")}đ
+                      </span>
+                    </div>
+                    <span className="text-green-500 text-xs">
+                      Giảm{" "}
+                      {(item.price - item.discountPrice).toLocaleString(
+                        "vi-VN"
+                      )}
+                      đ
+                    </span>
+                    <div className="flex flex-row">
+                      <div className="mr-auto">
+                        <Image
+                          src={item.discountGif}
+                          alt="Discount Gif"
+                          width={50}
+                          height={20}
+                          className="object-cover w-full h-auto rounded-md"
+                        />
+                      </div>
+                      <div className="ml-auto mr-2 flex flex-row items-center gap-1 text-pink-400 hover:text-red-500">
+                        <span className="text-sm">Yêu thích</span>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          strokeWidth={2}
+                          stroke="currentColor"
+                          fill="none"
+                          className="w-4 h-4 transition-all duration-300 hover:fill-red-500 hover:stroke-red-500"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M21.438 4.562a5.5 5.5 0 0 0-7.78 0L12 6.22l-1.658-1.658a5.5 5.5 0 0 0-7.78 7.78L12 21.001l9.438-9.438a5.5 5.5 0 0 0 0-7.78Z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+
+            {/* Prev Button */}
+            <button
+             onClick={() => handleScroll("prev", i)}
+              className="absolute hidden md:flex items-center justify-center top-1/3 left-0 w-9 h-9 rounded-xl bg-gray-500 opacity-60 hover:opacity-100 duration-300 cursor-pointer"
+            >
+              <i className="uil uil-angle-left text-white text-2xl" />
             </button>
-          )}
+
+            {/* Next button */}
+            <button
+              onClick={() => handleScroll("next", i)}
+              className="absolute hidden md:flex items-center justify-center top-1/3 right-2 w-9 h-9 rounded-xl bg-gray-500 opacity-60 hover:opacity-100 duration-300 cursor-pointer"
+            >
+              <i className="uil uil-angle-right text-white text-2xl" />
+            </button>
+          </div>
         </div>
       ))}
-    </section>
+    </div>
   );
 };
 

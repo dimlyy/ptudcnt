@@ -47,7 +47,7 @@ const Nav = () => {
         className={classNames(
           "navbar",
           "left-0 fixed h-[100vh] w-[var(--sticky-nav)] z-50 bg-[var(--container-color)]",
-          "hidden md:flex flex-col border-[var(--text-color)] border-r-[1px]"
+          "hidden md:flex flex-col border-[var(--border-color)] border-r-[1px]"
         )}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}

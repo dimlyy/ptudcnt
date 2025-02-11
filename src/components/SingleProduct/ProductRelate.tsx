@@ -1,4 +1,5 @@
 "use client";
+import { Guarantee, productStatus } from "@constants";
 import React, { useEffect } from "react";
 import { useState } from "react";
 
@@ -17,6 +18,7 @@ const ProductRelate = ({ data }) => {
 
   return (
     <div className="flex md:flex-row flex-col container md:mt-8">
+      {/* Deals */}
       <div className="md:w-1/3 w-full">
         {/* Special Offer */}
         {data.hasSpecialOffer && (
@@ -29,7 +31,7 @@ const ProductRelate = ({ data }) => {
               >
                 <path d="M5 3a2 2 0 012-2h6a2 2 0 012 2v1h2a2 2 0 012 2v11a2 2 0 01-2 2H3a2 2 0 01-2-2V6a2 2 0 012-2h2V3z" />
               </svg>
-              Ưu đãi đặc biệt
+              <strong>Ưu đãi đặc biệt</strong>
             </div>
             {data.packages.main && (
               <div className="mx-2">
@@ -92,7 +94,9 @@ const ProductRelate = ({ data }) => {
             >
               <path d="M5 3a2 2 0 012-2h6a2 2 0 012 2v1h2a2 2 0 012 2v11a2 2 0 01-2 2H3a2 2 0 01-2-2V6a2 2 0 012-2h2V3z" />
             </svg>
-            <span>{data.mainPromotion.title}</span>
+            <span>
+              <strong>{data.mainPromotion.title}</strong>
+            </span>
           </div>
           <div className="mx-2">
             {data.mainPromotion.content.map((item, index) => (
@@ -101,7 +105,9 @@ const ProductRelate = ({ data }) => {
                   <span className="text-black text-sm">{index + 1}</span>
                 </div>
                 <div>
-                  <span className="text-[var(--text-color)] text-center">{item}</span>
+                  <span className="text-[var(--text-color)] text-center">
+                    {item}
+                  </span>
                 </div>
               </div>
             ))}
@@ -109,7 +115,64 @@ const ProductRelate = ({ data }) => {
         </div>
       </div>
 
-      <div className="md:w-2/3 w-full"></div>
+      {/* Guarantee  Policy*/}
+      <div className="md:w-2/3 w-full rounded-xl mx-3 bg-gray-800">
+        <div className="flex flex-col m-3">
+          <span className="text-[var(--title-color)] uppercase">
+            <strong>Thông tin sản phẩm</strong>
+          </span>
+
+          <div className="flex flex-row gap-2 text-[var(--title-color)] mt-3 mb-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              width="24"
+              height="24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              <path d="m9 12 2 2 4-4" />
+            </svg>
+            <span>Chế độ bảo hành</span>
+          </div>
+
+          {Guarantee.map((item, index) => (
+            <div className="mx-4 my-1 text-[var(--text-color)]">- {item}</div>
+          ))}
+
+          <div className="flex flex-row text-[var(--title-color)] mt-2 mb-2 gap-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              width="24"
+              height="24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+              <line x1="3" y1="9" x2="21" y2="9" />
+              <line x1="9" y1="3" x2="9" y2="21" />
+            </svg>
+            <span>Tình trạng và quy cách sản phẩm</span>
+          </div>
+
+          {productStatus.map((item,index) => (
+            <div className="mx-4 my-1 text-[var(--text-color)]">- {item}</div>
+          ))}
+        </div>
+
+        {/* Carousel Advertisement */}
+        <div>
+          
+        </div>
+      </div>
     </div>
   );
 };

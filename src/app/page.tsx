@@ -1,20 +1,21 @@
-import HeroSection from "@components/Home/HeroSection";
 import Modal from "@components/Home/Modal/Modal";
-import Highlight from "@components/Home/Highlight";
 import CarouselItem from "@components/Home/CarouselItem";
 import GameVideo from "@components/Home/GameVideo";
 import AboutStore from "@components/Home/AboutStore";
+import CarouselSlider from "@components/Home/CarouselSlider";
+import Catergories from "@components/Home/Catergories";
+import HolidayDeals from "@components/Home/HolidayDeals";
 
 
 
 export default function Home() {
   return (
     <div className="mt-4">
-      <HeroSection/>
-      <Highlight/>
+      <CarouselSlider />
+      <Catergories/>
+      <HolidayDeals/>
       <Modal/>
       <CarouselItem/>
-      <GameVideo/>
       <AboutStore/>
     </div>
   );

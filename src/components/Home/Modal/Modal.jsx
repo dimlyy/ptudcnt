@@ -71,8 +71,8 @@ const Model = () => {
 
   return (
     <section className="common-padding">
-      <div className="max-w-full">
-        <h1 ref={modalHeading}   className="mt-10 mb-[-50px] text-center text-3xl text-[var(--title-color)]">Chuyển màu và size để có thể tương tác</h1>
+      <div className="max-w-full bg-white container rounded-xl border border-[var(--border-color)] mt-5">
+        <h1 ref={modalHeading}   className="mt-10 pt-2 mb-[-50px] text-center text-3xl text-[var(--title-color)]">Bạn có thể tương tác với mô hình </h1>
 
         <div className="flex flex-col items-center mt-5">
           <div className="w-full h-[75vh] md:h-[75vh] overflow-hidden relative">
@@ -116,8 +116,8 @@ const Model = () => {
           <div className="mx-auto w-full">
             <p className="text-sm font-light text-center mb-5">{model.title}</p>
 
-            <div className="flex items-center justify-center">
-              <ul className="flex items-center justify-center px-4 py-4 rounded-full bg-[var(--container-color)] backdrop-blur">
+            <div className="flex items-center justify-center pb-3">
+              <ul className="flex items-center justify-center px-4 py-4 rounded-full bg-gray-400 backdrop-blur">
                 {models.map((item, i) => (
                   <li
                     key={i}
@@ -128,14 +128,14 @@ const Model = () => {
                 ))}
               </ul>
 
-              <button className="flex items-center justify-center p-1 rounded-full bg-[var(--container-color)] backdrop-blur ml-3 gap-1">
+              <button className="flex items-center justify-center p-1 rounded-full bg-gray-400 backdrop-blur ml-3 gap-1">
                 {sizes.map(({ label, value }) => (
                   <span
                     key={label}
-                    className="w-10 h-10 text-sm flex justify-center items-center bg-[var(--container-color)] text-black rounded-full transition-all"
+                    className="w-10 h-10 text-sm flex justify-center items-center bg-gray-500 text-black rounded-full transition-all"
                     style={{
-                      backgroundColor: size === value ? 'white' : 'transparent',
-                      color: size === value ? 'black' : 'white',
+                      backgroundColor: size === value ? 'black' : 'transparent',
+                      color: size === value ? 'white' : 'black',
                     }}
                     onClick={() => setSize(value)}
                   >
