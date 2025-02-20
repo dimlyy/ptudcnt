@@ -1,87 +1,97 @@
 "use client"
 
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import Image from 'next/image'
-import { useState } from 'react'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import Link from 'next/link'
 
-import { AboutImg } from '@constants'
-import { useGSAP } from '@gsap/react'
+import { homePageFooterOffers, shopImgs } from '@constants'
 const AboutStore = () => {
-    gsap.registerPlugin(ScrollTrigger);
+    // Object lưu trữ vị trí slider cho mỗi section
+    const [sliderPositions, setSliderPositions] = useState({});
 
-    const aboutRef = useRef();
-    const titleRef = useRef();
-
-    const [currentImg, setCurrentImg] = useState(0);
-
-    const handleOnNext = () => {
-        setCurrentImg((prev)=> (prev === AboutImg.length - 1 ? 0 : prev + 1))
+    const handleOnPrev = (index: number) => {
+        setSliderPositions(prev => ({
+            ...prev,
+            // Chỉ cho phép di chuyển về 0 là điểm bắt đầu
+            [index]: Math.max((prev[index] || 0) - 1, 0)
+        }));
+    }
+    
+    const handleOnNext = (index: number, totalItems) => {
+        setSliderPositions(prev => ({
+            ...prev,
+            // Giới hạn di chuyển dựa trên số lượng phần tử có thể hiển thị
+            // totalItems - 4 là vị trí cuối cùng có thể di chuyển tới (4 là số phần tử hiển thị trên một màn hình)
+            [index]: Math.min((prev[index] || 0) + 1, totalItems - 4)
+        }));
     }
 
-    const handelOnPrev = () => {
-        setCurrentImg((prev) => (prev === 0 ? AboutImg.length - 1 : prev - 1))
-    }
+    return (
+        <section className="container mb-10">
+            <div className='w-full flex flex-col px-4 gap-20'>
+                <div className='flex flex-col overflow-hidden'>   
+                    {homePageFooterOffers && 
+                    homePageFooterOffers.map((item, index) => (
+                        <div key={index} className='flex flex-col mt-10 relative'>
+                            <h1 className='uppercase text-red-500 text-3xl text-left pl-5'>{item.label}</h1>
+                            <div className='w-full flex flex-row gap-2 mt-4'
+                             style={{ 
+                                transform: `translateX(-${(sliderPositions[index] || 0) * 25}%)`,
+                                transition: 'transform 0.3s ease-in-out'
+                             }}>
+                                {item.data.map((data, i) => (
+                                    <Link href={data.slug ? `/blog/${data.slug}` : "#"} key={i} className='md:w-[calc(25%-0.4rem)] w-2/3 shrink-0'>
+                                        <Image
+                                        src={data.img}
+                                        alt={data.alt}
+                                        width={280}
+                                        height={125}
+                                        className='object-cover w-full h-auto rounded-xl'/>
+                                    </Link>
+                                ))}
+                            </div>
 
-    useGSAP(() => {
-        gsap.from(aboutRef.current, {
-            scrollTrigger: {
-                trigger: aboutRef.current,
-                start: '20% bottom',
-            },
-            opacity: 0,
-            y: 20,
-            duration: 0.5,
-            ease: 'power2.inOut',
-        })
+                            {/* Prev Button - Chỉ hiển thị khi có thể di chuyển về trước */}
+                            {item.data.length >= 5 && (sliderPositions[index] || 0) > 0 ? (
+                                <div
+                                onClick={() => handleOnPrev(index)}
+                                className='hidden md:flex items-center justify-center absolute top-2/4 left-[2px] w-9 h-9
+                                bg-gray-400 duration-300 rounded-lg opacity-50 hover:opacity-100 cursor-pointer'>
+                                    <i className='uil uil-angle-left text-2xl text-white '/>
+                                </div>
+                            ) : null}
 
-        gsap.from(titleRef.current, {
-            scrollTrigger: {
-                trigger: aboutRef.current,
-                start: '20% bottom',
-            },
-            opacity: 0,
-            y: 20,
-            duration: 1,
-            ease: 'power2.inOut',
-        })
-    })
+                            {/* Next Button - Chỉ hiển thị khi có thể di chuyển về sau */}
+                            {item.data.length >= 5 && (sliderPositions[index] || 0) < item.data.length - 4 ? (
+                                <div
+                                onClick={() => handleOnNext(index, item.data.length)}
+                                className='hidden md:flex items-center justify-center absolute top-2/4 right-1 w-9 h-9
+                                bg-gray-400 duration-300 rounded-lg opacity-50 hover:opacity-100 cursor-pointer'>
+                                    <i className='uil uil-angle-right text-2xl text-white '/>
+                                </div>
+                            ) : null}
+                        </div>
+                    ))}
+                </div>
 
-  return (
-    <section className='my-32'>
-        <div className='container px-4 flex flex-col items-center md:flex-row min-h-[310px]'>
-            <div className='w-full flex justify-center md:w-1/2 rounded-2xl'>
-                <div ref={aboutRef} className='relative'>
-                    <Image
-                    alt='About Apple Store'
-                    src={AboutImg[currentImg].img}
-                    width={500}
-                    height={600}
-                    className='object-contain rounded-2xl'
-                    />
-
-                    <div
-                    onClick={handleOnNext}
-                    className='absolute cursor-pointer w-10 h-10 flex items-center justify-center right-1 top-1/2 z-10 bg-[var(--container-color)] rounded-full opacity-80'>
-                        <i className='uil uil-arrow-right mt-1 text-[var(--title-color)] text-3xl'/>
-                    </div>
-
-                    <div
-                    onClick={handelOnPrev}
-                    className='absolute cursor-pointer w-10 h-10 flex items-center justify-center left-1 top-1/2 z-10 bg-[var(--container-color)] rounded-full opacity-80'>
-                        <i className='uil uil-arrow-left mt-1 text-[var(--title-color)] text-3xl'/>
-                    </div>
+                <div className='w-full flex flex-row overflow-hidden rounded-lg'>
+                    {shopImgs && (
+                        shopImgs.map((item,index) => (
+                            <div key={index} className='md:w-1/5 w-2/5 shrink- hover:opacity-60 duration-300'>
+                                <Image 
+                                src={item.img}
+                                alt={item.alt}
+                                width={230}
+                                height={230}
+                                className='object-cover w-full h-auto'
+                                />
+                            </div>
+                        ))
+                    )}
                 </div>
             </div>
-            
-            <div ref={titleRef} className='w-full md:w-1/2 mx-20 items-start h-full md:mx-40'>
-                <h1 className='text-[--title-color] uppercase text-3xl mb-5'>Thông tin về DimLy Store</h1>
-                <span className='text-[var(--text-color)]'>Được thành lập vào nằm 2025 bởi Trần Ánh Dương thuộc ngành công nghệ thông tin, chuyên ngành khoa học máy tính</span>
-            </div>
-        </div>
-    </section>
-  )
+        </section>
+    )
 }
 
 export default AboutStore

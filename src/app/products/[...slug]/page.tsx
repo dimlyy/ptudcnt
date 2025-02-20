@@ -11,7 +11,7 @@ const Products = () => {
   return (
     <div>
       {/* Single Product Header */}
-      <div className="container bg-gray-800 h-10 rounded-2xl px-4 mt-2  flex flex-row items-center">
+      <div className="container bg-gray-100 h-10 rounded-2xl px-4 mt-2  flex flex-row items-center">
         <span className='ml-2 text-[var(--title-color)]'>
           <Link href="/">Trang chủ</Link>
         </span>

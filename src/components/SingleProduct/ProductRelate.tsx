@@ -1,13 +1,52 @@
 "use client";
-import { Guarantee, productStatus } from "@constants";
 import React, { useEffect } from "react";
 import { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
 
+import { Guarantee, productsImgRelateDeals, productStatus } from "@constants";
 const ProductRelate = ({ data }) => {
   const [selectedOffer, setSelectedOffer] = useState("");
+  const [isHover, setIsHover] = useState(false);
+  const [currentImg, setCurrentImg] = useState(0);
+  const [touchStartX, setTouchStartX] = useState(null);
 
   const handleRadioChange = (event) => {
     setSelectedOffer(event.target.value);
+  };
+
+  // Handle on Next Sliders
+  const handleNext = () => {
+    setCurrentImg((prev) =>
+      prev === productsImgRelateDeals.length - 1 ? 0 : prev + 1
+    );
+  };
+
+  // Handle On Previous Sliders
+  const handlePrev = () => {
+    setCurrentImg((prev) =>
+      prev === 0 ? productsImgRelateDeals.length - 1 : prev - 1
+    );
+  };
+
+  // Handle On Next when Swipe
+  const handleTouchStart = (e: TouchEvent) => {
+    setTouchStartX(e.touches[0].clientX);
+  };
+
+  const handleTouchMove = (e: TouchEvent) => {
+    if (!touchStartX) return;
+
+    let touchEndX = e.touches[0].clientX;
+    let swipeDistance = touchStartX - touchEndX;
+
+    if (swipeDistance > 50) {
+      handleNext();
+      setTouchStartX(null);
+    } else if (swipeDistance < -50) {
+      handlePrev();
+      setTouchStartX(null);
+    }
   };
 
   useEffect(() => {
@@ -16,13 +55,21 @@ const ProductRelate = ({ data }) => {
     }
   }, []);
 
+  // Tự chạy slider cho relate IMG deals
+  useEffect(() => {
+    if (!isHover) {
+      const interval = setInterval(handleNext, 3000);
+      return () => clearInterval(interval); // Xóa interval khi component unmount hoặc hover vào
+    }
+  }, [currentImg, isHover]);
+
   return (
     <div className="flex md:flex-row flex-col container md:mt-8">
       {/* Deals */}
       <div className="md:w-1/3 w-full">
         {/* Special Offer */}
         {data.hasSpecialOffer && (
-          <div className="flex flex-col gap-1 bg-gray-800 rounded-lg overflow-hidden">
+          <div className="flex flex-col gap-1 bg-pink-100 rounded-lg overflow-hidden">
             <div className="text-red-500 flex flex-row p-2 bg-pink-300">
               <svg
                 className="w-5 h-5 mr-2"
@@ -85,8 +132,8 @@ const ProductRelate = ({ data }) => {
         )}
 
         {/* bundleDeals */}
-        <div className="flex flex-col rounded-lg overflow-hidden bg-gray-800 mt-3">
-          <div className="flex flex-row mx-2 text-[var(--title-color)] py-3">
+        <div className="flex flex-col rounded-lg overflow-hidden bg-pink-100 mt-3">
+          <div className="flex flex-row mx-2 text-red-500 py-3">
             <svg
               className="w-5 h-5 mr-2"
               fill="currentColor"
@@ -116,13 +163,13 @@ const ProductRelate = ({ data }) => {
       </div>
 
       {/* Guarantee  Policy*/}
-      <div className="md:w-2/3 w-full rounded-xl mx-3 bg-gray-800">
+      <div className="md:w-2/3 w-full rounded-xl mx-3 bg-pink-100">
         <div className="flex flex-col m-3">
-          <span className="text-[var(--title-color)] uppercase">
+          <span className="text-red-500 uppercase">
             <strong>Thông tin sản phẩm</strong>
           </span>
 
-          <div className="flex flex-row gap-2 text-[var(--title-color)] mt-3 mb-2">
+          <div className="flex flex-row gap-2 text-red-500 mt-3 mb-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -144,7 +191,7 @@ const ProductRelate = ({ data }) => {
             <div className="mx-4 my-1 text-[var(--text-color)]">- {item}</div>
           ))}
 
-          <div className="flex flex-row text-[var(--title-color)] mt-2 mb-2 gap-2">
+          <div className="flex flex-row text-red-500 mt-2 mb-2 gap-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -163,14 +210,58 @@ const ProductRelate = ({ data }) => {
             <span>Tình trạng và quy cách sản phẩm</span>
           </div>
 
-          {productStatus.map((item,index) => (
+          {productStatus.map((item, index) => (
             <div className="mx-4 my-1 text-[var(--text-color)]">- {item}</div>
           ))}
         </div>
 
-        {/* Carousel Advertisement */}
-        <div>
-          
+        {/* Carousel Advertisement Slider*/}
+        <div
+          className="w-full overflow-hidden relative"
+          onMouseEnter={() => setIsHover(true)}
+          onMouseLeave={() => setIsHover(false)}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+        >
+          <div
+            className="flex flex-row w-full transition-transform duration-300"
+            style={{ transform: `translateX(-${currentImg * 100}%)` }}
+          >
+            {productsImgRelateDeals &&
+              productsImgRelateDeals.map((item, index) => (
+                <Link key={index} href={item.link} className="w-full shrink-0">
+                  <Image
+                    src={item.img}
+                    alt={item.alt}
+                    width={800}
+                    height={180}
+                    className="object-cover w-full rounded-lg"
+                  />
+                </Link>
+              ))}
+          </div>
+
+          {/* Prev Button */}
+          <div
+            className={`absolute hidden md:flex items-center
+           justify-center w-10 h-10 bg-gray-500 top-[40%] left-2
+           rounded-lg border border-white duration-300 cursor-pointer
+           ${isHover ? "opacity-50" : "opacity-0"}`}
+            onClick={handlePrev}
+          >
+            <i className="uil uil-angle-left text-2xl text-white" />
+          </div>
+
+          {/* Next Button */}
+          <div
+            className={`absolute hidden md:flex items-center
+           justify-center w-10 h-10 bg-gray-500 top-[40%] right-2
+           rounded-lg border border-white duration-300 cursor-pointer
+           ${isHover ? "opacity-50" : "opacity-0"}`}
+            onClick={handleNext}
+          >
+            <i className="uil uil-angle-right text-2xl text-white" />
+          </div>
         </div>
       </div>
     </div>

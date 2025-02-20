@@ -708,3 +708,147 @@ export const carouselItems = [
   },
 ];
 
+export const productsImgRelateDeals = [
+  {
+    img: '/assets/images/slider/product_relate-1.jpg',
+    alt: 'Relate 1',
+    link: '#'
+  },
+  {
+    img: '/assets/images/slider/product_relate-2.jpg',
+    alt: 'Relate 1',
+    link: '#'
+  },
+  {
+    img: '/assets/images/slider/product_relate-3.jpg',
+    alt: 'Relate 1',
+    link: '#'
+  },
+]
+
+export const aboutStoreImgs = [
+  {
+    img: '/assets/images/aboutshop_1.jpg',
+    alt: 'About Store 1',
+  },
+  {
+    img: '/assets/images/aboutshop_1.jpg',
+    alt: 'About Store 1',
+  },
+  {
+    img: '/assets/images/aboutshop_1.jpg',
+    alt: 'About Store 1',
+  },
+  {
+    img: '/assets/images/aboutshop_1.jpg',
+    alt: 'About Store 1',
+  },
+  {
+    img: '/assets/images/aboutshop_1.jpg',
+    alt: 'About Store 1',
+  },
+]
+
+export const homePageFooterOffers = [
+  {
+    label: "ưu đãi shop",
+    data: [
+      {
+        img: "/assets/images/shop_endow-2.jpg",
+        alt: "Store Edows",
+        slug: "#",
+      },
+      {
+        img: "/assets/images/shop_endow-2.jpg",
+        alt: "Store Edows",
+        slug: "#",
+      },
+      {
+        img: "/assets/images/shop_endow-2.jpg",
+        alt: "Store Edows",
+        slug: "#",
+      },
+      {
+        img: "/assets/images/shop_endow-2.jpg",
+        alt: "Store Edows",
+        slug: "#",
+      },
+      {
+        img: "/assets/images/shop_endow-2.jpg",
+        alt: "Store Edows",
+        slug: "#",
+      },
+      {
+        img: "/assets/images/shop_endow-1.jpg",
+        alt: "Store Edows",
+        slug: "#",
+      },
+    ]
+  },
+  {
+    label: "ưu đãi sinh viên",
+    data: [
+      {
+        img: "/assets/images/shop_endow-1.jpg",
+        alt: "Store Edows",
+        slug: "a",
+      },
+      {
+        img: "/assets/images/shop_endow-1.jpg",
+        alt: "Store Edows",
+        slug: "#",
+      },
+      {
+        img: "/assets/images/shop_endow-1.jpg",
+        alt: "Store Edows",
+        slug: "#",
+      },
+      {
+        img: "/assets/images/shop_endow-1.jpg",
+        alt: "Store Edows",
+        slug: "#",
+      },
+    ]
+  },
+]
+
+export const shopImgs = [
+  {
+    img: '/assets/images/shop/shop-1.jpg',
+    alt: 'Shop 1',
+  },
+  {
+    img: '/assets/images/shop/shop-2.jpg',
+    alt: 'Shop 2',
+  },
+  {
+    img: '/assets/images/shop/shop-3.jpg',
+    alt: 'Shop 3',
+  },
+  {
+    img: '/assets/images/shop/shop-1.jpg',
+    alt: 'Shop 1',
+  },
+  {
+    img: '/assets/images/shop/shop-2.jpg',
+    alt: 'Shop 2',
+  },
+]
+
+export const footerSocials = [
+  {
+    alt: "facebook",
+    link: "#",
+    img: "/assets/images/facebook-footer.jpg",
+  },
+  {
+    alt: "insta",
+    link: "#",
+    img: "/assets/images/insta-footer.jpg",
+  },
+  {
+    alt: "facebook",
+    link: "#",
+    img: "/assets/images/zalo-footer.jpg",
+  },
+]

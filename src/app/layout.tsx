@@ -25,7 +25,9 @@ const RootLayout: React.FC<React.PropsWithChildren<unknown>> = ({
             </div>
             <div>
               <Header />
-              <main>{children}</main>
+              <main>
+                {children}
+              </main>
               <Footer />
             </div>
           </div>

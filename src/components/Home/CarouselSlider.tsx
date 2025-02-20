@@ -96,13 +96,13 @@ const CarouselSlider = () => {
       <div className="hidden md:flex md:w-1/2 w-full">
             <div className="flex flex-row flex-wrap gap-2">
                {imgAdvertiseGrid.map((item, index) => (
-                <Link href={item.slug ? `/blog/${item.slug}` : "#"} key={index} className="flex-shrink-0 w-[49%]">
+                <Link href={item.slug ? `/blog/${item.slug}` : "#"} key={index} className="flex-shrink-0 w-[49%] overflow-hidden">
                   <Image
                   alt={item.title}
                   src={item.img}
                   width={700}
                   height={600}
-                  className="object-cover w-full h-full rounded-2xl"/>
+                  className="object-cover w-full h-full rounded-2xl hover:scale-105 duration-500"/>
                 </Link>
                ))}
             </div>

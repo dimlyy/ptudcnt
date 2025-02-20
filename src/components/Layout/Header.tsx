@@ -48,7 +48,7 @@ const Header = () => {
   }
 
   return (
-    <div>
+    <header>
       {/* Header row 1 */}
       <div className="bg-[var(--btn-color)] max-w-full">
         <div className="container h-20 px-4 flex flex-row justify-between items-center">
@@ -391,7 +391,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-    </div>
+    </header>
   );
 };
 

@@ -1,30 +1,105 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useEffect,useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { holidayDealImgs, hotDealsItem } from "@constants";
 
 const HolidayDeals = () => {
   const carouselRef = useRef(null);
+  const isDragging = useRef(false);
+  const startX = useRef(0);
+  const scrollLeft = useRef(0);
+
+  // Kéo bằng chuột
+  const handleMouseDown = (e) => {
+    e.preventDefault(); // Ngăn mở link khi đang kéo
+    if (!carouselRef.current) return;
+    isDragging.current = true;
+    startX.current = e.pageX - carouselRef.current.offsetLeft;
+    scrollLeft.current = carouselRef.current.scrollLeft;
+    carouselRef.current.style.scrollBehavior = "auto";
+  };
+
+  const handleMouseMove = (e) => {
+    e.preventDefault(); // Ngăn mở link khi đang kéo
+    if (!isDragging.current || !carouselRef.current) return;
+    const x = e.pageX - carouselRef.current.offsetLeft;
+    const walk = (x - startX.current) * 1.5;
+    carouselRef.current.scrollLeft = scrollLeft.current - walk;
+  };
+
+  const handleMouseUp = (e: MouseEvent) => {
+    e.preventDefault(); // Ngăn mở link khi đang kéo
+    isDragging.current = false;
+    if (!carouselRef.current) return;
+
+    // Snap về item gần nhất
+    const container = carouselRef.current;
+    const itemWidth = container.children[0].getBoundingClientRect().width + 8;
+    const nearestIndex = Math.round(container.scrollLeft / itemWidth);
+    const newScrollLeft = nearestIndex * itemWidth;
+    
+    container.style.scrollBehavior = "smooth";
+    container.scrollTo({ left: newScrollLeft, behavior: "smooth" });
+  };
+
+  const handlePreventClick = (e: MouseEvent) => {
+    if (isDragging.current){
+      e.preventDefault();
+    }
+  }
+  
+  // 🔹 Kéo bằng cảm ứng (điện thoại)
+  const handleTouchStart = (e: React.TouchEvent) => {
+    if (!carouselRef.current) return;
+    isDragging.current = true;
+    startX.current = e.touches[0].pageX - carouselRef.current.offsetLeft;
+    scrollLeft.current = carouselRef.current.scrollLeft;
+    carouselRef.current.style.scrollBehavior = "auto";
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isDragging.current || !carouselRef.current) return;
+    const x = e.touches[0].pageX - carouselRef.current.offsetLeft;
+    const walk = (x - startX.current) * 1.5;
+    carouselRef.current.scrollLeft = scrollLeft.current - walk;
+  };
+
+  const handleTouchEnd = () => {
+    isDragging.current = false;
+    snapToClosest();
+  };
+
+  // 🔥 Snap về phần tử gần nhất
+  const snapToClosest = () => {
+    if (!carouselRef.current) return;
+    const container = carouselRef.current;
+    const itemWidth = container.children[0].getBoundingClientRect().width + 8;
+    const nearestIndex = Math.round(container.scrollLeft / itemWidth);
+    const newScrollLeft = nearestIndex * itemWidth;
+
+    container.scrollTo({ left: newScrollLeft, behavior: "smooth" });
+  };
+
 
   const handleScroll = (direction) => {
+    
     if (carouselRef.current) {
       const container = carouselRef.current;
-      const scrollAmount = container.children[0].offsetWidth + 8; // Width của một item + gap
+      const scrollAmount = container.children[0].offsetWidth + 8;
 
-      if (direction === "next") {
+      if(direction === "next") {
         if (
           container.scrollLeft + container.clientWidth >=
           container.scrollWidth - 1
         ) {
-          // Nếu đã cuộn hết → Quay về đầu
           container.scrollTo({ left: 0, behavior: "smooth" });
         } else {
           container.scrollBy({ left: scrollAmount, behavior: "smooth" });
         }
-      } else {
-        // Chỉ scroll về trước, không nhảy đến cuối nếu về đầu
+      }
+      else {
         container.scrollBy({ left: -scrollAmount, behavior: "smooth" });
       }
     }
@@ -47,13 +122,37 @@ const HolidayDeals = () => {
       <div className="bg-[#ecbf8c] md:p-[10px] px-1 py-2 relative">
         <div
           ref={carouselRef}
-          className="flex flex-row flex-nowrap overflow-x-auto scroll-smooth gap-2 scrollbar-hide"
+          onMouseDown={(e) => {
+            e.stopPropagation();
+            handleMouseDown(e);
+          }}
+          onMouseMove={(e) => {
+            e.stopPropagation();
+            handleMouseMove(e);
+          }}
+          onMouseUp={(e) => {
+            e.stopPropagation();
+            handleMouseUp(e);
+          }}
+          onMouseLeave={(e) => {
+            e.stopPropagation();
+            handleMouseUp(e);
+          }}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+          className={`bg-[var(--background-color)] flex flex-row flex-nowrap 
+          overflow-auto gap-2 scrollbar-hide cursor-grab select-none`}
         >
           {hotDealsItem.data.map((item, index) => (
             <Link
-              href={item.slug ? `/products/${item.slug}` : "#"}
+            // hover:scale-[1.02] duration-300 ease-in-out
               key={index}
-              className="w-[46%] md:w-[calc(20%-0.5rem)] p-2 flex flex-col gap-1 flex-shrink-0 bg-[var(--background-color)] rounded-md overflow-hidden"
+              href={item.slug ? `/products/${item.slug}` : "#"}
+              className="w-[46%] md:w-[calc(20%-0.5rem)] flex flex-col flex-none gap-1
+             rounded-lg mb-2 p-2 snap-start"
+             draggable={false}
+             onClick={(e) => handlePreventClick(e)}
             >
               <div className="flex flex-row gap-1">
                 <span className="px-2 py-1 bg-[var(--btn-color)] text-[var(--title-color)] rounded-md text-xs">
@@ -72,14 +171,14 @@ const HolidayDeals = () => {
                   alt={item.alt}
                   width={600}
                   height={600}
-                  className="object-cover w-full h-auto"
+                  className="object-cover w-full h-auto pointer-events-none"
                 />
                 <Image
                   src="/assets/images/sunday_discount.png"
                   alt="Sunday discount"
                   width={600}
                   height={200}
-                  className="absolute bottom-0 object-cover w-full h-auto"
+                  className="absolute bottom-0 object-cover w-full h-auto pointer-events-none"
                 />
               </div>
 
@@ -98,8 +197,7 @@ const HolidayDeals = () => {
               </div>
 
               <span className="text-green-500 text-xs">
-                Giảm {(item.price - item.discountPrice).toLocaleString("vi-VN")}
-                đ
+                Giảm {(item.price - item.discountPrice).toLocaleString("vi-VN")}đ
               </span>
 
               <div className="flex flex-row mt-2">

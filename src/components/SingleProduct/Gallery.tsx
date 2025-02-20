@@ -94,7 +94,7 @@ const Gallery: React.FC<GalleryProps> = ({ product }) => {
         {/* Information  */}
         <div className="flex flex-row gap-4 mt-6">
           <Link href="#" className="flex flex-col w-14 text-center group">
-            <div className="flex items-center justify-center w-full h-14 bg-[var(--container-color)] rounded-2xl">
+            <div className="flex items-center justify-center w-full h-14 bg-gray-300 rounded-2xl">
               <i className="uil uil-award text-3xl text-[var(--title-color)]" />
             </div>
             <span className="text-xs text-[var(--title-color)] text-center whitespace-normal group-hover:text-[var(--text-color)]">
@@ -103,7 +103,7 @@ const Gallery: React.FC<GalleryProps> = ({ product }) => {
           </Link>
   
           <Link href="#" className="flex flex-col w-14 text-center group">
-            <div className="flex items-center justify-center w-full h-14 bg-[var(--container-color)] rounded-2xl">
+            <div className="flex items-center justify-center w-full h-14 bg-gray-300 rounded-2xl">
               <i className="uil uil-slack-alt text-3xl text-[var(--title-color)]" />
             </div>
             <span className="text-xs text-[var(--title-color)] text-center whitespace-normal group-hover:text-[var(--text-color)]">
@@ -112,7 +112,7 @@ const Gallery: React.FC<GalleryProps> = ({ product }) => {
           </Link>
   
           <Link href="#" className="flex flex-col w-14 text-center group">
-            <div className="flex items-center justify-center w-full h-14 bg-[var(--container-color)] rounded-2xl">
+            <div className="flex items-center justify-center w-full h-14 bg-gray-300 rounded-2xl">
               <i className="uil  uil-blogger-alt text-3xl text-[var(--title-color)]" />
             </div>
             <span className="text-xs text-[var(--title-color)] text-center whitespace-normal group-hover:text-[var(--text-color)]">
@@ -127,14 +127,14 @@ const Gallery: React.FC<GalleryProps> = ({ product }) => {
       <div className="md:w-4/12 w-full relative flex flex-col items-start mt-5">
         {/* Label */}
         <div className="flex flex-row">
-          <h1 className="text-3xl">{product.label}</h1>
-          <div>
+          <h1 className="text-3xl leading-10">{product.label}</h1>
+          <div className="w-fit">
             <Image
               alt="Sale Gif"
               src="/assets/images/Sale_Gif.gif"
               width={1100}
               height={1100}
-              className="ml-3 object-contain w-14 h-14"
+              className="object-contain w-14 h-14"
             />
           </div>
         </div>
@@ -262,28 +262,28 @@ const Gallery: React.FC<GalleryProps> = ({ product }) => {
         {/* Social Media */}
         <div className="flex flex-row mt-5 gap-3">
             <a target="_blank" href="https://www.facebook.com/anh.duong.135488/" className="rounded-full flex items-center justify-center w-8 h-8 bg-blue-500">
-              <i className="uil uil-facebook-f text-2xl text-[var(--title-color)]"></i>
+              <i className="uil uil-facebook-f text-2xl text-white"></i>
             </a>
 
             <a target="_blank" href="https://www.instagram.com/dimlyyyyy/" className="rounded-full flex items-center justify-center w-8 h-8 bg-violet-500">
-              <i className="uil uil-instagram text-2xl text-[var(--title-color)]"></i>
+              <i className="uil uil-instagram text-2xl text-white"></i>
             </a>
 
             <a target="_blank" href="tel:0378808834" className="rounded-full flex items-center justify-center w-8 h-8 bg-green-600">
-              <i className="uil uil-phone text-2xl text-[var(--title-color)]"></i>
+              <i className="uil uil-phone text-2xl text-white"></i>
             </a>
         </div>
       </div>
 
       {/* Shop Highlight */}
-      <div className="flex-grow mt-4 md:mt-0 mx-3 ml-7 flex flex-col items-center bg-gray-800 rounded-2xl">
+      <div className="flex-grow mt-4 md:mt-0 mx-3 ml-7 flex flex-col items-center bg-pink-100 rounded-2xl">
         <a
         href="https://www.facebook.com/anh.duong.135488/" 
         target="_blank"
-        className="py-2 px-4 bg-gray-900 mt-4 text-[var(--title-color)] rounded-2xl"
+        className="py-2 px-4 bg-pink-200 mt-4 text-[var(--title-color-dark)] rounded-2xl"
         >Liên hệ ngay</a>
 
-        <ul className="mt-4 text-[var(--title-color)] mx-5 list-disc">
+        <ul className="my-4 text-[var(--title-color)] mx-5 list-disc">
           {shopHighlight.map((item, index) => (
             <li key={index} className="mt-2">
               <span className="text-[var(--text-color)]">{item}</span>
