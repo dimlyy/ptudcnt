@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect,useState, useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { holidayDealImgs, hotDealsItem } from "@constants";
@@ -8,48 +8,62 @@ import { holidayDealImgs, hotDealsItem } from "@constants";
 const HolidayDeals = () => {
   const carouselRef = useRef(null);
   const isDragging = useRef(false);
+  const isMoving = useRef(false);
   const startX = useRef(0);
   const scrollLeft = useRef(0);
 
   // Kéo bằng chuột
   const handleMouseDown = (e) => {
-    e.preventDefault(); // Ngăn mở link khi đang kéo
     if (!carouselRef.current) return;
     isDragging.current = true;
+    isMoving.current = false;
     startX.current = e.pageX - carouselRef.current.offsetLeft;
     scrollLeft.current = carouselRef.current.scrollLeft;
     carouselRef.current.style.scrollBehavior = "auto";
   };
 
   const handleMouseMove = (e) => {
-    e.preventDefault(); // Ngăn mở link khi đang kéo
     if (!isDragging.current || !carouselRef.current) return;
+    isMoving.current = true;
     const x = e.pageX - carouselRef.current.offsetLeft;
     const walk = (x - startX.current) * 1.5;
     carouselRef.current.scrollLeft = scrollLeft.current - walk;
   };
 
   const handleMouseUp = (e: MouseEvent) => {
-    e.preventDefault(); // Ngăn mở link khi đang kéo
+    const wasMoving = isDragging.current && isMoving.current;
+
     isDragging.current = false;
     if (!carouselRef.current) return;
+
+    isMoving.current = false;
 
     // Snap về item gần nhất
     const container = carouselRef.current;
     const itemWidth = container.children[0].getBoundingClientRect().width + 8;
     const nearestIndex = Math.round(container.scrollLeft / itemWidth);
     const newScrollLeft = nearestIndex * itemWidth;
-    
+
     container.style.scrollBehavior = "smooth";
     container.scrollTo({ left: newScrollLeft, behavior: "smooth" });
+
+    if (wasMoving) {
+      container.dataset.preventClick = 'true';
+      
+      // Xóa đánh dấu sau một khoảng thời gian ngắn
+      setTimeout(() => {
+        delete container.dataset.preventClick;
+      }, 50);
+    }
   };
 
-  const handlePreventClick = (e: MouseEvent) => {
-    if (isDragging.current){
+  const handlePreventClick = (e: React.MouseEvent) => {
+    if (isMoving.current) {
       e.preventDefault();
+      e.stopPropagation();
     }
-  }
-  
+  };
+
   // 🔹 Kéo bằng cảm ứng (điện thoại)
   const handleTouchStart = (e: React.TouchEvent) => {
     if (!carouselRef.current) return;
@@ -82,14 +96,12 @@ const HolidayDeals = () => {
     container.scrollTo({ left: newScrollLeft, behavior: "smooth" });
   };
 
-
   const handleScroll = (direction) => {
-    
     if (carouselRef.current) {
       const container = carouselRef.current;
       const scrollAmount = container.children[0].offsetWidth + 8;
 
-      if(direction === "next") {
+      if (direction === "next") {
         if (
           container.scrollLeft + container.clientWidth >=
           container.scrollWidth - 1
@@ -98,8 +110,7 @@ const HolidayDeals = () => {
         } else {
           container.scrollBy({ left: scrollAmount, behavior: "smooth" });
         }
-      }
-      else {
+      } else {
         container.scrollBy({ left: -scrollAmount, behavior: "smooth" });
       }
     }
@@ -142,17 +153,21 @@ const HolidayDeals = () => {
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
           className={`bg-[var(--background-color)] flex flex-row flex-nowrap 
-          overflow-auto gap-2 scrollbar-hide cursor-grab select-none`}
+          overflow-auto gap-2 scrollbar-hide select-none`}
         >
           {hotDealsItem.data.map((item, index) => (
             <Link
-            // hover:scale-[1.02] duration-300 ease-in-out
               key={index}
               href={item.slug ? `/products/${item.slug}` : "#"}
               className="w-[46%] md:w-[calc(20%-0.5rem)] flex flex-col flex-none gap-1
-             rounded-lg mb-2 p-2 snap-start"
-             draggable={false}
-             onClick={(e) => handlePreventClick(e)}
+             rounded-lg mb-2 p-2 snap-start shadow-xl bg-white "
+              draggable={false}
+             onClick={(e) => {
+    if (carouselRef.current?.dataset.preventClick === 'true') {
+      e.preventDefault();
+      return;
+    }
+  }}
             >
               <div className="flex flex-row gap-1">
                 <span className="px-2 py-1 bg-[var(--btn-color)] text-[var(--title-color)] rounded-md text-xs">
@@ -197,7 +212,8 @@ const HolidayDeals = () => {
               </div>
 
               <span className="text-green-500 text-xs">
-                Giảm {(item.price - item.discountPrice).toLocaleString("vi-VN")}đ
+                Giảm {(item.price - item.discountPrice).toLocaleString("vi-VN")}
+                đ
               </span>
 
               <div className="flex flex-row mt-2">

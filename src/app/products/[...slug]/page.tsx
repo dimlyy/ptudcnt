@@ -6,6 +6,7 @@ import Gallery from '@components/SingleProduct/Gallery';
 import { singleProduct } from '@constants';
 import ProductRelate from '@components/SingleProduct/ProductRelate';
 import { promotionData } from '@constants';
+import ProductDescription from '@components/SingleProduct/ProductDescription';
 
 const Products = () => {
   return (
@@ -30,7 +31,8 @@ const Products = () => {
       <Gallery product={singleProduct}/>
 
       <ProductRelate data={promotionData}/>
-      
+
+      <ProductDescription/>
     </div>
   );
 };

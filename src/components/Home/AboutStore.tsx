@@ -94,4 +94,4 @@ const AboutStore = () => {
     )
 }
 
-export default AboutStore
+export default AboutStore;

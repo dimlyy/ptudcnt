@@ -4,12 +4,20 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-import { Guarantee, productsImgRelateDeals, productStatus } from "@constants";
+import {
+  Guarantee,
+  productsImgRelateDeals,
+  productStatus,
+  relateProducts,
+} from "@constants";
+import ProductRelateCarousel from "./ProductRelateCarousel";
 const ProductRelate = ({ data }) => {
   const [selectedOffer, setSelectedOffer] = useState("");
   const [isHover, setIsHover] = useState(false);
   const [currentImg, setCurrentImg] = useState(0);
   const [touchStartX, setTouchStartX] = useState(null);
+
+  const [currentImgRelate, setCurrentImgRelate] = useState(0);
 
   const handleRadioChange = (event) => {
     setSelectedOffer(event.target.value);
@@ -69,7 +77,7 @@ const ProductRelate = ({ data }) => {
       <div className="md:w-1/3 w-full">
         {/* Special Offer */}
         {data.hasSpecialOffer && (
-          <div className="flex flex-col gap-1 bg-pink-100 rounded-lg overflow-hidden">
+          <div className="md:min-h-[425px] flex flex-col gap-1 bg-pink-100 rounded-lg overflow-hidden">
             <div className="text-red-500 flex flex-row p-2 bg-pink-300">
               <svg
                 className="w-5 h-5 mr-2"
@@ -132,7 +140,7 @@ const ProductRelate = ({ data }) => {
         )}
 
         {/* bundleDeals */}
-        <div className="flex flex-col rounded-lg overflow-hidden bg-pink-100 mt-3">
+        <div className="min-h-[500px] flex flex-col rounded-lg overflow-hidden bg-pink-100 mt-3">
           <div className="flex flex-row mx-2 text-red-500 py-3">
             <svg
               className="w-5 h-5 mr-2"
@@ -162,7 +170,7 @@ const ProductRelate = ({ data }) => {
         </div>
       </div>
 
-      {/* Guarantee  Policy*/}
+      {/* Guarantee  Policy and Relate Products*/}
       <div className="md:w-2/3 w-full rounded-xl mx-3 bg-pink-100">
         <div className="flex flex-col m-3">
           <span className="text-red-500 uppercase">
@@ -263,6 +271,10 @@ const ProductRelate = ({ data }) => {
             <i className="uil uil-angle-right text-2xl text-white" />
           </div>
         </div>
+
+        {relateProducts && 
+          <ProductRelateCarousel data={relateProducts}/>
+        }
       </div>
     </div>
   );

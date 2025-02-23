@@ -852,3 +852,105 @@ export const footerSocials = [
     img: "/assets/images/zalo-footer.jpg",
   },
 ]
+
+export const relateProducts = {
+  product: "sản phẩm tương tự",
+  datas: [
+    {
+      discountGif: "/assets/images/discount_gif.gif",
+      instatement: true,
+      img: "/assets/images/products/product_1-1.jpg",
+      absoluteImg: "/assets/images/sunday_discount.png",
+      alt: "Apple Store",
+      slug: "aa",
+      label: "Iphone 16 ProMax 128GB chính hãng - fullbox - bảo hành 24 tháng",
+      price: 24990000 ,
+      discountPrice: 23990000,
+    },
+
+    {
+      discountGif: "/assets/images/discount_gif.gif",
+      instatement: true,
+      img: "/assets/images/products/product_1-1.jpg",
+      absoluteImg: "/assets/images/sunday_discount.png",
+      alt: "Apple Store",
+      slug: "aa",
+      label: "Iphone 16 ProMax 128GB chính hãng - fullbox - bảo hành 24 tháng",
+      price: 24990000,
+      discountPrice: 23990000,
+    },
+
+    {
+      discountGif: "/assets/images/discount_gif.gif",
+      instatement: true,
+      img: "/assets/images/products/product_1-1.jpg",
+      absoluteImg: "/assets/images/sunday_discount.png",
+      alt: "Apple Store",
+      slug: "aa",
+      label: "Iphone 16 ProMax 128GB chính hãng - fullbox - bảo hành 24 tháng",
+      price: 24990000,
+      discountPrice: 23990000,
+    },
+
+    {
+      discountGif: "/assets/images/discount_gif.gif",
+      instatement: true,
+      img: "/assets/images/products/product_1-1.jpg",
+      absoluteImg: "/assets/images/sunday_discount.png",
+      alt: "Apple Store",
+      slug: "aa",
+      label: "Iphone 16 ProMax 128GB chính hãng - fullbox - bảo hành 24 tháng",
+      price: 24990000,
+      discountPrice: 23990000,
+    },
+
+    {
+      discountGif: "/assets/images/discount_gif.gif",
+      instatement: true,
+      img: "/assets/images/products/product_1-1.jpg",
+      absoluteImg: "/assets/images/sunday_discount.png",
+      alt: "Apple Store",
+      slug: "aa",
+      label: "Iphone 16 ProMax 128GB chính hãng - fullbox - bảo hành 24 tháng",
+      price: 24990000,
+      discountPrice: 23990000,
+    },
+    {
+      discountGif: "/assets/images/discount_gif.gif",
+      instatement: true,
+      img: "/assets/images/products/product_1-1.jpg",
+      absoluteImg: "/assets/images/sunday_discount.png",
+      alt: "Apple Store",
+      slug: "aa",
+      label: "Iphone 16 ProMax 128GB chính hãng - fullbox - bảo hành 24 tháng",
+      price: 24990000,
+      discountPrice: 23990000,
+    },
+    {
+      discountGif: "/assets/images/discount_gif.gif",
+      instatement: true,
+      img: "/assets/images/products/product_1-1.jpg",
+      absoluteImg: "/assets/images/sunday_discount.png",
+      alt: "Apple Store",
+      slug: "aa",
+      label: "Iphone 16 ProMax 128GB chính hãng - fullbox - bảo hành 24 tháng",
+      price: 24990000,
+      discountPrice: 23990000,
+    },
+    {
+      discountGif: "/assets/images/discount_gif.gif",
+      instatement: true,
+      img: "/assets/images/products/product_1-1.jpg",
+      absoluteImg: "/assets/images/sunday_discount.png",
+      alt: "Apple Store",
+      slug: "aa",
+      label: "Iphone 16 ProMax 128GB chính hãng - fullbox - bảo hành 24 tháng",
+      price: 24990000,
+      discountPrice: 23990000,
+    },
+  ],
+};
+
+export const productDetails = {
+  
+}

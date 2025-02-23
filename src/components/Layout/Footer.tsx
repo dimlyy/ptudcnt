@@ -7,7 +7,7 @@ import { footerSocials } from "@constants";
 const Footer = () => {
   return (
     <footer className="border-t border-gray-200 gap-5">
-      <div className="flex md:flex-row flex-col containe lg:px-2 pt-5">
+      <div className="flex md:flex-row flex-col container lg:px-2 pt-5">
         {/* Rows 1 */}
         <div className="lg:w-1/4 md:w-1/2 w-full gap-3">
           <div className="flex flex-col w-full shrink-0">
