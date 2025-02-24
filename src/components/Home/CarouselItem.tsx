@@ -8,6 +8,7 @@
   const CarouselItem = () => {
     const carouselRefs = useRef<Array<HTMLDivElement | null>>([]);
     const isDragging = useRef(false);
+    const isMoving = useRef(false);
     const startX = useRef(0);
     const scrollLeft = useRef(0);
     const activeIndex = useRef(0);
@@ -17,16 +18,17 @@
       const container = carouselRefs.current[index];
       if (!container) return;
       isDragging.current = true;
+      isMoving.current = false;
       startX.current = e.pageX - container.offsetLeft;
       scrollLeft.current = container.scrollLeft;
       container.style.scrollBehavior = "auto";
       activeIndex.current = index;
-      console.log(activeIndex)
     }
 
     const handleMouseMove = (e: MouseEvent, index: number) => {
       e.preventDefault();
       if (!isDragging.current || !carouselRefs.current[index]) return;
+      isMoving.current = true;
       const container = carouselRefs.current[index]
       const x = e.pageX - container.offsetLeft;
       const walk = (x - startX.current) * 1.5;
@@ -34,8 +36,11 @@
     }
 
     const handleMouseUp = (e: MouseEvent,index:number) => {
+      const wasMoving = isMoving.current && isDragging.current;
+
       e.preventDefault();
       isDragging.current = false;
+      isMoving.current = false;
       const container = carouselRefs.current[index];
       if(!container) return;
 
@@ -46,6 +51,14 @@
 
       container.style.scrollBehavior = "smooth";
       container.scrollTo({ left: newScrollLeft, behavior: "smooth" });
+
+      if (wasMoving) {
+        container.dataset.preventClick = 'true';
+
+        setTimeout(() =>{
+          delete container.dataset.preventClick;
+        } , 50)
+      }
     }
 
     const handlePreventClick = (e: MouseEvent) => {
@@ -59,10 +72,7 @@
       const container = carouselRefs.current[index];
       if (container) {
         const scrollAmount = container.children[0].offsetWidth + 8;
-        console.log("scrollWidth:", container.scrollWidth);
-        console.log("clientWidth:", container.clientWidth);
-        console.log("scrollLeft:", container.scrollLeft);
-
+  
         if (direction === "next") {
           if (
             container.scrollLeft + container.clientWidth >=
@@ -114,7 +124,7 @@
                       alt="Deal Image"
                       width={580}
                       height={210}
-                      className="object-cover w-full h-auto rounded-xl"
+                      className="object-cover w-full h-auto rounded-lg border-gray-400 border"
                     />
                   </Link>
                 ))}
@@ -140,7 +150,7 @@
                   e.stopPropagation();
                   handleMouseUp(e, i);
                 }}
-                className="flex flex-row flex-nowrap gap-2 scroll-smooth scrollbar-hide overflow-x-auto"
+                className="flex flex-row flex-nowrap gap-2 scroll-smooth scrollbar-hide overflow-x-auto pl-2"
               >
                 {items.data.map((item, index) => (
                   <Link
@@ -148,7 +158,13 @@
                     key={index}
                     href={item.slug ? `/products/${item.slug}` : "#"}
                     className="w-[46%] md:w-[calc(20%-0.4rem)] flex flex-col flex-none gap-1
-                    rounded-lg mb-2 p-2"
+                    rounded-lg mb-2 p-2 bg-white shadow-xl"
+                    onClick={(e) => {
+                      if(carouselRefs.current[i]?.dataset.preventClick === 'true'){
+                        e.preventDefault();
+                        return;
+                      }
+                    }}
                   >
                     <div className="flex flex-row gap-1">
                       <span className="px-2 py-1 bg-[var(--btn-color)] text-[var(--title-color)] rounded-md text-xs">

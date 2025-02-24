@@ -13,7 +13,7 @@ const HolidayDeals = () => {
   const scrollLeft = useRef(0);
 
   // Kéo bằng chuột
-  const handleMouseDown = (e) => {
+  const handleMouseDown = (e: MouseEvent) => {
     if (!carouselRef.current) return;
     isDragging.current = true;
     isMoving.current = false;
@@ -22,7 +22,7 @@ const HolidayDeals = () => {
     carouselRef.current.style.scrollBehavior = "auto";
   };
 
-  const handleMouseMove = (e) => {
+  const handleMouseMove = (e: MouseEvent) => {
     if (!isDragging.current || !carouselRef.current) return;
     isMoving.current = true;
     const x = e.pageX - carouselRef.current.offsetLeft;
@@ -48,8 +48,8 @@ const HolidayDeals = () => {
     container.scrollTo({ left: newScrollLeft, behavior: "smooth" });
 
     if (wasMoving) {
-      container.dataset.preventClick = 'true';
-      
+      container.dataset.preventClick = "true";
+
       // Xóa đánh dấu sau một khoảng thời gian ngắn
       setTimeout(() => {
         delete container.dataset.preventClick;
@@ -57,12 +57,6 @@ const HolidayDeals = () => {
     }
   };
 
-  const handlePreventClick = (e: React.MouseEvent) => {
-    if (isMoving.current) {
-      e.preventDefault();
-      e.stopPropagation();
-    }
-  };
 
   // 🔹 Kéo bằng cảm ứng (điện thoại)
   const handleTouchStart = (e: React.TouchEvent) => {
@@ -162,12 +156,12 @@ const HolidayDeals = () => {
               className="w-[46%] md:w-[calc(20%-0.5rem)] flex flex-col flex-none gap-1
              rounded-lg mb-2 p-2 snap-start shadow-xl bg-white "
               draggable={false}
-             onClick={(e) => {
-    if (carouselRef.current?.dataset.preventClick === 'true') {
-      e.preventDefault();
-      return;
-    }
-  }}
+              onClick={(e) => {
+                if (carouselRef.current?.dataset.preventClick === "true") {
+                  e.preventDefault();
+                  return;
+                }
+              }}
             >
               <div className="flex flex-row gap-1">
                 <span className="px-2 py-1 bg-[var(--btn-color)] text-[var(--title-color)] rounded-md text-xs">
