@@ -132,7 +132,8 @@ const ProductRelateCarousel = ({ data }) => {
               onClick={handlePreventClick}
               key={index}
               href={item.slug ? item.slug : "#"}
-              className="md:w-[calc(26%-0.75rem)] snap-start flex flex-col p-2 gap-1 shrink-0 bg-[var(--container-color)] rounded-md"
+              className="md:w-[calc(26%-0.75rem)] w-[calc(45%-0.5rem)] snap-start flex flex-col p-2 gap-1 shrink-0 bg-[var(--container-color)] rounded-md
+              "
             >
               <div className="flex flex-row gap-1">
                 <span className="py-1 px-2 bg-pink-500 text-white rounded-lg text-xs">

@@ -347,7 +347,7 @@ export const hotDealsItem = {
       alt: "Apple Store",
       slug: "aa",
       label: "Iphone 16 ProMax 128GB chính hãng - fullbox - bảo hành 24 tháng",
-      price: 24990000 ,
+      price: 24990000,
       discountPrice: 23990000,
     },
 
@@ -433,12 +433,12 @@ export const carouselItems = [
     dealImg: [
       {
         link: "#",
-        img: "/assets/images/hot-deal-catergories.jpg"
+        img: "/assets/images/hot-deal-catergories.jpg",
       },
       {
         link: "#",
-        img: "/assets/images/hot-deal-catergories.jpg"
-      }
+        img: "/assets/images/hot-deal-catergories.jpg",
+      },
     ],
     data: [
       {
@@ -448,7 +448,8 @@ export const carouselItems = [
         specialDealImg: "/assets/images/product-catergories.png",
         alt: "Apple Store",
         slug: "a",
-        label: "Iphone 16 ProMax 128GB chính hãng - fullbox - bảo hành 24 tháng",
+        label:
+          "Iphone 16 ProMax 128GB chính hãng - fullbox - bảo hành 24 tháng",
         price: 24990000,
         discountPrice: 23990000,
       },
@@ -459,7 +460,8 @@ export const carouselItems = [
         specialDealImg: "/assets/images/product-catergories.png",
         alt: "Apple Store",
         slug: "#",
-        label: "Iphone 16 ProMax 128GB chính hãng - fullbox - bảo hành 24 tháng",
+        label:
+          "Iphone 16 ProMax 128GB chính hãng - fullbox - bảo hành 24 tháng",
         price: 24990000,
         discountPrice: 23990000,
       },
@@ -470,7 +472,8 @@ export const carouselItems = [
         specialDealImg: "/assets/images/product-catergories.png",
         alt: "Apple Store",
         slug: "#",
-        label: "Iphone 16 ProMax 128GB chính hãng - fullbox - bảo hành 24 tháng",
+        label:
+          "Iphone 16 ProMax 128GB chính hãng - fullbox - bảo hành 24 tháng",
         price: 24990000,
         discountPrice: 23990000,
       },
@@ -481,7 +484,8 @@ export const carouselItems = [
         specialDealImg: "/assets/images/product-catergories.png",
         alt: "Apple Store",
         slug: "#",
-        label: "Iphone 16 ProMax 128GB chính hãng - fullbox - bảo hành 24 tháng",
+        label:
+          "Iphone 16 ProMax 128GB chính hãng - fullbox - bảo hành 24 tháng",
         price: 24990000,
         discountPrice: 23990000,
       },
@@ -492,7 +496,8 @@ export const carouselItems = [
         specialDealImg: "/assets/images/product-catergories.png",
         alt: "Apple Store",
         slug: "#",
-        label: "Iphone 16 ProMax 128GB chính hãng - fullbox - bảo hành 24 tháng",
+        label:
+          "Iphone 16 ProMax 128GB chính hãng - fullbox - bảo hành 24 tháng",
         price: 24990000,
         discountPrice: 23990000,
       },
@@ -503,7 +508,8 @@ export const carouselItems = [
         specialDealImg: "/assets/images/product-catergories.png",
         alt: "Apple Store",
         slug: "#",
-        label: "Iphone 16 ProMax 128GB chính hãng - fullbox - bảo hành 24 tháng",
+        label:
+          "Iphone 16 ProMax 128GB chính hãng - fullbox - bảo hành 24 tháng",
         price: 24990000,
         discountPrice: 23990000,
       },
@@ -514,7 +520,8 @@ export const carouselItems = [
         specialDealImg: "/assets/images/product-catergories.png",
         alt: "Apple Store",
         slug: "#",
-        label: "Iphone 16 ProMax 128GB chính hãng - fullbox - bảo hành 24 tháng",
+        label:
+          "Iphone 16 ProMax 128GB chính hãng - fullbox - bảo hành 24 tháng",
         price: 24990000,
         discountPrice: 23990000,
       },
@@ -525,7 +532,8 @@ export const carouselItems = [
         specialDealImg: "/assets/images/product-catergories.png",
         alt: "Apple Store",
         slug: "#",
-        label: "Iphone 16 ProMax 128GB chính hãng - fullbox - bảo hành 24 tháng",
+        label:
+          "Iphone 16 ProMax 128GB chính hãng - fullbox - bảo hành 24 tháng",
         price: 24990000,
         discountPrice: 23990000,
       },
@@ -537,12 +545,12 @@ export const carouselItems = [
     dealImg: [
       {
         link: "#",
-        img: "/assets/images/hot-deal-catergories.jpg"
+        img: "/assets/images/hot-deal-catergories.jpg",
       },
       {
         link: "#",
-        img: "/assets/images/hot-deal-catergories.jpg"
-      }
+        img: "/assets/images/hot-deal-catergories.jpg",
+      },
     ],
     data: [
       {
@@ -552,7 +560,8 @@ export const carouselItems = [
         specialDealImg: "/assets/images/product-catergories.png",
         alt: "Apple Store",
         slug: "#",
-        label: "Iphone 16 ProMax 128GB chính hãng - fullbox - bảo hành 24 tháng",
+        label:
+          "Iphone 16 ProMax 128GB chính hãng - fullbox - bảo hành 24 tháng",
         price: 24990000,
         discountPrice: 23990000,
       },
@@ -563,7 +572,8 @@ export const carouselItems = [
         specialDealImg: "/assets/images/product-catergories.png",
         alt: "Apple Store",
         slug: "#",
-        label: "Iphone 16 ProMax 128GB chính hãng - fullbox - bảo hành 24 tháng",
+        label:
+          "Iphone 16 ProMax 128GB chính hãng - fullbox - bảo hành 24 tháng",
         price: 24990000,
         discountPrice: 23990000,
       },
@@ -574,7 +584,8 @@ export const carouselItems = [
         specialDealImg: "/assets/images/product-catergories.png",
         alt: "Apple Store",
         slug: "#",
-        label: "Iphone 16 ProMax 128GB chính hãng - fullbox - bảo hành 24 tháng",
+        label:
+          "Iphone 16 ProMax 128GB chính hãng - fullbox - bảo hành 24 tháng",
         price: 24990000,
         discountPrice: 23990000,
       },
@@ -585,7 +596,8 @@ export const carouselItems = [
         specialDealImg: "/assets/images/product-catergories.png",
         alt: "Apple Store",
         slug: "#",
-        label: "Iphone 16 ProMax 128GB chính hãng - fullbox - bảo hành 24 tháng",
+        label:
+          "Iphone 16 ProMax 128GB chính hãng - fullbox - bảo hành 24 tháng",
         price: 24990000,
         discountPrice: 23990000,
       },
@@ -596,7 +608,8 @@ export const carouselItems = [
         specialDealImg: "/assets/images/product-catergories.png",
         alt: "Apple Store",
         slug: "#",
-        label: "Iphone 16 ProMax 128GB chính hãng - fullbox - bảo hành 24 tháng",
+        label:
+          "Iphone 16 ProMax 128GB chính hãng - fullbox - bảo hành 24 tháng",
         price: 24990000,
         discountPrice: 23990000,
       },
@@ -607,7 +620,8 @@ export const carouselItems = [
         specialDealImg: "/assets/images/product-catergories.png",
         alt: "Apple Store",
         slug: "#",
-        label: "Iphone 16 ProMax 128GB chính hãng - fullbox - bảo hành 24 tháng",
+        label:
+          "Iphone 16 ProMax 128GB chính hãng - fullbox - bảo hành 24 tháng",
         price: 24990000,
         discountPrice: 23990000,
       },
@@ -618,18 +632,20 @@ export const carouselItems = [
         specialDealImg: "/assets/images/product-catergories.png",
         alt: "Apple Store",
         slug: "#",
-        label: "Iphone 16 ProMax 128GB chính hãng - fullbox - bảo hành 24 tháng",
+        label:
+          "Iphone 16 ProMax 128GB chính hãng - fullbox - bảo hành 24 tháng",
         price: 24990000,
         discountPrice: 23990000,
       },
-        {
+      {
         discountGif: "/assets/images/discount_gif.gif",
         instatement: true,
         img: "/assets/images/products/samsung-galaxy-S24.jpg",
         specialDealImg: "/assets/images/product-catergories.png",
         alt: "Apple Store",
         slug: "#",
-        label: "Iphone 16 ProMax 128GB chính hãng - fullbox - bảo hành 24 tháng",
+        label:
+          "Iphone 16 ProMax 128GB chính hãng - fullbox - bảo hành 24 tháng",
         price: 24990000,
         discountPrice: 23990000,
       },
@@ -641,12 +657,12 @@ export const carouselItems = [
     dealImg: [
       {
         link: "#",
-        img: "/assets/images/hot-deal-catergories.jpg"
+        img: "/assets/images/hot-deal-catergories.jpg",
       },
       {
         link: "#",
-        img: "/assets/images/hot-deal-catergories.jpg"
-      }
+        img: "/assets/images/hot-deal-catergories.jpg",
+      },
     ],
     data: [
       {
@@ -656,7 +672,8 @@ export const carouselItems = [
         specialDealImg: "/assets/images/product-catergories.png",
         alt: "Apple Store",
         slug: "#",
-        label: "Iphone 16 ProMax 128GB chính hãng - fullbox - bảo hành 24 tháng",
+        label:
+          "Iphone 16 ProMax 128GB chính hãng - fullbox - bảo hành 24 tháng",
         price: 56000000,
         discountPrice: 32990000,
       },
@@ -667,7 +684,8 @@ export const carouselItems = [
         specialDealImg: "/assets/images/product-catergories.png",
         alt: "Apple Store",
         slug: "#",
-        label: "Iphone 16 ProMax 128GB chính hãng - fullbox - bảo hành 24 tháng",
+        label:
+          "Iphone 16 ProMax 128GB chính hãng - fullbox - bảo hành 24 tháng",
         price: 56000000,
         discountPrice: 32990000,
       },
@@ -678,7 +696,8 @@ export const carouselItems = [
         specialDealImg: "/assets/images/product-catergories.png",
         alt: "Apple Store",
         slug: "#",
-        label: "Iphone 16 ProMax 128GB chính hãng - fullbox - bảo hành 24 tháng",
+        label:
+          "Iphone 16 ProMax 128GB chính hãng - fullbox - bảo hành 24 tháng",
         price: 56000000,
         discountPrice: 32990000,
       },
@@ -689,7 +708,8 @@ export const carouselItems = [
         specialDealImg: "/assets/images/product-catergories.png",
         alt: "Apple Store",
         slug: "#",
-        label: "Iphone 16 ProMax 128GB chính hãng - fullbox - bảo hành 24 tháng",
+        label:
+          "Iphone 16 ProMax 128GB chính hãng - fullbox - bảo hành 24 tháng",
         price: 56000000,
         discountPrice: 32990000,
       },
@@ -700,7 +720,8 @@ export const carouselItems = [
         specialDealImg: "/assets/images/product-catergories.png",
         alt: "Apple Store",
         slug: "#",
-        label: "Iphone 16 ProMax 128GB chính hãng - fullbox - bảo hành 24 tháng",
+        label:
+          "Iphone 16 ProMax 128GB chính hãng - fullbox - bảo hành 24 tháng",
         price: 56000000,
         discountPrice: 32990000,
       },
@@ -710,44 +731,44 @@ export const carouselItems = [
 
 export const productsImgRelateDeals = [
   {
-    img: '/assets/images/slider/product_relate-1.jpg',
-    alt: 'Relate 1',
-    link: '#'
+    img: "/assets/images/slider/product_relate-1.jpg",
+    alt: "Relate 1",
+    link: "#",
   },
   {
-    img: '/assets/images/slider/product_relate-2.jpg',
-    alt: 'Relate 1',
-    link: '#'
+    img: "/assets/images/slider/product_relate-2.jpg",
+    alt: "Relate 1",
+    link: "#",
   },
   {
-    img: '/assets/images/slider/product_relate-3.jpg',
-    alt: 'Relate 1',
-    link: '#'
+    img: "/assets/images/slider/product_relate-3.jpg",
+    alt: "Relate 1",
+    link: "#",
   },
-]
+];
 
 export const aboutStoreImgs = [
   {
-    img: '/assets/images/aboutshop_1.jpg',
-    alt: 'About Store 1',
+    img: "/assets/images/aboutshop_1.jpg",
+    alt: "About Store 1",
   },
   {
-    img: '/assets/images/aboutshop_1.jpg',
-    alt: 'About Store 1',
+    img: "/assets/images/aboutshop_1.jpg",
+    alt: "About Store 1",
   },
   {
-    img: '/assets/images/aboutshop_1.jpg',
-    alt: 'About Store 1',
+    img: "/assets/images/aboutshop_1.jpg",
+    alt: "About Store 1",
   },
   {
-    img: '/assets/images/aboutshop_1.jpg',
-    alt: 'About Store 1',
+    img: "/assets/images/aboutshop_1.jpg",
+    alt: "About Store 1",
   },
   {
-    img: '/assets/images/aboutshop_1.jpg',
-    alt: 'About Store 1',
+    img: "/assets/images/aboutshop_1.jpg",
+    alt: "About Store 1",
   },
-]
+];
 
 export const homePageFooterOffers = [
   {
@@ -783,7 +804,7 @@ export const homePageFooterOffers = [
         alt: "Store Edows",
         slug: "#",
       },
-    ]
+    ],
   },
   {
     label: "ưu đãi sinh viên",
@@ -808,32 +829,32 @@ export const homePageFooterOffers = [
         alt: "Store Edows",
         slug: "#",
       },
-    ]
+    ],
   },
-]
+];
 
 export const shopImgs = [
   {
-    img: '/assets/images/shop/shop-1.jpg',
-    alt: 'Shop 1',
+    img: "/assets/images/shop/shop-1.jpg",
+    alt: "Shop 1",
   },
   {
-    img: '/assets/images/shop/shop-2.jpg',
-    alt: 'Shop 2',
+    img: "/assets/images/shop/shop-2.jpg",
+    alt: "Shop 2",
   },
   {
-    img: '/assets/images/shop/shop-3.jpg',
-    alt: 'Shop 3',
+    img: "/assets/images/shop/shop-3.jpg",
+    alt: "Shop 3",
   },
   {
-    img: '/assets/images/shop/shop-1.jpg',
-    alt: 'Shop 1',
+    img: "/assets/images/shop/shop-1.jpg",
+    alt: "Shop 1",
   },
   {
-    img: '/assets/images/shop/shop-2.jpg',
-    alt: 'Shop 2',
+    img: "/assets/images/shop/shop-2.jpg",
+    alt: "Shop 2",
   },
-]
+];
 
 export const footerSocials = [
   {
@@ -851,7 +872,7 @@ export const footerSocials = [
     link: "#",
     img: "/assets/images/zalo-footer.jpg",
   },
-]
+];
 
 export const relateProducts = {
   product: "sản phẩm tương tự",
@@ -864,7 +885,7 @@ export const relateProducts = {
       alt: "Apple Store",
       slug: "aa",
       label: "Iphone 16 ProMax 128GB chính hãng - fullbox - bảo hành 24 tháng",
-      price: 24990000 ,
+      price: 24990000,
       discountPrice: 23990000,
     },
 
@@ -951,6 +972,185 @@ export const relateProducts = {
   ],
 };
 
-export const productDetails = {
-  
+export const productDescription = {
+  description: {
+    content: `
+     <h1 style="font-size: 1.5rem; color:black">Iphone 16 ProMax 128GB chính hãng</h1>
+      <div style="width: 100%; display: flex; justify-content: center; align-items: center;">
+        <img src="/assets/images/products/product_1-1.jpg" width="400" height="400" style="object-fit: contain; height: auto;" alt="Iphone 16 ProMax" />
+      </div>
+     <p>
+        Bao da Smart Folio nổi bật với thiết kế mỏng nhẹ và thanh lịch, được chế tác từ chất liệu polyurethane (PU) cao cấp. Chất liệu này không chỉ mang đến độ bền cao, khả năng chống nước và chống mài mòn hiệu quả mà còn giúp giữ nguyên vẻ đẹp sang trọng của iPad Pro 13 inch (M4).
+      </p>
+      <p>
+        Điểm đặc biệt của Smart Folio là trọng lượng cực kỳ nhẹ, bảo toàn độ mỏng nhẹ vốn có của iPad Pro. Ngoài ra, nhờ thiết kế từ tính thông minh, bao da sẽ tự động hút chặt vào iPad khi gắn vào, tạo nên lớp bảo vệ toàn diện 360° cho cả mặt trước và mặt sau thiết bị. Lớp đệm mềm mại bên trong bao da giúp bảo vệ iPad khỏi va đập, trầy xước và các tác động ngoại lực khác một cách hiệu quả.
+      </p>
+      <p>
+        Điểm đặc biệt của Smart Folio là trọng lượng cực kỳ nhẹ, bảo toàn độ mỏng nhẹ vốn có của iPad Pro. Ngoài ra, nhờ thiết kế từ tính thông minh, bao da sẽ tự động hút chặt vào iPad khi gắn vào, tạo nên lớp bảo vệ toàn diện 360° cho cả mặt trước và mặt sau thiết bị. Lớp đệm mềm mại bên trong bao da giúp bảo vệ iPad khỏi va đập, trầy xước và các tác động ngoại lực khác một cách hiệu quả.
+      </p>
+      <p>
+        Điểm đặc biệt của Smart Folio là trọng lượng cực kỳ nhẹ, bảo toàn độ mỏng nhẹ vốn có của iPad Pro. Ngoài ra, nhờ thiết kế từ tính thông minh, bao da sẽ tự động hút chặt vào iPad khi gắn vào, tạo nên lớp bảo vệ toàn diện 360° cho cả mặt trước và mặt sau thiết bị. Lớp đệm mềm mại bên trong bao da giúp bảo vệ iPad khỏi va đập, trầy xước và các tác động ngoại lực khác một cách hiệu quả.
+      </p>
+      <p>
+        Điểm đặc biệt của Smart Folio là trọng lượng cực kỳ nhẹ, bảo toàn độ mỏng nhẹ vốn có của iPad Pro. Ngoài ra, nhờ thiết kế từ tính thông minh, bao da sẽ tự động hút chặt vào iPad khi gắn vào, tạo nên lớp bảo vệ toàn diện 360° cho cả mặt trước và mặt sau thiết bị. Lớp đệm mềm mại bên trong bao da giúp bảo vệ iPad khỏi va đập, trầy xước và các tác động ngoại lực khác một cách hiệu quả.
+      </p>
+    `,
+  },
+  shortDescription: {
+    content:
+      [
+        {
+          label:  "Màn hình",
+          data: [
+            {
+              name: "Công nghệ màn hình",
+              value: "IPS LCD"
+            },
+            {
+              name: "Kích thước màn hình (inch)",
+              value: "10.9"
+            },
+            {
+              name: "Mặt kính cảm ứng",
+              value: "IPS LCD"
+            },
+            {
+              name: "Tính năng màn hình",
+              value: "Tần số quét 90hz "
+            }
+          ]
+        },
+        {
+          label:  "Màn hình",
+          data: [
+            {
+              name: "Công nghệ màn hình",
+              value: "IPS LCD"
+            },
+            {
+              name: "Kích thước màn hình (inch)",
+              value: "10.9"
+            },
+            {
+              name: "Mặt kính cảm ứng",
+              value: "IPS LCD"
+            },
+            {
+              name: "Tính năng màn hình",
+              value: "Tần số quét 90hz "
+            }
+          ]
+        },
+        {
+          label:  "Màn hình",
+          data: [
+            {
+              name: "Công nghệ màn hình",
+              value: "IPS LCD"
+            },
+            {
+              name: "Kích thước màn hình (inch)",
+              value: "10.9"
+            },
+            {
+              name: "Mặt kính cảm ứng",
+              value: "IPS LCD"
+            },
+            {
+              name: "Tính năng màn hình",
+              value: "Tần số quét 90hz "
+            }
+          ]
+        },
+        {
+          label:  "Màn hình",
+          data: [
+            {
+              name: "Công nghệ màn hình",
+              value: "IPS LCD"
+            },
+            {
+              name: "Kích thước màn hình (inch)",
+              value: "10.9"
+            },
+            {
+              name: "Mặt kính cảm ứng",
+              value: "IPS LCD"
+            },
+            {
+              name: "Tính năng màn hình",
+              value: "Tần số quét 90hz "
+            }
+          ]
+        },
+      ]
+  },
+};
+
+export const customerVoting = [
+  {
+    name: "John Doe",
+    rating: 5,
+    comment: "This product is amazing!",
+    buying: true,
+    dateBuying: "11/09/2003"
+  },
+  {
+    name: "Jane Smith",
+    rating: 4,
+    comment: "Great product, works well.",
+    buying: true,
+    dateBuying: "05/12/2022"
+  },
+  {
+    name: "Michael Johnson",
+    rating: 3,
+    comment: "Decent product, could be better.",
+    buying: false,
+    dateBuying: "19/03/2021"
+  },
+  {
+    name: "Emily Davis",
+    rating: 5,
+    comment: "Absolutely love it! Highly recommend.",
+    buying: true,
+    dateBuying: "28/07/2023"
+  },
+  {
+    name: "David Wilson",
+    rating: 4,
+    comment: "Good quality product, satisfied with the purchase.",
+    buying: true,
+    dateBuying: "02/11/2020"
+  },
+  {
+    name: "Sarah Anderson",
+    rating: 5,
+    comment: "Excellent product, exceeds expectations!",
+    buying: true,
+    dateBuying: "14/06/2024"
+  }
+];
+
+export const catergoriesSlug = {
+  navigatorts: [
+    {
+      slug: "#",
+      label: "Điện thoại"
+    },
+    {
+      slug: "#",
+      label: "Điện thoại"
+    },
+  ],
+  catergoriesAds: [
+    {
+      slug: "#",
+      img: "/assets/images/hot-deal-catergories.jpg",
+    },
+    {
+      slug: "#",
+      img: "/assets/images/hot-deal-catergories.jpg",
+    },
+  ]
 }

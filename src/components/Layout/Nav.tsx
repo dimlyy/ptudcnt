@@ -59,8 +59,8 @@ const Nav = () => {
             "bg-[var(--btn-color)] justify-start text-[var(--body-color)]"
           )}
         >
-          <i className="uil uil-bars ml-[-2px] flex items-center justify-center text-[var(--title-color)] text-2xl" />
-          <span className="transition-opacity nav_text hidden text-[var(--title-color)] whitespace-nowrap ml-3 text-lg">
+          <i className="uil uil-bars ml-[-2px] flex items-center justify-center text-2xl" />
+          <span className="transition-opacity nav_text hidden whitespace-nowrap ml-3 text-lg">
             Tất cả sản phẩm
           </span>
         </div>

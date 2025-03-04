@@ -74,10 +74,10 @@ const ProductRelate = ({ data }) => {
   return (
     <div className="flex md:flex-row flex-col container md:mt-8">
       {/* Deals */}
-      <div className="md:w-1/3 w-full">
+      <div className="md:w-1/3 w-full mx-3 my-2 md:mx-0 md:my-0">
         {/* Special Offer */}
         {data.hasSpecialOffer && (
-          <div className="md:min-h-[425px] flex flex-col gap-1 bg-pink-100 rounded-lg overflow-hidden">
+          <div className="md:min-h-[405px] flex flex-col gap-1 bg-pink-100 rounded-lg overflow-hidden">
             <div className="text-red-500 flex flex-row p-2 bg-pink-300">
               <svg
                 className="w-5 h-5 mr-2"
@@ -140,7 +140,7 @@ const ProductRelate = ({ data }) => {
         )}
 
         {/* bundleDeals */}
-        <div className="min-h-[500px] flex flex-col rounded-lg overflow-hidden bg-pink-100 mt-3">
+        <div className="md:min-h-[500px] flex flex-col rounded-lg overflow-hidden bg-pink-100 mt-3">
           <div className="flex flex-row mx-2 text-red-500 py-3">
             <svg
               className="w-5 h-5 mr-2"

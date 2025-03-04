@@ -17,14 +17,19 @@ export default {
           "0%": { left: "-75%" },
           "100%": { left: "125%" },
         },
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
       },
       animation: {
         shine: "shine 0.75s linear",
+        'fade-in': 'fadeIn 0.2s ease-out forwards',
       },
     },
   },
   plugins: [
-    require('tailwind-scrollbar-hide')
+    require('tailwind-scrollbar-hide'),
   ],
   mode: 'jit',
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],

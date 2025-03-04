@@ -7,6 +7,7 @@ import { singleProduct } from '@constants';
 import ProductRelate from '@components/SingleProduct/ProductRelate';
 import { promotionData } from '@constants';
 import ProductDescription from '@components/SingleProduct/ProductDescription';
+import ShopCarouselImgs from '@components/Home/shopCarouselImg/shopCarouselImgs';
 
 const Products = () => {
   return (
@@ -33,6 +34,8 @@ const Products = () => {
       <ProductRelate data={promotionData}/>
 
       <ProductDescription/>
+
+      <ShopCarouselImgs/>
     </div>
   );
 };

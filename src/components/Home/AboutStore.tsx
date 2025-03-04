@@ -4,6 +4,9 @@ import React, { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+
+
+import ShopCarouselImgs from "./shopCarouselImg/shopCarouselImgs"
 import { homePageFooterOffers, shopImgs } from "@constants";
 const AboutStore = () => {
   const carouselRefs = useRef<Array<HTMLDivElement | null>>([]);
@@ -160,25 +163,8 @@ const AboutStore = () => {
               </div>
             ))}
         </div>
-
-        {/* Shop IMG */}
-        <div className="w-full flex flex-row overflow-auto rounded-lg">
-          {shopImgs &&
-            shopImgs.map((item, index) => (
-              <div
-                key={index}
-                className="md:w-1/5 w-2/5 shrink-0 hover:opacity-60 duration-300"
-              >
-                <Image
-                  src={item.img}
-                  alt={item.alt}
-                  width={230}
-                  height={230}
-                  className="object-cover w-full h-auto"
-                />
-              </div>
-            ))}
-        </div>
+        
+        <ShopCarouselImgs />
       </div>
     </section>
   );
