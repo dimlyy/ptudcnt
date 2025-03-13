@@ -6,13 +6,15 @@ import Image from "next/image";
 import classNames from "classnames";
 
 import "@styles/header.scss";
+import ActiveCart from "./Header/ActiveCart";
 
 
 const Header = () => {
-
+  const [onActiveCart, setOnActiveCart] = useState(false);
   const [inputPlaceholder, setInputPlaceholder] = useState("Tìm kiếm");
 
-  const typeWriterEffect = (text, setPlaceholder, delay = 150) => {
+  // Chữ chạy trên search input
+  const typeWriterEffect = (text: string, setPlaceholder:() => void, delay = 150) => {
     let index = 0;
     const interval = setInterval(() => {
       if (index <= text.length) {
@@ -38,9 +40,14 @@ const Header = () => {
   const [isWishListOpen, setWishListOpen] = useState(false);
 
   const handleCartToggle = () => {
-    setIsCartOpen(true);
+    setOnActiveCart(true);
     setWishListOpen(false);
   };
+
+  const handleCloseCart = () => {
+    console.log("handleCloseCart")
+    setOnActiveCart(false);
+  }
 
   const handleWishlistToggle = () => {
     setIsCartOpen(false);
@@ -104,6 +111,7 @@ const Header = () => {
               </div>
             </div>
           </div>
+
         </div>
       </div>
 
@@ -223,21 +231,10 @@ const Header = () => {
                   </ul>
                 </div>
             </div>
-            
-            {/* Wish list */}
-            <div className="flex mr-6 h-11 w-11 bg-[var(--background-color)] rounded-full">
-                <button
-                onClick={handleWishlistToggle}
-                className="flex relative h-full w-full items-center justify-center">
-                  <span>
-                    <i className="uil uil-heart-alt text-xl"/>
-                  </span>
-                  <span className="absolute top-0 right-0 w-4 h-4 rounded-full bg-[var(--btn-color)] border text-[var(--container-color)] border-slate-300 text-xs">0</span>
-                </button>
-            </div>
 
             {/* Cart */}
-            <div className="flex h-11 w-11 bg-[var(--btn-color)] rounded-full">
+            <div className="flex h-11 w-11 bg-[var(--btn-color)] rounded-full"
+            >
                 <button
                 onClick={handleCartToggle}
                 className="flex relative h-full w-full items-center justify-center">
@@ -248,149 +245,13 @@ const Header = () => {
                 </button>
             </div>
 
-            {/* Cart dropdown */}
-            <div className={classNames(
-                    "cart-dropdown",
-                    "fixed w-[270px] right-0 top-0 border-s-2 h-[100vh] z-50 bg-[var(--container-color)]",
-                    { active : isCartOpen}
-                  )}>
-                  <div className="mt-2 flex relative flex-col h-full ">
-
-                    <div className="w-full h-10 mt-2 border-b-2 border-slate-500">
-                      <span className="text-xl ml-3 text-[var(--title-color)]">Giỏ hàng</span>
-                    </div>
-
-                    {/* Close button */}
-                      <button
-                      onClick={()=> setIsCartOpen(false)}
-                      className="absolute top-2 right-3">
-                        <i className="uil uil-multiply text-[var(--title-color)] text-xl"/>
-                      </button>
-
-                      {/* Cart Item */}
-                      <ul className="flex flex-col h-full mx-2 overflow-y-auto">
-                        <li className="flex h-20 mt-2 w-full">
-                          <Link href="#" className="flex flex-row items-center shrink grow basis-auto">
-                             <Image
-                              src="/assets/images/navCatergories.png"
-                              alt="categories"
-                              width={600}
-                              height={600}
-                              className="flex max-w-none max-h-none w-14 h-14 object-contain"
-                            />
-                            <div className="flex flex-col whitespace-nowrap ml-2">
-                                <span className="leading-7 whitespace-nowrap uppercase text-[var(--title-color)]">Iphone 16 promax</span>
-                                <span className="text-sm leading-7 text-[var(--btn-color)]">16.650.000 VND</span>
-                            </div>
-                          </Link>
-                            <div className="flex items-center">
-                              <button className="flex items-center">
-                                <i className="uil uil-multiply text-[var(--title-color)] "/>
-                              </button>
-                            </div>
-                        </li>
-
-                        <li className="flex h-20 mt-2 w-full">
-                          <Link href="#" className="flex flex-row items-center shrink grow basis-auto">
-                             <Image
-                              src="/assets/images/navCatergories.png"
-                              alt="categories"
-                              width={600}
-                              height={600}
-                              className="flex max-w-none max-h-none w-14 h-14 object-contain"
-                            />
-                            <div className="flex flex-col whitespace-nowrap ml-2">
-                                <span className="leading-7 whitespace-nowrap uppercase text-[var(--title-color)]">Iphone 16 promax</span>
-                                <span className="text-sm leading-7 text-[var(--btn-color)]">16.650.000 VND</span>
-                            </div>
-                          </Link>
-                            <div className="flex items-center">
-                              <button className="flex items-center">
-                                <i className="uil uil-multiply text-[var(--title-color)] "/>
-                              </button>
-                            </div>
-                        </li>
-
-                        <li className="flex h-20 mt-2 w-full">
-                          <Link href="#" className="flex flex-row items-center shrink grow basis-auto">
-                             <Image
-                              src="/assets/images/navCatergories.png"
-                              alt="categories"
-                              width={600}
-                              height={600}
-                              className="flex max-w-none max-h-none w-14 h-14 object-contain"
-                            />
-                            <div className="flex flex-col whitespace-nowrap ml-2">
-                                <span className="leading-7 whitespace-nowrap uppercase text-[var(--title-color)]">Iphone 16 promax</span>
-                                <span className="text-sm leading-7 text-[var(--btn-color)]">16.650.000 VND</span>
-                            </div>
-                          </Link>
-                            <div className="flex items-center">
-                              <button className="flex items-center">
-                                <i className="uil uil-multiply text-[var(--title-color)] "/>
-                              </button>
-                            </div>
-                        </li>
-
-                      </ul>
-
-                      <div className="flex items-center h-12 w-full justify-center mb-8">
-                        <Link href="#" className="flex justify-center items-center bg-[var(--btn-color)] h-full rounded-2xl text-[var(--title-color)] w-60">Thanh toán</Link>
-                      </div>
-                  </div>
-            </div>
-
-            {/* Wishlist Dropdown (use with Cart Dropdown) */}
-            <div className={classNames(
-                    "cart-dropdown",
-                    "fixed w-[270px] right-0 top-0 border-s-2 h-[100vh] z-50 bg-[var(--container-color)]",
-                    { active : isWishListOpen}
-                  )}>
-                  <div className="mt-2 flex relative flex-col h-full ">
-
-                    <div className="w-full h-10 mt-2 border-b-2 border-slate-500">
-                      <span className="text-xl ml-3 text-[var(--title-color)]">Yêu thích</span>
-                    </div>
-
-                    {/* Close button */}
-                      <button
-                      onClick={()=> setWishListOpen(false)}
-                      className="absolute top-2 right-3">
-                        <i className="uil uil-multiply text-[var(--title-color)] text-xl"/>
-                      </button>
-
-                      {/* Wishlist Item */}
-                      <ul className="flex flex-col h-full mx-2 overflow-y-auto">
-                        <li className="flex h-20 mt-2 w-full">
-                          <Link href="#" className="flex flex-row items-center shrink grow basis-auto text-[var(--title-color)]">
-                             <Image
-                              src="/assets/images/navCatergories.png"
-                              alt="categories"
-                              width={24}
-                              height={24}
-                              className="flex max-w-none max-h-none w-14 h-14 object-contain"
-                            />
-                            <div className="flex flex-col whitespace-nowrap ml-2">
-                                <span className="leading-7 whitespace-nowrap uppercase">Iphone 16 promax</span>
-                                <span className="text-sm leading-7 text-[var(--btn-color)]">16.650.000 VND</span>
-                            </div>
-                          </Link>
-                            <div className="flex items-center">
-                              <button className="flex items-center">
-                                <i className="uil uil-multiply text-[var(--title-color)] "/>
-                              </button>
-                            </div>
-                        </li>
-                      </ul>
-
-                      <div className="flex items-center h-12 w-full justify-center mb-8 text-[var(--title-color)]">
-                        <Link href="#" className="flex justify-center items-center bg-[var(--btn-color)] h-full rounded-2xl w-60">Thanh toán</Link>
-                      </div>
-                  </div>
-            </div>
           </div>
+
         </div>
       </div>
+
+        {/* Wishlist Open (use with Cart Open) */}
+        <ActiveCart onActiveCart={onActiveCart} handleCloseCart={handleCloseCart}/>
     </header>
   );
 };

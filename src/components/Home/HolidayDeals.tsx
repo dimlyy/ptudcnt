@@ -147,14 +147,14 @@ const HolidayDeals = () => {
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
           className={`bg-[var(--background-color)] flex flex-row flex-nowrap 
-          overflow-auto gap-2 scrollbar-hide select-none`}
+          overflow-auto gap-4 scrollbar-hide select-none relative pl-2`}
         >
           {hotDealsItem.data.map((item, index) => (
             <Link
               key={index}
               href={item.slug ? `/products/${item.slug}` : "#"}
               className="w-[46%] md:w-[calc(20%-0.5rem)] flex flex-col flex-none gap-1
-             rounded-lg mb-2 p-2 snap-start shadow-xl bg-white "
+             rounded-lg my-2 p-2 snap-start shadow-xl bg-white hover:scale-105 relative"
               draggable={false}
               onClick={(e) => {
                 if (carouselRef.current?.dataset.preventClick === "true") {

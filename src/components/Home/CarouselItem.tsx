@@ -107,11 +107,11 @@
         {carouselItems.map((items, i) => (
           <div className="px-4" key={i}>
             {/* Title */}
-            <h1 className="text-red-500 text-3xl text-left  p-3 pr-10 pl-5 inline-block bg-[var(--container-color)] rounded-3xl uppercase">
+            <h1 className="text-red-500 text-xl md:text-3xl text-left  p-3 pr-10 pl-5 inline-block bg-[var(--container-color)] rounded-3xl uppercase">
               {items.product}
             </h1>
 
-            <div className="w-full mt-2 gap-2 flex flex-row flex-nowrap mb-3 overflow-x-auto">
+            <div className="w-full pl-3 mt-2 gap-2 flex flex-row flex-nowrap mb-3 overflow-x-auto">
               {items.dealImg &&
                 items.dealImg.map((item, index) => (
                   <Link
@@ -150,7 +150,7 @@
                   e.stopPropagation();
                   handleMouseUp(e, i);
                 }}
-                className="flex flex-row flex-nowrap gap-2 scroll-smooth scrollbar-hide overflow-x-auto pl-2"
+                className="flex flex-row flex-nowrap gap-4 scroll-smooth scrollbar-hide overflow-x-auto pl-2"
               >
                 {items.data.map((item, index) => (
                   <Link
@@ -158,7 +158,7 @@
                     key={index}
                     href={item.slug ? `/products/${item.slug}` : "#"}
                     className="w-[46%] md:w-[calc(20%-0.4rem)] flex flex-col flex-none gap-1
-                    rounded-lg mb-2 p-2 bg-white shadow-xl"
+                    rounded-lg my-3 p-2 bg-white shadow-xl hover:scale-105"
                     onClick={(e) => {
                       if(carouselRefs.current[i]?.dataset.preventClick === 'true'){
                         e.preventDefault();

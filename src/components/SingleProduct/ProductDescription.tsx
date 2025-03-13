@@ -6,8 +6,7 @@ import classNames from "classnames";
 
 const ProductDescription = () => {
   const [expanded, setExpanded] = useState(false);
-  const [expandedShortDescription, setExpandedShortDescription] =
-    useState(false);
+  const [expandedShortDescription, setExpandedShortDescription] = useState(false)
   const contentRef = useRef(null);
   const [showButton, setShowButton] = useState(false);
   const MAX_HEIGHT = 500; // Minimum height before showing "Read more"
@@ -159,12 +158,14 @@ const ProductDescription = () => {
           className="fixed flex items-center justify-center top-0 right-0 left-0 bottom-0 bg-black cursor-pointer bg-opacity-50 animate-fade-in"
           onClick={onCloseShortDescription}
         >
-          <div className="flex flex-col w-[500px] max-w-[95%] max-h-[90vh] mt-5 border-lg bg-white cursor-default rounded-lg animate-fade-in overflow-hidden">
+          <div className="flex flex-col w-[500px] max-w-[95%] max-h-[90vh] mt-5 border-lg bg-white cursor-default rounded-lg animate-fade-in overflow-hidden"
+          onClick={(e) => e.stopPropagation()}>
             <div className="w-full bg-pink-500 flex flex-row items-center">
               <span className="text-xl text-white flex font-semibold p-2">
                 Thông số kĩ thuật
               </span>
-              <div className="ml-auto mr-3 cursor-pointer rounded-md overflow-hidden">
+              <div className="ml-auto mr-3 cursor-pointer rounded-md overflow-hidden"
+              onClick={onCloseShortDescription}>
                 <svg
                   width="30"
                   height="30"
@@ -181,7 +182,7 @@ const ProductDescription = () => {
                 </svg>
               </div>
             </div>
-            <div className="overflow-y-auto max-h-[calc(-10.5rem + 90vh)] p-1">
+            <div className="overflow-y-auto max-h-[calc(-10.5rem+90vh)] p-1">
               {productDescription.shortDescription &&
                 productDescription.shortDescription.content.map(
                   (item, index) => (
@@ -210,12 +211,14 @@ const ProductDescription = () => {
                   )
                 )}
             </div>
-            <div className="flex items-center justify-center rounded-lg bg-pink-500 m-2">
+            <div className="flex items-center justify-center rounded-lg bg-pink-500 m-2 cursor-pointer"
+            onClick={onCloseShortDescription}>
               <span className="flex p-1 text-xl text-white">Đóng</span>
             </div>
           </div>
         </div>
       )}
+      
     </div>
   );
 };

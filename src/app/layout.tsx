@@ -19,9 +19,9 @@ const RootLayout: React.FC<React.PropsWithChildren<unknown>> = ({
       <body>
         {/* Tạo root div để bao quanh toàn bộ nội dung */}
         <div id="root">
-          <div className="md:ml-[var(--sticky-nav)] bg-[var(--background-color)]">
+          <div className=" bg-[var(--background-color)]">
             <div>
-              <Nav />
+              {/* <Nav /> */}
             </div>
             <div>
               <Header />
