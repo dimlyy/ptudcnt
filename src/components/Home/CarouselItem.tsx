@@ -150,7 +150,7 @@
                   e.stopPropagation();
                   handleMouseUp(e, i);
                 }}
-                className="flex flex-row flex-nowrap gap-4 scroll-smooth scrollbar-hide overflow-x-auto pl-2"
+                className="flex flex-row flex-nowrap gap-2 scroll-smooth scrollbar-hide overflow-x-auto pl-2"
               >
                 {items.data.map((item, index) => (
                   <Link
@@ -158,7 +158,7 @@
                     key={index}
                     href={item.slug ? `/products/${item.slug}` : "#"}
                     className="w-[46%] md:w-[calc(20%-0.4rem)] flex flex-col flex-none gap-1
-                    rounded-lg my-3 p-2 bg-white shadow-xl hover:scale-105"
+                    rounded-lg my-3 p-2 bg-white shadow-xl hover:shadow-xl group"
                     onClick={(e) => {
                       if(carouselRefs.current[i]?.dataset.preventClick === 'true'){
                         e.preventDefault();
@@ -166,7 +166,7 @@
                       }
                     }}
                   >
-                    <div className="flex flex-row gap-1">
+                    <div className="flex flex-row gap-1 pt-2 pl-2 bg-white z-10">
                       <span className="px-2 py-1 bg-[var(--btn-color)] text-[var(--title-color)] rounded-md text-xs">
                         {Math.round((1 - item.discountPrice / item.price) * 100)}%
                       </span>
@@ -182,7 +182,8 @@
                         alt={item.alt}
                         width={600}
                         height={600}
-                        className="object-cover w-full h-auto"
+                        className="object-cover w-full h-auto
+                        group-hover:translate-y-[-10px] duration-300"
                       />
                       <Image
                         src={item.specialDealImg}

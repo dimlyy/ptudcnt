@@ -92,7 +92,7 @@ const CarouselSlider = () => {
           <i className="uil uil-arrow-right text-[var(--title-color)] text-3xl" />
         </div>
       </div>
-
+{/* 
       <div className="hidden md:flex md:w-1/2 w-full">
             <div className="flex flex-row flex-wrap gap-2">
                {imgAdvertiseGrid.map((item, index) => (
@@ -106,11 +106,9 @@ const CarouselSlider = () => {
                 </Link>
                ))}
             </div>
-      </div>
+      </div> */}
 
-      <div className="flex md:hidden">
 
-      </div>
     </div>
   );
 };

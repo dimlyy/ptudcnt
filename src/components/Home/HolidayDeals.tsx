@@ -57,7 +57,6 @@ const HolidayDeals = () => {
     }
   };
 
-
   // 🔹 Kéo bằng cảm ứng (điện thoại)
   const handleTouchStart = (e: React.TouchEvent) => {
     if (!carouselRef.current) return;
@@ -147,14 +146,14 @@ const HolidayDeals = () => {
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
           className={`bg-[var(--background-color)] flex flex-row flex-nowrap 
-          overflow-auto gap-4 scrollbar-hide select-none relative pl-2`}
+          overflow-auto gap-2 scrollbar-hide select-none relative pl-2`}
         >
           {hotDealsItem.data.map((item, index) => (
             <Link
               key={index}
               href={item.slug ? `/products/${item.slug}` : "#"}
               className="w-[46%] md:w-[calc(20%-0.5rem)] flex flex-col flex-none gap-1
-             rounded-lg my-2 p-2 snap-start shadow-xl bg-white hover:scale-105 relative"
+             rounded-lg my-2 p-2 snap-start shadow-xl bg-white hover:shadow-xl group relative"
               draggable={false}
               onClick={(e) => {
                 if (carouselRef.current?.dataset.preventClick === "true") {
@@ -163,7 +162,7 @@ const HolidayDeals = () => {
                 }
               }}
             >
-              <div className="flex flex-row gap-1">
+              <div className="flex flex-row gap-1 bg-white pl-2 pt-2 z-10">
                 <span className="px-2 py-1 bg-[var(--btn-color)] text-[var(--title-color)] rounded-md text-xs">
                   {Math.round((1 - item.discountPrice / item.price) * 100)}%
                 </span>
@@ -180,7 +179,8 @@ const HolidayDeals = () => {
                   alt={item.alt}
                   width={600}
                   height={600}
-                  className="object-cover w-full h-auto pointer-events-none"
+                  className="object-cover w-full h-auto pointer-events-none
+                  group-hover:translate-y-[-10px] duration-300 z-0"
                 />
                 <Image
                   src="/assets/images/sunday_discount.png"

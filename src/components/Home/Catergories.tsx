@@ -6,7 +6,7 @@ import { catergoriesItem } from "@constants";
 
 const Catergories = () => {
   return (
-    <div className="container ">
+    <div className="container m-2">
       <ul className="flex flex-row flex-wrap w-full gap-2 bg-white rounded-lg">
         {catergoriesItem.map((item, index) => (
           <li key={index} className="w-[calc(20%-0.5rem)] md:w-[calc(10%-0.5rem)]">

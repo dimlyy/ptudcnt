@@ -284,8 +284,8 @@ export const catergoriesItem = [
           { name: "iPhone 13 Pro Max", slug: "iphone-13-pro-max" },
           { name: "iPhone 12 Pro Max", slug: "iphone-12-pro-max" },
           { name: "iPhone 11 Pro Max", slug: "iphone-11-pro-max" },
-          { name: "iPhone X", slug: "iphone-x" }
-        ]
+          { name: "iPhone X", slug: "iphone-x" },
+        ],
       },
       {
         label: "Samsung",
@@ -294,18 +294,18 @@ export const catergoriesItem = [
           { name: "Samsung Galaxy S23 Ultra", slug: "samsung-s23-ultra" },
           { name: "Samsung Galaxy Z Fold 5", slug: "samsung-z-fold-5" },
           { name: "Samsung Galaxy A54", slug: "samsung-a54" },
-          { name: "Samsung Galaxy M34", slug: "samsung-m34" }
-        ]
+          { name: "Samsung Galaxy M34", slug: "samsung-m34" },
+        ],
       },
       {
         label: "Xiaomi",
         data: [
           { name: "Xiaomi 14 Pro", slug: "xiaomi-14-pro" },
           { name: "Xiaomi Redmi Note 13", slug: "xiaomi-redmi-note-13" },
-          { name: "Xiaomi 13T", slug: "xiaomi-13t" }
-        ]
-      }
-    ]
+          { name: "Xiaomi 13T", slug: "xiaomi-13t" },
+        ],
+      },
+    ],
   },
   {
     img: "/assets/images/catergories/catergories-2.jpg",
@@ -319,17 +319,17 @@ export const catergoriesItem = [
           { name: "iPad Pro 12.9 inch", slug: "ipad-pro-12-9" },
           { name: "iPad Air 5th Gen", slug: "ipad-air-5" },
           { name: "iPad 10th Gen", slug: "ipad-10" },
-          { name: "iPad Mini 6", slug: "ipad-mini-6" }
-        ]
+          { name: "iPad Mini 6", slug: "ipad-mini-6" },
+        ],
       },
       {
         label: "Samsung Tablet",
         data: [
           { name: "Samsung Galaxy Tab S9 Ultra", slug: "samsung-tab-s9-ultra" },
-          { name: "Samsung Galaxy Tab A9+", slug: "samsung-tab-a9-plus" }
-        ]
-      }
-    ]
+          { name: "Samsung Galaxy Tab A9+", slug: "samsung-tab-a9-plus" },
+        ],
+      },
+    ],
   },
   {
     img: "/assets/images/catergories/catergories-3.jpg",
@@ -342,17 +342,17 @@ export const catergoriesItem = [
         data: [
           { name: "AirPods Pro 2nd Gen", slug: "airpods-pro-2" },
           { name: "AirPods 3rd Gen", slug: "airpods-3" },
-          { name: "AirPods 2nd Gen", slug: "airpods-2" }
-        ]
+          { name: "AirPods 2nd Gen", slug: "airpods-2" },
+        ],
       },
       {
         label: "Samsung Earbuds",
         data: [
           { name: "Samsung Galaxy Buds2 Pro", slug: "samsung-buds-2-pro" },
-          { name: "Samsung Galaxy Buds FE", slug: "samsung-buds-fe" }
-        ]
-      }
-    ]
+          { name: "Samsung Galaxy Buds FE", slug: "samsung-buds-fe" },
+        ],
+      },
+    ],
   },
   {
     img: "/assets/images/catergories/catergories-4.jpg",
@@ -365,17 +365,17 @@ export const catergoriesItem = [
         data: [
           { name: "Apple Watch Series 9", slug: "apple-watch-9" },
           { name: "Apple Watch Ultra 2", slug: "apple-watch-ultra-2" },
-          { name: "Apple Watch SE 2nd Gen", slug: "apple-watch-se-2" }
-        ]
+          { name: "Apple Watch SE 2nd Gen", slug: "apple-watch-se-2" },
+        ],
       },
       {
         label: "Samsung Watch",
         data: [
           { name: "Samsung Galaxy Watch 6", slug: "samsung-watch-6" },
-          { name: "Samsung Galaxy Watch 5 Pro", slug: "samsung-watch-5-pro" }
-        ]
-      }
-    ]
+          { name: "Samsung Galaxy Watch 5 Pro", slug: "samsung-watch-5-pro" },
+        ],
+      },
+    ],
   },
   {
     img: "/assets/images/catergories/catergories-5.jpg",
@@ -388,17 +388,17 @@ export const catergoriesItem = [
         data: [
           { name: "MacBook Pro 16-inch M3 Max", slug: "macbook-pro-16-m3-max" },
           { name: "MacBook Pro 14-inch M3", slug: "macbook-pro-14-m3" },
-          { name: "MacBook Pro 13-inch M2", slug: "macbook-pro-13-m2" }
-        ]
+          { name: "MacBook Pro 13-inch M2", slug: "macbook-pro-13-m2" },
+        ],
       },
       {
         label: "MacBook Air",
         data: [
           { name: "MacBook Air 15-inch M2", slug: "macbook-air-15-m2" },
-          { name: "MacBook Air 13-inch M2", slug: "macbook-air-13-m2" }
-        ]
-      }
-    ]
+          { name: "MacBook Air 13-inch M2", slug: "macbook-air-13-m2" },
+        ],
+      },
+    ],
   },
   {
     img: "/assets/images/catergories/catergories-6.jpg",
@@ -410,46 +410,46 @@ export const catergoriesItem = [
         label: "Dell",
         data: [
           { name: "Dell XPS 15", slug: "dell-xps-15" },
-          { name: "Dell Inspiron 16", slug: "dell-inspiron-16" }
-        ]
+          { name: "Dell Inspiron 16", slug: "dell-inspiron-16" },
+        ],
       },
       {
         label: "Lenovo",
         data: [
           { name: "Lenovo ThinkPad X1 Carbon", slug: "lenovo-thinkpad-x1" },
-          { name: "Lenovo Yoga 9i", slug: "lenovo-yoga-9i" }
-        ]
-      }
-    ]
+          { name: "Lenovo Yoga 9i", slug: "lenovo-yoga-9i" },
+        ],
+      },
+    ],
   },
   {
     img: "/assets/images/catergories/catergories-7.jpg",
     title: "Cửa hàng",
     alt: "Store",
     link: "/cua-hang",
-    children: []
+    children: [],
   },
   {
     img: "/assets/images/catergories/catergories-7.jpg",
     title: "Cửa hàng",
     alt: "Store",
     link: "/cua-hang",
-    children: []
+    children: [],
   },
   {
     img: "/assets/images/catergories/catergories-7.jpg",
     title: "Cửa hàng",
     alt: "Store",
     link: "/cua-hang",
-    children: []
+    children: [],
   },
   {
     img: "/assets/images/catergories/catergories-7.jpg",
     title: "Cửa hàng",
     alt: "Store",
     link: "/cua-hang",
-    children: []
-  }
+    children: [],
+  },
 ];
 
 export const holidayDealImgs = {
@@ -1631,3 +1631,9 @@ export const socialMediaBlogs = [
     link: "tel:0378808834",
   },
 ];
+
+export const navItems = [
+  {
+
+  }
+]

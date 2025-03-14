@@ -25,10 +25,10 @@ const CatergoriesItems: React.FC<CatergoriesItemsProps> = ({ data }) => {
           <Link
             key={index}
             href={`/products/${item.slug}`}
-            className="flex flex-col gap-1 rounded-sm p-1 border border-gray-300
-            hover:scale-105 hover:shadow-xl duration-300"
+            className="flex flex-col gap-1 rounded-md p-1 border border-gray-300 group
+            hover:shadow-xl"
           >
-            <div className="flex flex-row gap-1">
+            <div className="flex flex-row gap-1 z-10 pt-2 pl-2 bg-white">
               <span className="px-2 py-1 bg-[var(--btn-color)] text-[var(--title-color)] rounded-md text-xs">
                 {Math.round((1 - item.discountPrice / item.price) * 100)}%
               </span>
@@ -45,7 +45,8 @@ const CatergoriesItems: React.FC<CatergoriesItemsProps> = ({ data }) => {
                 alt={item.alt}
                 width={600}
                 height={600}
-                className="object-cover w-full h-auto pointer-events-none"
+                className="object-cover w-full h-auto pointer-events-none
+                group-hover:translate-y-[-10px] duration-300 z-0"
               />
               <Image
                 src="/assets/images/sunday_discount.png"
