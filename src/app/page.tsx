@@ -10,8 +10,8 @@ import HolidayDeals from "@components/Home/HolidayDeals";
 export default function Home() {
   return (
     <div className="mt-4">
-      <CarouselSlider />
       <Catergories/>
+      <CarouselSlider />
       <HolidayDeals/>
       <Modal/>
       <CarouselItem/>

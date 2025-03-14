@@ -131,13 +131,13 @@ const Header = () => {
           <div className="flex flex-row shrink grow basis-auto items-center h-full">
             <ul className="flex flex-row h-full items-center">
               <li className="flex text-[var(--title-color)] h-full ml-6 relative text-sm">
-                <Link href="#" className="flex h-full items-center">
+                <Link href="/catergories" className="flex h-full items-center">
                   Sản phẩm
                 </Link>
               </li>
 
               <li className="flex text-[var(--title-color)] h-full ml-6 relative text-sm">
-                <Link href="#" className="flex h-full items-center">
+                <Link href="/blogs" className="flex h-full items-center">
                   Tin tức
                 </Link>
               </li>

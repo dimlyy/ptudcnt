@@ -272,63 +272,184 @@ export const catergoriesItem = [
   {
     img: "/assets/images/catergories/catergories-1.jpg",
     title: "Điện thoại",
-    alt: "Apple Store",
-    link: "#",
+    alt: "Smartphone Store",
+    link: "/dien-thoai",
+    children: [
+      {
+        label: "Iphone",
+        data: [
+          { name: "iPhone 16 Pro Max", slug: "iphone-16-pro-max" },
+          { name: "iPhone 15 Pro Max", slug: "iphone-15-pro-max" },
+          { name: "iPhone 14 Pro Max", slug: "iphone-14-pro-max" },
+          { name: "iPhone 13 Pro Max", slug: "iphone-13-pro-max" },
+          { name: "iPhone 12 Pro Max", slug: "iphone-12-pro-max" },
+          { name: "iPhone 11 Pro Max", slug: "iphone-11-pro-max" },
+          { name: "iPhone X", slug: "iphone-x" }
+        ]
+      },
+      {
+        label: "Samsung",
+        data: [
+          { name: "Samsung Galaxy S24 Ultra", slug: "samsung-s24-ultra" },
+          { name: "Samsung Galaxy S23 Ultra", slug: "samsung-s23-ultra" },
+          { name: "Samsung Galaxy Z Fold 5", slug: "samsung-z-fold-5" },
+          { name: "Samsung Galaxy A54", slug: "samsung-a54" },
+          { name: "Samsung Galaxy M34", slug: "samsung-m34" }
+        ]
+      },
+      {
+        label: "Xiaomi",
+        data: [
+          { name: "Xiaomi 14 Pro", slug: "xiaomi-14-pro" },
+          { name: "Xiaomi Redmi Note 13", slug: "xiaomi-redmi-note-13" },
+          { name: "Xiaomi 13T", slug: "xiaomi-13t" }
+        ]
+      }
+    ]
   },
   {
     img: "/assets/images/catergories/catergories-2.jpg",
     title: "Tablet",
-    alt: "Apple Store",
-    link: "#",
+    alt: "Tablet Store",
+    link: "/tablet",
+    children: [
+      {
+        label: "iPad",
+        data: [
+          { name: "iPad Pro 12.9 inch", slug: "ipad-pro-12-9" },
+          { name: "iPad Air 5th Gen", slug: "ipad-air-5" },
+          { name: "iPad 10th Gen", slug: "ipad-10" },
+          { name: "iPad Mini 6", slug: "ipad-mini-6" }
+        ]
+      },
+      {
+        label: "Samsung Tablet",
+        data: [
+          { name: "Samsung Galaxy Tab S9 Ultra", slug: "samsung-tab-s9-ultra" },
+          { name: "Samsung Galaxy Tab A9+", slug: "samsung-tab-a9-plus" }
+        ]
+      }
+    ]
   },
   {
     img: "/assets/images/catergories/catergories-3.jpg",
     title: "Airpod",
-    alt: "Apple Store",
-    link: "#",
+    alt: "Earbuds Store",
+    link: "/airpod",
+    children: [
+      {
+        label: "Apple AirPods",
+        data: [
+          { name: "AirPods Pro 2nd Gen", slug: "airpods-pro-2" },
+          { name: "AirPods 3rd Gen", slug: "airpods-3" },
+          { name: "AirPods 2nd Gen", slug: "airpods-2" }
+        ]
+      },
+      {
+        label: "Samsung Earbuds",
+        data: [
+          { name: "Samsung Galaxy Buds2 Pro", slug: "samsung-buds-2-pro" },
+          { name: "Samsung Galaxy Buds FE", slug: "samsung-buds-fe" }
+        ]
+      }
+    ]
   },
   {
     img: "/assets/images/catergories/catergories-4.jpg",
     title: "Watch",
-    alt: "Apple Store",
-    link: "#",
+    alt: "Smartwatch Store",
+    link: "/watch",
+    children: [
+      {
+        label: "Apple Watch",
+        data: [
+          { name: "Apple Watch Series 9", slug: "apple-watch-9" },
+          { name: "Apple Watch Ultra 2", slug: "apple-watch-ultra-2" },
+          { name: "Apple Watch SE 2nd Gen", slug: "apple-watch-se-2" }
+        ]
+      },
+      {
+        label: "Samsung Watch",
+        data: [
+          { name: "Samsung Galaxy Watch 6", slug: "samsung-watch-6" },
+          { name: "Samsung Galaxy Watch 5 Pro", slug: "samsung-watch-5-pro" }
+        ]
+      }
+    ]
   },
   {
     img: "/assets/images/catergories/catergories-5.jpg",
     title: "Macbook",
-    alt: "Apple Store",
-    link: "#",
+    alt: "Apple Laptop Store",
+    link: "/macbook",
+    children: [
+      {
+        label: "MacBook Pro",
+        data: [
+          { name: "MacBook Pro 16-inch M3 Max", slug: "macbook-pro-16-m3-max" },
+          { name: "MacBook Pro 14-inch M3", slug: "macbook-pro-14-m3" },
+          { name: "MacBook Pro 13-inch M2", slug: "macbook-pro-13-m2" }
+        ]
+      },
+      {
+        label: "MacBook Air",
+        data: [
+          { name: "MacBook Air 15-inch M2", slug: "macbook-air-15-m2" },
+          { name: "MacBook Air 13-inch M2", slug: "macbook-air-13-m2" }
+        ]
+      }
+    ]
   },
   {
     img: "/assets/images/catergories/catergories-6.jpg",
     title: "Laptop",
-    alt: "Apple Store",
-    link: "#",
+    alt: "Laptop Store",
+    link: "/laptop",
+    children: [
+      {
+        label: "Dell",
+        data: [
+          { name: "Dell XPS 15", slug: "dell-xps-15" },
+          { name: "Dell Inspiron 16", slug: "dell-inspiron-16" }
+        ]
+      },
+      {
+        label: "Lenovo",
+        data: [
+          { name: "Lenovo ThinkPad X1 Carbon", slug: "lenovo-thinkpad-x1" },
+          { name: "Lenovo Yoga 9i", slug: "lenovo-yoga-9i" }
+        ]
+      }
+    ]
   },
   {
     img: "/assets/images/catergories/catergories-7.jpg",
     title: "Cửa hàng",
-    alt: "Apple Store",
-    link: "#",
+    alt: "Store",
+    link: "/cua-hang",
+    children: []
   },
   {
     img: "/assets/images/catergories/catergories-7.jpg",
     title: "Cửa hàng",
-    alt: "Apple Store",
-    link: "#",
+    alt: "Store",
+    link: "/cua-hang",
+    children: []
   },
   {
     img: "/assets/images/catergories/catergories-7.jpg",
     title: "Cửa hàng",
-    alt: "Apple Store",
-    link: "#",
+    alt: "Store",
+    link: "/cua-hang",
+    children: []
   },
   {
     img: "/assets/images/catergories/catergories-7.jpg",
     title: "Cửa hàng",
-    alt: "Apple Store",
-    link: "#",
-  },
+    alt: "Store",
+    link: "/cua-hang",
+    children: []
+  }
 ];
 
 export const holidayDealImgs = {
@@ -997,93 +1118,92 @@ export const productDescription = {
     `,
   },
   shortDescription: {
-    content:
-      [
-        {
-          label:  "Màn hình",
-          data: [
-            {
-              name: "Công nghệ màn hình",
-              value: "IPS LCD"
-            },
-            {
-              name: "Kích thước màn hình (inch)",
-              value: "10.9"
-            },
-            {
-              name: "Mặt kính cảm ứng",
-              value: "IPS LCD"
-            },
-            {
-              name: "Tính năng màn hình",
-              value: "Tần số quét 90hz "
-            }
-          ]
-        },
-        {
-          label:  "Màn hình",
-          data: [
-            {
-              name: "Công nghệ màn hình",
-              value: "IPS LCD"
-            },
-            {
-              name: "Kích thước màn hình (inch)",
-              value: "10.9"
-            },
-            {
-              name: "Mặt kính cảm ứng",
-              value: "IPS LCD"
-            },
-            {
-              name: "Tính năng màn hình",
-              value: "Tần số quét 90hz "
-            }
-          ]
-        },
-        {
-          label:  "Màn hình",
-          data: [
-            {
-              name: "Công nghệ màn hình",
-              value: "IPS LCD"
-            },
-            {
-              name: "Kích thước màn hình (inch)",
-              value: "10.9"
-            },
-            {
-              name: "Mặt kính cảm ứng",
-              value: "IPS LCD"
-            },
-            {
-              name: "Tính năng màn hình",
-              value: "Tần số quét 90hz "
-            }
-          ]
-        },
-        {
-          label:  "Màn hình",
-          data: [
-            {
-              name: "Công nghệ màn hình",
-              value: "IPS LCD"
-            },
-            {
-              name: "Kích thước màn hình (inch)",
-              value: "10.9"
-            },
-            {
-              name: "Mặt kính cảm ứng",
-              value: "IPS LCD"
-            },
-            {
-              name: "Tính năng màn hình",
-              value: "Tần số quét 90hz "
-            }
-          ]
-        },
-      ]
+    content: [
+      {
+        label: "Màn hình",
+        data: [
+          {
+            name: "Công nghệ màn hình",
+            value: "IPS LCD",
+          },
+          {
+            name: "Kích thước màn hình (inch)",
+            value: "10.9",
+          },
+          {
+            name: "Mặt kính cảm ứng",
+            value: "IPS LCD",
+          },
+          {
+            name: "Tính năng màn hình",
+            value: "Tần số quét 90hz ",
+          },
+        ],
+      },
+      {
+        label: "Màn hình",
+        data: [
+          {
+            name: "Công nghệ màn hình",
+            value: "IPS LCD",
+          },
+          {
+            name: "Kích thước màn hình (inch)",
+            value: "10.9",
+          },
+          {
+            name: "Mặt kính cảm ứng",
+            value: "IPS LCD",
+          },
+          {
+            name: "Tính năng màn hình",
+            value: "Tần số quét 90hz ",
+          },
+        ],
+      },
+      {
+        label: "Màn hình",
+        data: [
+          {
+            name: "Công nghệ màn hình",
+            value: "IPS LCD",
+          },
+          {
+            name: "Kích thước màn hình (inch)",
+            value: "10.9",
+          },
+          {
+            name: "Mặt kính cảm ứng",
+            value: "IPS LCD",
+          },
+          {
+            name: "Tính năng màn hình",
+            value: "Tần số quét 90hz ",
+          },
+        ],
+      },
+      {
+        label: "Màn hình",
+        data: [
+          {
+            name: "Công nghệ màn hình",
+            value: "IPS LCD",
+          },
+          {
+            name: "Kích thước màn hình (inch)",
+            value: "10.9",
+          },
+          {
+            name: "Mặt kính cảm ứng",
+            value: "IPS LCD",
+          },
+          {
+            name: "Tính năng màn hình",
+            value: "Tần số quét 90hz ",
+          },
+        ],
+      },
+    ],
   },
 };
 
@@ -1093,54 +1213,54 @@ export const customerVoting = [
     rating: 5,
     comment: "This product is amazing!",
     buying: true,
-    dateBuying: "11/09/2003"
+    dateBuying: "11/09/2003",
   },
   {
     name: "Jane Smith",
     rating: 4,
     comment: "Great product, works well.",
     buying: true,
-    dateBuying: "05/12/2022"
+    dateBuying: "05/12/2022",
   },
   {
     name: "Michael Johnson",
     rating: 3,
     comment: "Decent product, could be better.",
     buying: false,
-    dateBuying: "19/03/2021"
+    dateBuying: "19/03/2021",
   },
   {
     name: "Emily Davis",
     rating: 5,
     comment: "Absolutely love it! Highly recommend.",
     buying: true,
-    dateBuying: "28/07/2023"
+    dateBuying: "28/07/2023",
   },
   {
     name: "David Wilson",
     rating: 4,
     comment: "Good quality product, satisfied with the purchase.",
     buying: true,
-    dateBuying: "02/11/2020"
+    dateBuying: "02/11/2020",
   },
   {
     name: "Sarah Anderson",
     rating: 5,
     comment: "Excellent product, exceeds expectations!",
     buying: true,
-    dateBuying: "14/06/2024"
-  }
+    dateBuying: "14/06/2024",
+  },
 ];
 
 export const catergoriesSlug = {
   navigatorts: [
     {
       slug: "#",
-      label: "Điện thoại"
+      label: "Điện thoại",
     },
     {
       slug: "#",
-      label: "Điện thoại"
+      label: "Điện thoại",
     },
   ],
   catergoriesAds: [
@@ -1152,8 +1272,8 @@ export const catergoriesSlug = {
       slug: "#",
       img: "/assets/images/hot-deal-catergories.jpg",
     },
-  ]
-}
+  ],
+};
 
 export const cartItems = [
   {
@@ -1163,9 +1283,7 @@ export const cartItems = [
     price: 15990000,
     discountPrice: 15990000,
     quantity: 2,
-    relateImg: [
-       "/assets/images/slider/product_relate-1.jpg",
-    ],
+    relateImg: ["/assets/images/slider/product_relate-1.jpg"],
     img: "/assets/images/products/product_1-1.jpg",
     selected: true,
   },
@@ -1176,9 +1294,7 @@ export const cartItems = [
     price: 15990000,
     discountPrice: 15990000,
     quantity: 1,
-    relateImg: [
-      "/assets/images/slider/product_relate-1.jpg",
-   ],
+    relateImg: ["/assets/images/slider/product_relate-1.jpg"],
     img: "/assets/images/products/samsung-galaxy-S24.jpg",
     selected: false,
   },
@@ -1189,43 +1305,41 @@ export const cartItems = [
     price: 15990000,
     discountPrice: 15990000,
     quantity: 3,
-    relateImg: [
-      "/assets/images/slider/product_relate-1.jpg",
-   ],
+    relateImg: ["/assets/images/slider/product_relate-1.jpg"],
     img: "/assets/images/products/product_1-1.jpg",
     selected: true,
-  }, 
-]
+  },
+];
 
 export const filterItems = {
   series: [
     {
       label: "Iphone 16",
-      value: "#"
+      value: "#",
     },
     {
       label: "Iphone 15",
-      value: "#"
+      value: "#",
     },
     {
       label: "Iphone 14",
-      value: "#"
+      value: "#",
     },
     {
       label: "Iphone 13",
-      value: "#"
+      value: "#",
     },
     {
       label: "Iphone 12",
-      value: "#"
+      value: "#",
     },
     {
       label: "Iphone 11",
-      value: "#"
+      value: "#",
     },
     {
       label: "Iphone X",
-      value: "#"
+      value: "#",
     },
   ],
   datas: [
@@ -1321,5 +1435,199 @@ export const filterItems = {
       price: 24990000,
       discountPrice: 23990000,
     },
+    {
+      discountGif: "/assets/images/discount_gif.gif",
+      instatement: true,
+      img: "/assets/images/products/product_1-1.jpg",
+      absoluteImg: "/assets/images/sunday_discount.png",
+      alt: "Apple Store",
+      slug: "aa",
+      label: "Iphone 16 ProMax 128GB chính hãng - fullbox - bảo hành 24 tháng",
+      price: 24990000,
+      discountPrice: 23990000,
+    },
+    {
+      discountGif: "/assets/images/discount_gif.gif",
+      instatement: true,
+      img: "/assets/images/products/product_1-1.jpg",
+      absoluteImg: "/assets/images/sunday_discount.png",
+      alt: "Apple Store",
+      slug: "aa",
+      label: "Iphone 16 ProMax 128GB chính hãng - fullbox - bảo hành 24 tháng",
+      price: 24990000,
+      discountPrice: 23990000,
+    },
+    {
+      discountGif: "/assets/images/discount_gif.gif",
+      instatement: true,
+      img: "/assets/images/products/product_1-1.jpg",
+      absoluteImg: "/assets/images/sunday_discount.png",
+      alt: "Apple Store",
+      slug: "aa",
+      label: "Iphone 16 ProMax 128GB chính hãng - fullbox - bảo hành 24 tháng",
+      price: 24990000,
+      discountPrice: 23990000,
+    },
+    {
+      discountGif: "/assets/images/discount_gif.gif",
+      instatement: true,
+      img: "/assets/images/products/product_1-1.jpg",
+      absoluteImg: "/assets/images/sunday_discount.png",
+      alt: "Apple Store",
+      slug: "aa",
+      label: "Iphone 16 ProMax 128GB chính hãng - fullbox - bảo hành 24 tháng",
+      price: 24990000,
+      discountPrice: 23990000,
+    },
+    {
+      discountGif: "/assets/images/discount_gif.gif",
+      instatement: true,
+      img: "/assets/images/products/product_1-1.jpg",
+      absoluteImg: "/assets/images/sunday_discount.png",
+      alt: "Apple Store",
+      slug: "aa",
+      label: "Iphone 16 ProMax 128GB chính hãng - fullbox - bảo hành 24 tháng",
+      price: 24990000,
+      discountPrice: 23990000,
+    },
+    {
+      discountGif: "/assets/images/discount_gif.gif",
+      instatement: true,
+      img: "/assets/images/products/product_1-1.jpg",
+      absoluteImg: "/assets/images/sunday_discount.png",
+      alt: "Apple Store",
+      slug: "aa",
+      label: "Iphone 16 ProMax 128GB chính hãng - fullbox - bảo hành 24 tháng",
+      price: 24990000,
+      discountPrice: 23990000,
+    },
+    {
+      discountGif: "/assets/images/discount_gif.gif",
+      instatement: true,
+      img: "/assets/images/products/product_1-1.jpg",
+      absoluteImg: "/assets/images/sunday_discount.png",
+      alt: "Apple Store",
+      slug: "aa",
+      label: "Iphone 16 ProMax 128GB chính hãng - fullbox - bảo hành 24 tháng",
+      price: 24990000,
+      discountPrice: 23990000,
+    },
+    {
+      discountGif: "/assets/images/discount_gif.gif",
+      instatement: true,
+      img: "/assets/images/products/product_1-1.jpg",
+      absoluteImg: "/assets/images/sunday_discount.png",
+      alt: "Apple Store",
+      slug: "aa",
+      label: "Iphone 16 ProMax 128GB chính hãng - fullbox - bảo hành 24 tháng",
+      price: 24990000,
+      discountPrice: 23990000,
+    },
+    {
+      discountGif: "/assets/images/discount_gif.gif",
+      instatement: true,
+      img: "/assets/images/products/product_1-1.jpg",
+      absoluteImg: "/assets/images/sunday_discount.png",
+      alt: "Apple Store",
+      slug: "aa",
+      label: "Iphone 16 ProMax 128GB chính hãng - fullbox - bảo hành 24 tháng",
+      price: 24990000,
+      discountPrice: 23990000,
+    },
+    {
+      discountGif: "/assets/images/discount_gif.gif",
+      instatement: true,
+      img: "/assets/images/products/product_1-1.jpg",
+      absoluteImg: "/assets/images/sunday_discount.png",
+      alt: "Apple Store",
+      slug: "aa",
+      label: "Iphone 16 ProMax 128GB chính hãng - fullbox - bảo hành 24 tháng",
+      price: 24990000,
+      discountPrice: 23990000,
+    },
+    {
+      discountGif: "/assets/images/discount_gif.gif",
+      instatement: true,
+      img: "/assets/images/products/product_1-1.jpg",
+      absoluteImg: "/assets/images/sunday_discount.png",
+      alt: "Apple Store",
+      slug: "aa",
+      label: "Iphone 16 ProMax 128GB chính hãng - fullbox - bảo hành 24 tháng",
+      price: 24990000,
+      discountPrice: 23990000,
+    },
+    {
+      discountGif: "/assets/images/discount_gif.gif",
+      instatement: true,
+      img: "/assets/images/products/product_1-1.jpg",
+      absoluteImg: "/assets/images/sunday_discount.png",
+      alt: "Apple Store",
+      slug: "aa",
+      label: "Iphone 16 ProMax 128GB chính hãng - fullbox - bảo hành 24 tháng",
+      price: 24990000,
+      discountPrice: 23990000,
+    },
   ],
-}
+};
+
+export const blogPost = [
+  {
+    slug: "aa",
+    avatar: "/assets/images/avatar.jpg",
+    user: "Dimly",
+    title: "Nhân ngày 8/3, giảm giá đặc biệt cho tất cả chị em phụ nữ",
+    description:
+      "Lập trình đang dần trở thành một ngành “hot” và là xu thế của nhiều người trẻ hiện nay. Vậy tự học lập trình có khó không? Bài viết...",
+    type: "Diện thoại",
+    date: "13-7-2025",
+    img: "/assets/images/blog-post-1.jpg",
+  },
+  {
+    slug: "aa",
+    avatar: "/assets/images/avatar.jpg",
+    user: "Dimly",
+    title: "Nhân ngày 8/3, giảm giá đặc biệt cho tất cả chị em phụ nữ",
+    description:
+      "Lập trình đang dần trở thành một ngành “hot” và là xu thế của nhiều người trẻ hiện nay. Vậy tự học lập trình có khó không? Bài viết...",
+    type: "Diện thoại",
+    date: "13-7-2025",
+    img: "/assets/images/blog-post-1.jpg",
+  },
+  {
+    slug: "aa",
+    avatar: "/assets/images/avatar.jpg",
+    user: "Dimly",
+    title: "Nhân ngày 8/3, giảm giá đặc biệt cho tất cả chị em phụ nữ",
+    description:
+      "Lập trình đang dần trở thành một ngành “hot” và là xu thế của nhiều người trẻ hiện nay. Vậy tự học lập trình có khó không? Bài viết...",
+    type: "Diện thoại",
+    date: "13-7-2025",
+    img: "/assets/images/blog-post-1.jpg",
+  },
+  {
+    slug: "aa",
+    avatar: "/assets/images/avatar.jpg",
+    user: "Dimly",
+    title: "Nhân ngày 8/3, giảm giá đặc biệt cho tất cả chị em phụ nữ",
+    description:
+      "Lập trình đang dần trở thành một ngành “hot” và là xu thế của nhiều người trẻ hiện nay. Vậy tự học lập trình có khó không? Bài viết...",
+    type: "Diện thoại",
+    date: "13-7-2025",
+    img: "/assets/images/blog-post-1.jpg",
+  },
+];
+
+export const socialMediaBlogs = [
+  {
+    img: "/assets/images/facebook.jpg",
+    link: "#",
+  },
+  {
+    img: "/assets/images/instagram.jpg",
+    link: "#",
+  },
+  {
+    img: "/assets/images/phone-call.jpg",
+    link: "tel:0378808834",
+  },
+];
