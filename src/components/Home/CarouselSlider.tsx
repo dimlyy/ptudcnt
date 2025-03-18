@@ -2,8 +2,9 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { imgAdvertiseCarousel, imgAdvertiseGrid } from "@constants";
+import { imgAdvertiseCarousel, imgAdvertiseGrid, navItems } from "@constants";
 import Link from "next/link";
+import Nav from "@components/Layout/Nav";
 
 const CarouselSlider = () => {
   const [isHover, setIsHover] = useState(false);
@@ -44,11 +45,16 @@ const CarouselSlider = () => {
       return () => clearInterval(interval); // Xóa interval khi component unmount hoặc hover vào
     }
   }, [currentImg, isHover]); // Chạy lại khi ảnh thay đổi hoặc hover vào
+  
 
   return (
-    <div className="flex md:flex-row flex-col container mt-4">
+    <div className="flex flex-row container mt-4 h-[520px]">
+      <div className="hidden xl:flex w-1/5 h-full">
+         <Nav/>
+      </div>
+
       <div
-        className="md:w-1/2 w-full mx-3 overflow-hidden relative"
+        className="flex-1 mx-3 overflow-hidden relative h-full"
         onMouseEnter={() => setIsHover(true)}  // Khi hover vào, dừng autoplay
         onMouseLeave={() => setIsHover(false)} // Khi rời chuột, tiếp tục autoplay
         onTouchStart={handleTouchStart}
@@ -56,17 +62,18 @@ const CarouselSlider = () => {
       >
         {/* Slider Images */}
         <div
-          className="flex flex-row w-full transition-transform duration-300"
+          className="flex flex-row w-full h-full transition-transform duration-300"
           style={{ transform: `translateX(-${currentImg * 100}%)` }}
         >
           {imgAdvertiseCarousel.map((item, index) => (
-            <Link href={item.slug ? `/blog/${item.slug}` : "#"} key={index} className="w-full shrink-0">
+            <Link href={item.slug ? `/blog/${item.slug}` : "#"} key={index} className="
+            h-full w-full flex shrink-0 rounded-lg overflow-hidden">
               <Image
                 src={item.img}
                 alt={item.title}
-                width={700}
-                height={600}
-                className="object-contain w-full rounded-2xl"
+                width={540}
+                height={520}
+                className="object-cover w-full h-auto "
               />
             </Link>
           ))}
@@ -92,21 +99,23 @@ const CarouselSlider = () => {
           <i className="uil uil-arrow-right text-[var(--title-color)] text-3xl" />
         </div>
       </div>
-{/* 
-      <div className="hidden md:flex md:w-1/2 w-full">
-            <div className="flex flex-row flex-wrap gap-2">
+
+      <div className="xl:w-2/6 md:w-1/2 h-full">
+            <div className="flex flex-col h-full gap-1 mb-2">
                {imgAdvertiseGrid.map((item, index) => (
-                <Link href={item.slug ? `/blog/${item.slug}` : "#"} key={index} className="flex-shrink-0 w-[49%] overflow-hidden">
+                <Link href={item.slug ? `/blog/${item.slug}` : "#"}
+                key={index}
+                className="flex-1 rounded-lg overflow-hidden">
                   <Image
                   alt={item.title}
                   src={item.img}
-                  width={700}
-                  height={600}
-                  className="object-cover w-full h-full rounded-2xl hover:scale-105 duration-500"/>
+                  width={300}
+                  height={160}
+                  className="object-cover w-full h-auto hover:scale-105 duration-500"/>
                 </Link>
                ))}
             </div>
-      </div> */}
+      </div>
 
 
     </div>
