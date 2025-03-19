@@ -21,7 +21,7 @@ const RootLayout: React.FC<React.PropsWithChildren<unknown>> = ({
         <div id="root">
           <div className=" bg-[var(--background-color)]">
             <div>
-              {/* <Nav /> */}
+              <Nav />
             </div>
             <div>
               <Header />

@@ -49,9 +49,9 @@ const CarouselSlider = () => {
 
   return (
     <div className="flex flex-row container mt-4 h-[520px]">
-      <div className="hidden xl:flex w-1/5 h-full">
+      {/* <div className="hidden xl:flex w-1/5 h-full">
          <Nav/>
-      </div>
+      </div> */}
 
       <div
         className="flex-1 mx-3 overflow-hidden relative h-full"

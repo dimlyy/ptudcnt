@@ -1,65 +1,128 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import classNames from "classnames";
+
+import "@styles/nav.scss";
 import { navItems } from "@constants";
 
 const Nav = () => {
+  const navbar = useRef<HTMLDivElement | null>(null);
+  const [isNavbarHover, setIsNavbarHover] = useState(false);
+  const [activeNavbarBackground, setActiveNavbarBackground] = useState(false);
+  const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | null>(null);
+
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
+  // dropdown text (khi call API nhớ thay lại)
+  const isDropdown = true;
+
+  const handleMouseEnter = () => {
+    setTimeout(() => {
+      setIsNavbarHover(true);
+    }, 400);
+
+    setActiveNavbarBackground(true);
+    if (timeoutId) {
+      clearTimeout(timeoutId); // Xóa timeout nếu có
+    }
+  };
+
+  const handleMouseLeave = () => {
+    const id = setTimeout(() => {
+      setIsNavbarHover(false);
+      setActiveNavbarBackground(false);
+    }, 100); // Thay đổi thời gian nếu cần
+    setTimeoutId(id);
+  };
 
   return (
-    <div className="relative w-full flex flex-col justify-center items-center pb-4 rounded-xl border border-gray-300 gap-1">
-      {navItems.map((item, index) => (
-        <div key={index} className="w-full"
-        onMouseEnter={()=> setHoveredIndex(index)}
-        onMouseLeave={() => setHoveredIndex(null)}>
-          {/* Link chính */}
-          <div 
-            className="flex flex-row justify-start w-full items-center gap-4 px-1 py-[7px] cursor-pointer"
-          >
-            <div className="w-5 h-5">
-              <Image
-                src={item.img}
-                alt=""
-                width={20}
-                height={20}
-                className="w-full h-auto object-cover"
-              />
-            </div>
-            <span className="text-md text-gray-500 flex-1">{item.label}</span>
+    <div>
+      {activeNavbarBackground && (
+        <div className="transition-opacity duration-300 fixed inset-0 bg-black opacity-50 z-40  pointer-events-auto" />
+      )}
 
-            {/* Hiển thị mũi tên nếu có menu con */}
-            {item.children && (
-              <i className={`uil uil-angle-right text-gray-500`} />
-            )}
-          </div>
+      <div
+        ref={navbar}
+        className={classNames(
+          "navbar",
+          "left-0 top-0 fixed h-[100vh] w-[var(--sticky-nav)] z-50 bg-[var(--background-color)]",
+          "flex-col border-gray-300 border-r-[1px]"
+        )}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        <div
+          className={classNames(
+            "flex cursor-default h-11 mb-2",
+            "items-center m-2 py-0 px-3 rounded-full",
+            "bg-[var(--btn-color)] justify-start text-[var(--body-color)]"
+          )}
+        >
+          <i className="uil uil-bars ml-[-2px] text-white flex items-center justify-center text-[var(--title-color)] text-2xl" />
+          <span className="transition-opacity text-white nav_text hidden text-[var(--title-color)] whitespace-nowrap ml-3 text-lg">
+            Tất cả sản phẩm
+          </span>
+        </div>
 
-          {/* Dropdown Menu */}
-          {item.children && hoveredIndex === index &&(
-            <div className={`absolute z-50 lg:w-[980px] max-w-[980px] min-h-[522px] overflow-y-auto rounded-lg left-[99%]
-            border border-gray-300 top-0 bg-[var(--background-color)] animate-fade-in fadein duration-300 p-4`}>
-              <div className="w-full h-full flex flex-row">
-                {item.children.map((child, childIndex) => (
-                  <div className="w-1/4 flex flex-col gap-2">
-                    <span className="text-lg text-black">{child.name}</span>
-                    {child.data.map((data,index) => (
-                      <Link 
-                      key={index}
-                      href={`/${data.slug}`} 
-                      className="group"
-                    >
-                      <span className="text-gray-500 group-hover:underline group-hover:decoration-pink-500 group-hover:text-pink-500 duration-200">{child.name}</span>
-                    </Link>
+        <ul className="gap-2 flex flex-col">
+          {navItems.map((item, index) => (
+            <li
+              className={classNames("relative max-w-full w-full", {
+                "li_dropdown-active": isNavbarHover,
+              })}
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
+            >
+              <Link
+                href="#"
+                className="px-5 py-1 flex items-center min-w-1 min-h-11"
+              >
+                <Image
+                  src={item.img}
+                  alt="categories"
+                  width={600}
+                  height={600}
+                  className="flex max-w-none max-h-none w-6 h-6 object-contain"
+                />
+                <span className="w-full justify-between hidden nav_text text-[var(--title-color)] whitespace-nowrap font-medium ml-3 text-base">
+                  {item.label}
+                  {item.children && (
+                    <i className="uil uil-arrow-right ml-[-2px] flex items-center justify-center text-[var(--text-color)] text-2xl" />
+                  )}
+                </span>
+              </Link>
+              {item.children && hoveredIndex === index && (
+                <div
+                  className={`absolute z-50 w-fit min-h-[200px] overflow-y-auto rounded-lg left-[99%]
+                    border border-gray-300 top-0 bg-[var(--background-color)] animate-fade-in fadein duration-300 p-4`}
+                >
+                  <div className="flex flex-row flex-wrap w-[640px]">
+                    {item.children.map((child, childIndex) => (
+                      <div className="w-1/4 flex flex-col gap-2 mb-2">
+                        <span className="text-lg text-black">{child.name}</span>
+                        {child.data.map((data, index) => (
+                          <Link
+                            key={index}
+                            href={`/${data.slug}`}
+                            className="group"
+                          >
+                            <span className="text-gray-500 group-hover:underline group-hover:decoration-pink-500 group-hover:text-pink-500 duration-200">
+                              {child.name}
+                            </span>
+                          </Link>
+                        ))}
+                      </div>
                     ))}
                   </div>
-                ))}
-              </div>
-            </div>
-          )}
-        </div>
-      ))}
+                </div>
+              )}
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };

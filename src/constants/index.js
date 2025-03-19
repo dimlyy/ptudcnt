@@ -1627,7 +1627,7 @@ export const socialMediaBlogs = [
   },
 ];
 
-export const navItems = [
+export const navItemsReplace = [
   {
     img: "/assets/images/nav/mobile-phone-icon.jpg",
     label: "Điện thoại",
@@ -1648,6 +1648,131 @@ export const navItems = [
             name: "Iphone 14 Pro Max",
             slug: "aa",
           },
+          {
+            name: "Iphone 13 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone 12 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone 11 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone X Pro Max",
+            slug: "aa",
+          },
+        ],
+      },
+      {
+        name: "Samsung",
+        data: [
+          {
+            name: "Iphone 12 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone 15 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone 14 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone 13 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone 12 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone 11 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone X Pro Max",
+            slug: "aa",
+          },
+        ],
+      },
+      {
+        name: "Samsung",
+        data: [
+          {
+            name: "Iphone 12 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone 15 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone 14 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone 13 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone 12 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone 11 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone X Pro Max",
+            slug: "aa",
+          },
+        ],
+      },
+      {
+        name: "Samsung",
+        data: [
+          {
+            name: "Iphone 12 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone 15 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone 14 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone 13 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone 12 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone 11 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone X Pro Max",
+            slug: "aa",
+          },
+        ],
+      },
+      {
+        name: "Samsung",
+        data: [
+          {
+            name: "Iphone 12 Pro Max",
+            slug: "aa",
+          },
+
           {
             name: "Iphone 13 Pro Max",
             slug: "aa",
@@ -1720,6 +1845,365 @@ export const navItems = [
     children: [
       {
         name: "Iphone",
+        data: [
+          {
+            name: "Iphone 12 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone 15 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone 14 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone 13 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone 12 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone 11 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone X Pro Max",
+            slug: "aa",
+          },
+        ],
+      },
+      {
+        name: "Samsung  ",
+        data: [
+          {
+            name: "Iphone 12 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone 15 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone 14 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone 13 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone 12 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone 11 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone X Pro Max",
+            slug: "aa",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    img: "/assets/images/nav/mobile-phone-icon.jpg",
+    label: "Macbook",
+    slug: "#",
+  },
+  {
+    img: "/assets/images/nav/mobile-phone-icon.jpg",
+    label: "Âm thanh",
+    slug: "#",
+  },
+  {
+    img: "/assets/images/nav/mobile-phone-icon.jpg",
+    label: "Phụ Kiện",
+    slug: "#",
+  },
+  {
+    img: "/assets/images/nav/apple-icon.jpg",
+    label: "Điện Thoại Cũ",
+    slug: "#",
+  },
+  {
+    img: "/assets/images/nav/apple-icon.jpg",
+    label: "Máy Tính Cũ",
+    slug: "#",
+  },
+  {
+    img: "/assets/images/nav/apple-icon.jpg",
+    label: "Phụ Kiện Cũ",
+    slug: "#",
+  },
+  {
+    img: "/assets/images/nav/apple-icon.jpg",
+    label: "Phụ Kiện Cũ",
+    slug: "#",
+  },
+  {
+    img: "/assets/images/nav/apple-icon.jpg",
+    label: "Phụ Kiện Cũ",
+    slug: "#",
+  },
+];
+
+export const navItems = [
+  {
+    img: "/assets/images/nav/mobile-phone-icon.jpg",
+    label: "Điện thoại",
+    slug: "#",
+    children: [
+      {
+        name: "Iphone",
+        data: [
+          {
+            name: "Iphone 16 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone 15 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone 14 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone 13 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone 12 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone 11 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone X Pro Max",
+            slug: "aa",
+          },
+        ],
+      },
+      {
+        name: "Samsung",
+        data: [
+          {
+            name: "Iphone 12 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone 15 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone 14 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone 13 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone 12 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone 11 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone X Pro Max",
+            slug: "aa",
+          },
+        ],
+      },
+      {
+        name: "Samsung",
+        data: [
+          {
+            name: "Iphone 12 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone 15 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone 14 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone 13 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone 12 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone 11 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone X Pro Max",
+            slug: "aa",
+          },
+        ],
+      },
+      {
+        name: "Samsung",
+        data: [
+          {
+            name: "Iphone 12 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone 15 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone 14 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone 13 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone 12 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone 11 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone X Pro Max",
+            slug: "aa",
+          },
+        ],
+      },
+      {
+        name: "Samsung",
+        data: [
+          {
+            name: "Iphone 12 Pro Max",
+            slug: "aa",
+          },
+
+          {
+            name: "Iphone 13 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone 12 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone 11 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone X Pro Max",
+            slug: "aa",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    img: "/assets/images/nav/mobile-phone-icon.jpg",
+    label: "Apple Chính Hãng",
+    slug: "#",
+  },
+  {
+    img: "/assets/images/nav/mobile-phone-icon.jpg",
+    label: "Tablet",
+    slug: "#",
+    children: [
+      {
+        name: "Iphone",
+        data: [
+          {
+            name: "Iphone 13 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone 15 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone 14 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone 13 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone 12 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone 11 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone X Pro Max",
+            slug: "aa",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    img: "/assets/images/nav/mobile-phone-icon.jpg",
+    label: "Đồng Hồ",
+    slug: "#",
+    children: [
+      {
+        name: "Iphone",
+        data: [
+          {
+            name: "Iphone 12 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone 15 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone 14 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone 13 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone 12 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone 11 Pro Max",
+            slug: "aa",
+          },
+          {
+            name: "Iphone X Pro Max",
+            slug: "aa",
+          },
+        ],
+      },
+      {
+        name: "Samsung  ",
         data: [
           {
             name: "Iphone 12 Pro Max",
