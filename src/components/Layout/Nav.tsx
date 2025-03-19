@@ -47,7 +47,7 @@ const Nav = () => {
       <div
         ref={navbar}
         className={classNames(
-          "navbar",
+          "navbar hidden lg:flex",
           "left-0 top-0 fixed h-[100vh] w-[var(--sticky-nav)] z-50 bg-[var(--background-color)]",
           "flex-col border-gray-300 border-r-[1px]"
         )}
