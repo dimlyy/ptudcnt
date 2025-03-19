@@ -48,13 +48,13 @@ const CarouselSlider = () => {
   
 
   return (
-    <div className="flex flex-row container mt-4 h-[520px]">
+    <div className="flex flex-row flex-wrap container mt-4">
       {/* <div className="hidden xl:flex w-1/5 h-full">
          <Nav/>
       </div> */}
 
       <div
-        className="flex-1 mx-3 overflow-hidden relative h-full"
+        className="w-full md:flex-1 mx-3 overflow-hidden relative h-full"
         onMouseEnter={() => setIsHover(true)}  // Khi hover vào, dừng autoplay
         onMouseLeave={() => setIsHover(false)} // Khi rời chuột, tiếp tục autoplay
         onTouchStart={handleTouchStart}
@@ -71,7 +71,7 @@ const CarouselSlider = () => {
               <Image
                 src={item.img}
                 alt={item.title}
-                width={540}
+                width={790}
                 height={520}
                 className="object-cover w-full h-auto "
               />
@@ -100,8 +100,8 @@ const CarouselSlider = () => {
         </div>
       </div>
 
-      <div className="xl:w-2/6 md:w-1/2 h-full">
-            <div className="flex flex-col h-full gap-1 mb-2">
+      <div className="xl:w-2/6 w-full">
+            <div className="flex flex-col h-full gap-1 mb-2 p-3 xl:p-0">
                {imgAdvertiseGrid.map((item, index) => (
                 <Link href={item.slug ? `/blog/${item.slug}` : "#"}
                 key={index}
@@ -109,9 +109,9 @@ const CarouselSlider = () => {
                   <Image
                   alt={item.title}
                   src={item.img}
-                  width={300}
+                  width={410}
                   height={160}
-                  className="object-cover w-full h-auto hover:scale-105 duration-500"/>
+                  className="object-conver w-full h-full hover:scale-105 duration-500"/>
                 </Link>
                ))}
             </div>
