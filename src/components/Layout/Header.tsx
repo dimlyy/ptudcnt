@@ -52,12 +52,7 @@ const Header = () => {
   const handleCloseCart = () => {
     console.log("handleCloseCart");
     setOnActiveCart(false);
-  };
-
-  const handleWishlistToggle = () => {
-    setIsCartOpen(false);
-    setWishListOpen(true);
-  };
+  };  
 
   return (
     <header>
@@ -133,14 +128,13 @@ const Header = () => {
         <div className="container flex flex-row items-center px-4 h-full">
           {/* Catergorie */}
           <div
-            className="relative flex flex-rows h-11 cursor-pointer items-center justify-center rounded-full bg-[var(--background-color)]"
-            onClick={() => setOnActiveNav(!onActiveNav)}
+            className="relative flex flex-rows h-11 items-center justify-center rounded-full bg-[var(--background-color)]"
           >
             <span className="flex items-center justify-center h-9 w-9 bg-[var(--btn-color)] rounded-full mx-2 pd-3">
-              <i className="uil uil-bars text-[var(--container-color)]" />
+              <i className="uil uil-mobile-android text-2xl text-[var(--container-color)]" />
             </span>
             <span className="flex text-base pr-3 font-light">
-              Danh mục sản phẩm
+              Điện thoại chính hãng
             </span>
 
             {onActiveNav && (
