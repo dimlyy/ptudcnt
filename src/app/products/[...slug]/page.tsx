@@ -15,12 +15,9 @@ interface Params {
 
 const Products = ({ params }: { params: Params }) => {
   const { id } = params;
-
+  
   const variant = singleProduct.varients.find((v) => v.id.toString() === id);
 
-  if (!variant) {
-    return <div>Sản phẩm không tồn tại</div>;
-  }
 
   return (
     <div>
