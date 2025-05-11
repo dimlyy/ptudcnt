@@ -4,9 +4,10 @@ import Link from "next/link";
 import React, { useState } from "react";
 import Image from "next/image";
 
-import { catergoriesSlug, filterItems } from "@constants";
-import CatergoriesItems from "@components/Catergories/CatergoriesItems";
-import ShopCarouselImgs from "@components/Home/shopCarouselImg/shopCarouselImgs";
+import { catergoriesSlug, filterItems } from "../../constants";
+import CatergoriesItems from "../../components/Catergories/CatergoriesItems";
+import ShopCarouselImgs from "../../components/Home/shopCarouselImg/shopCarouselImgs";
+
 
 // Type for Price Range
 type PriceRange = 'all' | 'under10' | '10-16' | '16-22' | 'above22';

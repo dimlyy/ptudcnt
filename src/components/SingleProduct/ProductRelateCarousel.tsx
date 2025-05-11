@@ -1,19 +1,38 @@
 "use client";
 import React, { useRef } from "react";
-
 import Link from "next/link";
 import Image from "next/image";
 
-const ProductRelateCarousel = ({ data }) => {
-  const carouselRef = useRef(null);
+interface ProductRelateItem {
+  slug?: string;
+  discountPrice: number;
+  price: number;
+  img: string;
+  absoluteImg: string;
+  alt: string;
+  label: string;
+  discountGif: string;
+  instatement?: boolean;
+}
+
+interface ProductRelateData {
+  product: string;
+  datas: ProductRelateItem[];
+}
+
+interface ProductRelateCarouselProps {
+  data: ProductRelateData;
+}
+
+const ProductRelateCarousel: React.FC<ProductRelateCarouselProps> = ({ data }) => {
+  const carouselRef = useRef<HTMLDivElement | null>(null);
   const isDragging = useRef(false);
   const startX = useRef(0);
   const scrollLeft = useRef(0);
 
   // Scroll On Mouse
-  // Kéo bằng chuột
-  const handleMouseDown = (e) => {
-    e.preventDefault(); // Ngăn mở link khi đang kéo
+  const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.preventDefault();
     if (!carouselRef.current) return;
     isDragging.current = true;
     startX.current = e.pageX - carouselRef.current.offsetLeft;
@@ -21,32 +40,26 @@ const ProductRelateCarousel = ({ data }) => {
     carouselRef.current.style.scrollBehavior = "auto";
   };
 
-  const handleMouseMove = (e) => {
-    e.preventDefault(); // Ngăn mở link khi đang kéo
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!isDragging.current || !carouselRef.current) return;
     const x = e.pageX - carouselRef.current.offsetLeft;
     const walk = (x - startX.current) * 1.5;
     carouselRef.current.scrollLeft = scrollLeft.current - walk;
   };
 
-  const handleMouseUp = (e: MouseEvent) => {
-    e.preventDefault(); // Ngăn mở link khi đang kéo
+  const handleMouseUp = () => {
     isDragging.current = false;
-    if (!carouselRef.current) return;
-
     snapToClosest();
   };
 
-  // Prevent Link Behavior When Dragging
-  const handlePreventClick = (e: MouseEvent) => {
+  const handlePreventClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     if (isDragging.current) {
       e.preventDefault();
     }
   };
 
   // Drag On Phone
-
-  const handleTouchStart = (e: TouchEvent) => {
+  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
     if (!carouselRef.current) return;
     isDragging.current = true;
     startX.current = e.touches[0].pageX - carouselRef.current.offsetLeft;
@@ -54,7 +67,7 @@ const ProductRelateCarousel = ({ data }) => {
     carouselRef.current.style.scrollBehavior = "auto";
   };
 
-  const handleTouchMove = (e: TouchEvent) => {
+  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
     if (!carouselRef.current || !isDragging.current) return;
     const x = e.touches[0].pageX - carouselRef.current.offsetLeft;
     const walk = (x - startX.current) * 1.5;
@@ -68,42 +81,35 @@ const ProductRelateCarousel = ({ data }) => {
 
   const snapToClosest = () => {
     if (!carouselRef.current) return;
-
     const container = carouselRef.current;
     const itemWidth = container.children[0].getBoundingClientRect().width + 8;
     const nearestIndex = Math.round(container.scrollLeft / itemWidth);
     const newScrollLeft = nearestIndex * itemWidth;
-
     container.style.scrollBehavior = "smooth";
     container.scrollTo({ left: newScrollLeft, behavior: "smooth" });
   };
 
-  const handleButtonScroll = (direction: string) => {
-    if (carouselRef.current) {
-      const container = carouselRef.current;
-      const scrollAmount = container.children[0].offsetWidth + 8;
+  const handleButtonScroll = (direction: "next" | "prev") => {
+    if (!carouselRef.current) return;
+    const container = carouselRef.current;
+    const scrollAmount = container.children[0].clientWidth + 8;
 
-      if (direction === "next") {
-        if (
-          container.scrollLeft + container.clientWidth >=
-          container.scrollWidth - 1
-        ) {
-          container.scrollTo({ left: 0, behavior: "smooth" });
-        } else {
-          container.scrollBy({ left: scrollAmount, behavior: "smooth" });
-        }
+    if (direction === "next") {
+      if (container.scrollLeft + container.clientWidth >= container.scrollWidth - 1) {
+        container.scrollTo({ left: 0, behavior: "smooth" });
       } else {
-        container.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+        container.scrollBy({ left: scrollAmount, behavior: "smooth" });
       }
+    } else {
+      container.scrollBy({ left: -scrollAmount, behavior: "smooth" });
     }
   };
 
   return (
     <div>
       <div className="flex flex-col relative md:mt-5 mb-2 mt-2 gap-1 px-2 overflow-hidden">
-        <span className="uppercase text-red-500 text-lg font-bold">
-          {data.product}
-        </span>
+        <span className="uppercase text-red-500 text-lg font-bold">{data.product}</span>
+
         <div
           className="w-full flex flex-row gap-1 overflow-auto scrollbar-hide select-none"
           ref={carouselRef}
@@ -117,11 +123,11 @@ const ProductRelateCarousel = ({ data }) => {
           }}
           onMouseUp={(e) => {
             e.stopPropagation();
-            handleMouseUp(e);
+            handleMouseUp();
           }}
           onMouseLeave={(e) => {
             e.stopPropagation();
-            handleMouseUp(e);
+            handleMouseUp();
           }}
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
@@ -129,11 +135,10 @@ const ProductRelateCarousel = ({ data }) => {
         >
           {data.datas.map((item, index) => (
             <Link
-              onClick={handlePreventClick}
               key={index}
-              href={item.slug ? item.slug : "#"}
-              className="md:w-[calc(26%-0.75rem)] w-[calc(45%-0.5rem)] snap-start flex flex-col p-2 gap-1 shrink-0 bg-[var(--container-color)] rounded-md
-              "
+              onClick={handlePreventClick}
+              href={item.slug || "#"}
+              className="md:w-[calc(26%-0.75rem)] w-[calc(45%-0.5rem)] snap-start flex flex-col p-2 gap-1 shrink-0 bg-[var(--container-color)] rounded-md"
             >
               <div className="flex flex-row gap-1">
                 <span className="py-1 px-2 bg-pink-500 text-white rounded-lg text-xs">
@@ -164,9 +169,7 @@ const ProductRelateCarousel = ({ data }) => {
               </div>
 
               <div className="flex flex-col mt-1 gap-1">
-                <span className="text-sm line-clamp-2 leading-[1.4]">
-                  {item.label}
-                </span>
+                <span className="text-sm line-clamp-2 leading-[1.4]">{item.label}</span>
                 <div className="flex flex-row items-center gap-2 mt-1">
                   <span className="text-red-500 text-sm">
                     {item.discountPrice.toLocaleString("vi-VN")}đ
@@ -177,8 +180,7 @@ const ProductRelateCarousel = ({ data }) => {
                 </div>
 
                 <span className="text-xs text-green-500">
-                  Giảm{" "}
-                  {(item.price - item.discountPrice).toLocaleString("vi-VN")}đ
+                  Giảm {(item.price - item.discountPrice).toLocaleString("vi-VN")}đ
                 </span>
 
                 <div className="flex flex-row items-center">

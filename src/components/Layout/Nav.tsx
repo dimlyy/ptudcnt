@@ -5,18 +5,32 @@ import Link from "next/link";
 import Image from "next/image";
 import classNames from "classnames";
 
-import "@styles/nav.scss";
-import { navItems } from "@constants";
+import "../../styles/nav.scss";
+import { navItems } from "../../constants";
 
-const Nav = () => {
+// Type cho item con trong dropdown
+type ChildData = {
+  name: string;
+  data: {
+    name: string;
+    slug: string;
+  }[];
+};
+
+// Type cho nav item chính
+type NavItem = {
+  label: string;
+  img: string;
+  children?: ChildData[];
+};
+
+const Nav: React.FC = () => {
   const navbar = useRef<HTMLDivElement | null>(null);
   const [isNavbarHover, setIsNavbarHover] = useState(false);
   const [activeNavbarBackground, setActiveNavbarBackground] = useState(false);
   const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | null>(null);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
-  const [hoveredIndex, setHoveredIndex] = useState(null);
-
-  // dropdown text (khi call API nhớ thay lại)
   const isDropdown = true;
 
   const handleMouseEnter = () => {
@@ -26,7 +40,7 @@ const Nav = () => {
 
     setActiveNavbarBackground(true);
     if (timeoutId) {
-      clearTimeout(timeoutId); // Xóa timeout nếu có
+      clearTimeout(timeoutId);
     }
   };
 
@@ -34,14 +48,14 @@ const Nav = () => {
     const id = setTimeout(() => {
       setIsNavbarHover(false);
       setActiveNavbarBackground(false);
-    }, 100); // Thay đổi thời gian nếu cần
+    }, 100);
     setTimeoutId(id);
   };
 
   return (
     <div>
       {activeNavbarBackground && (
-        <div className="transition-opacity duration-300 fixed inset-0 bg-black opacity-50 z-40  pointer-events-auto" />
+        <div className="transition-opacity duration-300 fixed inset-0 bg-black opacity-50 z-40 pointer-events-auto" />
       )}
 
       <div
@@ -68,8 +82,9 @@ const Nav = () => {
         </div>
 
         <ul className="gap-2 flex flex-col">
-          {navItems.map((item, index) => (
+          {navItems.map((item: NavItem, index: number) => (
             <li
+              key={index}
               className={classNames("relative max-w-full w-full", {
                 "li_dropdown-active": isNavbarHover,
               })}
@@ -94,23 +109,28 @@ const Nav = () => {
                   )}
                 </span>
               </Link>
+
+              {/* Dropdown hiển thị nếu có children */}
               {item.children && hoveredIndex === index && (
                 <div
                   className={`absolute z-50 w-fit min-h-[200px] overflow-y-auto rounded-lg left-[99%]
                     border border-gray-300 top-0 bg-[var(--background-color)] animate-fade-in fadein duration-300 p-4`}
                 >
                   <div className="flex flex-row flex-wrap w-[640px]">
-                    {item.children.map((child, childIndex) => (
-                      <div className="w-1/4 flex flex-col gap-2 mb-2">
+                    {item.children.map((child: ChildData, childIndex: number) => (
+                      <div
+                        key={childIndex}
+                        className="w-1/4 flex flex-col gap-2 mb-2"
+                      >
                         <span className="text-lg text-black">{child.name}</span>
-                        {child.data.map((data, index) => (
+                        {child.data.map((data, dataIndex: number) => (
                           <Link
-                            key={index}
+                            key={dataIndex}
                             href={`/${data.slug}`}
                             className="group"
                           >
                             <span className="text-gray-500 group-hover:underline group-hover:decoration-pink-500 group-hover:text-pink-500 duration-200">
-                              {child.name}
+                              {data.name}
                             </span>
                           </Link>
                         ))}

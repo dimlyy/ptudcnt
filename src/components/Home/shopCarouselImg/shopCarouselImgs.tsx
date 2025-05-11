@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import { shopImgs } from '@constants';
+import { shopImgs } from '../../../constants';
 
 const ShopCarouselImgs = () => {
   return (

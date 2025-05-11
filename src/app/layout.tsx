@@ -1,6 +1,6 @@
 // src/app/layout.tsx
 import React from "react";
-import "@styles/globals.scss";
+import "../styles/globals.scss";
 import Header from "../components/Layout/Header";
 import Nav from "../components/Layout/Nav";
 import Footer from "../components/Layout/Footer";

@@ -1,55 +1,57 @@
-"use client"
+"use client";
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-import { cartItems } from "@constants";
+import { cartItems } from "../../constants";
 const Cart = () => {
-    const [itemsCart, setItemsCart] = useState(cartItems.map(item => ({...item})));
+  const [itemsCart, setItemsCart] = useState(
+    cartItems.map((item) => ({ ...item }))
+  );
 
-    const caculateTotalPrice = () => {
-      return itemsCart.reduce((total,item) =>(
-        total + item.price * item.quantity
-      ) , 0)
-    }
+  const caculateTotalPrice = () => {
+    return itemsCart.reduce(
+      (total, item) => total + item.price * item.quantity,
+      0
+    );
+  };
 
-    const handleIncreaseQuantity = (index: number) => {
-      // Create a copy items array
-      const updateItem = [...itemsCart];
-  
-      // Increase quantity 
+  const handleIncreaseQuantity = (index: number) => {
+    // Create a copy items array
+    const updateItem = [...itemsCart];
+
+    // Increase quantity
+    updateItem[index] = {
+      ...updateItem[index],
+      quantity: updateItem[index].quantity + 1,
+    };
+
+    setItemsCart(updateItem);
+  };
+
+  const handleDecreaseQuantity = (index: number) => {
+    // Create a copy items array
+    const updateItem = [...itemsCart];
+
+    // Only decrease if quantity is greater than 1
+    if (updateItem[index].quantity > 1) {
       updateItem[index] = {
         ...updateItem[index],
-        quantity: updateItem[index].quantity + 1
+        quantity: updateItem[index].quantity - 1,
       };
-  
+
       setItemsCart(updateItem);
     }
+  };
 
-    const handleDecreaseQuantity = (index: number) => {
-      // Create a copy items array
-      const updateItem = [...itemsCart];
-  
-     // Only decrease if quantity is greater than 1
-     if (updateItem[index].quantity > 1 ){
-      updateItem[index] = {
-        ...updateItem[index],
-        quantity: updateItem[index].quantity - 1
-      }
-  
-      setItemsCart(updateItem);
-     }
-    }
+  const handleRemoveItem = (index: number) => {
+    // Create a copy of items array and remove the item at the specified index
+    const updatedItems = itemsCart.filter((_, i) => i !== index);
 
-    const handleRemoveItem = (index: number) => {
-      // Create a copy of items array and remove the item at the specified index
-      const updatedItems = itemsCart.filter((_, i) => i !== index);
-  
-      // Update state
-      setItemsCart(updatedItems);
-    }
-  
+    // Update state
+    setItemsCart(updatedItems);
+  };
 
   return (
     <div className="container">
@@ -226,16 +228,20 @@ const Cart = () => {
 
                     <div className="flex flex-row gap-3 mt-auto items-center justify-center">
                       <div
-                      onClick={() => handleDecreaseQuantity(index)}
-                      className="flex items-center cursor-pointer justify-center w-7 h-7 rounded-md bg-gray-300">
+                        onClick={() => handleDecreaseQuantity(index)}
+                        className="flex items-center cursor-pointer justify-center w-7 h-7 rounded-md bg-gray-300"
+                      >
                         -
                       </div>
 
-                      <span className="flex items-center justify-center w-4 h-6">{item.quantity}</span>
+                      <span className="flex items-center justify-center w-4 h-6">
+                        {item.quantity}
+                      </span>
 
                       <div
-                      onClick={() => handleIncreaseQuantity(index)}
-                      className="flex items-center cursor-pointer justify-center w-7 h-7 rounded-md bg-gray-300">
+                        onClick={() => handleIncreaseQuantity(index)}
+                        className="flex items-center cursor-pointer justify-center w-7 h-7 rounded-md bg-gray-300"
+                      >
                         +
                       </div>
                     </div>
@@ -247,8 +253,9 @@ const Cart = () => {
                     cam đoan luôn mang đến khách hàng chất lượng tốt nhất
                   </span>
                   <div
-                  onClick={() => handleRemoveItem(index)}
-                  className="ml-auto flex flex-row gap-2 text-gray-500 cursor-pointer hover:text-pink-500 duration-100">
+                    onClick={() => handleRemoveItem(index)}
+                    className="ml-auto flex flex-row gap-2 text-gray-500 cursor-pointer hover:text-pink-500 duration-100"
+                  >
                     <span>Xóa khỏi giỏ hàng</span>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -299,14 +306,20 @@ const Cart = () => {
                 <path d="M16.5 18h3" />
               </svg>
 
-              <span className="uppercase text-2xl font-semibold">Tổng tiền hàng :</span>
+              <span className="uppercase text-2xl font-semibold">
+                Tổng tiền hàng :
+              </span>
             </div>
 
-            <span className="ml-auto text-2xl font-bold text-pink-500">{caculateTotalPrice().toLocaleString("vi-VN")}đ</span>
+            <span className="ml-auto text-2xl font-bold text-pink-500">
+              {caculateTotalPrice().toLocaleString("vi-VN")}đ
+            </span>
           </div>
 
           <div className="w-full flex items-center justify-center bg-pink-500 mt-2 rounded-lg cursor-pointer">
-            <span className="uppercase text-2xl py-2 text-white font-bold">Đặt hàng ngay</span>
+            <span className="uppercase text-2xl py-2 text-white font-bold">
+              Đặt hàng ngay
+            </span>
           </div>
         </div>
       </div>

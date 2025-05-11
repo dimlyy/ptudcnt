@@ -2,14 +2,14 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { imgAdvertiseCarousel, imgAdvertiseGrid, navItems } from "@constants";
+import { imgAdvertiseCarousel, imgAdvertiseGrid, navItems } from "../../constants";
 import Link from "next/link";
-import Nav from "@components/Layout/Nav";
+import Nav from "../../components/Layout/Nav";
 
 const CarouselSlider = () => {
   const [isHover, setIsHover] = useState(false);
   const [currentImg, setCurrentImg] = useState(0);
-  const [touchStartX, setTouchStartX] = useState(null);
+  const [touchStartX, setTouchStartX] = useState<number | null>(null);
 
   const handlePrev = () => {
     setCurrentImg((prev) => (prev === 0 ? imgAdvertiseCarousel.length - 1 : prev - 1));
@@ -19,16 +19,16 @@ const CarouselSlider = () => {
     setCurrentImg((prev) => (prev === imgAdvertiseCarousel.length - 1 ? 0 : prev + 1));
   };
 
-  const handleTouchStart = (e) => {
+  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
     setTouchStartX(e.touches[0].clientX);
   };
-
-  const handleTouchMove = (e) => {
-    if (!touchStartX) return;
-
-    let touchEndX = e.touches[0].clientX;
-    let swipeDistance = touchStartX - touchEndX;
-
+  
+  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+    if (touchStartX === null) return;
+  
+    const touchEndX = e.touches[0].clientX;
+    const swipeDistance = touchStartX - touchEndX;
+  
     if (swipeDistance > 50) {
       handleNext();
       setTouchStartX(null);

@@ -7,15 +7,26 @@ import { useState } from "react";
 import { FaStar } from "react-icons/fa";
 import Link from "next/link";
 
-import { fatherProduct, shopHighlight } from "@constants";
+import { fatherProduct, shopHighlight } from "../../constants";
+
+interface ProductVariant {
+  id: number;
+  color:string;
+  discountPrice?: number;
+  price: number;
+  imgs: string[];
+  discount: boolean;
+}
+
+interface Product { 
+  label: string;
+  capacity: string;
+  fatherProductId: string;
+  varients: ProductVariant[];
+}
 
 interface GalleryProps {
-  product: {
-    label: string;
-    short: string;
-    fatherProduct: [];
-    varients: [];
-  };
+  product: Product;
 }
 
 const Gallery: React.FC<GalleryProps> = ({ product }) => {

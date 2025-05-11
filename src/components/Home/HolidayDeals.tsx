@@ -1,19 +1,19 @@
 "use client";
 
-import React, { useEffect, useState, useRef } from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { holidayDealImgs, hotDealsItem } from "@constants";
+import { holidayDealImgs, hotDealsItem } from "../../constants";
 
-const HolidayDeals = () => {
-  const carouselRef = useRef(null);
-  const isDragging = useRef(false);
-  const isMoving = useRef(false);
-  const startX = useRef(0);
-  const scrollLeft = useRef(0);
+const HolidayDeals: React.FC = () => {
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const isDragging = useRef<boolean>(false);
+  const isMoving = useRef<boolean>(false);
+  const startX = useRef<number>(0);
+  const scrollLeft = useRef<number>(0);
 
   // Kéo bằng chuột
-  const handleMouseDown = (e: MouseEvent) => {
+  const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!carouselRef.current) return;
     isDragging.current = true;
     isMoving.current = false;
@@ -22,7 +22,7 @@ const HolidayDeals = () => {
     carouselRef.current.style.scrollBehavior = "auto";
   };
 
-  const handleMouseMove = (e: MouseEvent) => {
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!isDragging.current || !carouselRef.current) return;
     isMoving.current = true;
     const x = e.pageX - carouselRef.current.offsetLeft;
@@ -30,7 +30,7 @@ const HolidayDeals = () => {
     carouselRef.current.scrollLeft = scrollLeft.current - walk;
   };
 
-  const handleMouseUp = (e: MouseEvent) => {
+  const handleMouseUp = () => {
     const wasMoving = isDragging.current && isMoving.current;
 
     isDragging.current = false;
@@ -50,15 +50,14 @@ const HolidayDeals = () => {
     if (wasMoving) {
       container.dataset.preventClick = "true";
 
-      // Xóa đánh dấu sau một khoảng thời gian ngắn
       setTimeout(() => {
         delete container.dataset.preventClick;
       }, 50);
     }
   };
 
-  // 🔹 Kéo bằng cảm ứng (điện thoại)
-  const handleTouchStart = (e: React.TouchEvent) => {
+  // Kéo bằng cảm ứng
+  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
     if (!carouselRef.current) return;
     isDragging.current = true;
     startX.current = e.touches[0].pageX - carouselRef.current.offsetLeft;
@@ -66,7 +65,7 @@ const HolidayDeals = () => {
     carouselRef.current.style.scrollBehavior = "auto";
   };
 
-  const handleTouchMove = (e: React.TouchEvent) => {
+  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
     if (!isDragging.current || !carouselRef.current) return;
     const x = e.touches[0].pageX - carouselRef.current.offsetLeft;
     const walk = (x - startX.current) * 1.5;
@@ -78,7 +77,7 @@ const HolidayDeals = () => {
     snapToClosest();
   };
 
-  // 🔥 Snap về phần tử gần nhất
+  // Snap về phần tử gần nhất
   const snapToClosest = () => {
     if (!carouselRef.current) return;
     const container = carouselRef.current;
@@ -89,16 +88,13 @@ const HolidayDeals = () => {
     container.scrollTo({ left: newScrollLeft, behavior: "smooth" });
   };
 
-  const handleScroll = (direction) => {
+  const handleScroll = (direction: "next" | "prev") => {
     if (carouselRef.current) {
       const container = carouselRef.current;
-      const scrollAmount = container.children[0].offsetWidth + 8;
+      const scrollAmount = container.children[0].clientWidth + 8;
 
       if (direction === "next") {
-        if (
-          container.scrollLeft + container.clientWidth >=
-          container.scrollWidth - 1
-        ) {
+        if (container.scrollLeft + container.clientWidth >= container.scrollWidth - 1) {
           container.scrollTo({ left: 0, behavior: "smooth" });
         } else {
           container.scrollBy({ left: scrollAmount, behavior: "smooth" });
@@ -126,39 +122,26 @@ const HolidayDeals = () => {
       <div className="bg-[#ecbf8c] md:p-[10px] px-1 py-2 relative">
         <div
           ref={carouselRef}
-          onMouseDown={(e) => {
-            e.stopPropagation();
-            handleMouseDown(e);
-          }}
-          onMouseMove={(e) => {
-            e.stopPropagation();
-            handleMouseMove(e);
-          }}
-          onMouseUp={(e) => {
-            e.stopPropagation();
-            handleMouseUp(e);
-          }}
-          onMouseLeave={(e) => {
-            e.stopPropagation();
-            handleMouseUp(e);
-          }}
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={handleMouseUp}
+          onMouseLeave={handleMouseUp}
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
-          className={`bg-[var(--background-color)] flex flex-row flex-nowrap 
-          overflow-auto gap-2 scrollbar-hide select-none relative pl-2`}
+          className="bg-[var(--background-color)] flex flex-row flex-nowrap 
+          overflow-auto gap-2 scrollbar-hide select-none relative pl-2"
         >
           {hotDealsItem.data.map((item, index) => (
             <Link
               key={index}
               href={item.slug ? `/products/${item.slug}` : "#"}
               className="w-[46%] md:w-[calc(20%-0.5rem)] flex flex-col flex-none gap-1
-             rounded-lg my-2 p-2 snap-start shadow-xl bg-white hover:shadow-xl group relative"
+              rounded-lg my-2 p-2 snap-start shadow-xl bg-white hover:shadow-xl group relative"
               draggable={false}
               onClick={(e) => {
                 if (carouselRef.current?.dataset.preventClick === "true") {
                   e.preventDefault();
-                  return;
                 }
               }}
             >
@@ -179,8 +162,7 @@ const HolidayDeals = () => {
                   alt={item.alt}
                   width={600}
                   height={600}
-                  className="object-cover w-full h-auto pointer-events-none
-                  group-hover:translate-y-[-10px] duration-300 z-0"
+                  className="object-cover w-full h-auto pointer-events-none group-hover:translate-y-[-10px] duration-300 z-0"
                 />
                 <Image
                   src="/assets/images/sunday_discount.png"
@@ -192,9 +174,7 @@ const HolidayDeals = () => {
               </div>
 
               <div className="mt-3">
-                <span className="text-sm line-clamp-2 leading-[1.4]">
-                  {item.label}
-                </span>
+                <span className="text-sm line-clamp-2 leading-[1.4]">{item.label}</span>
                 <div className="flex flex-row items-center gap-2 mt-1">
                   <span className="text-red-500">
                     {item.discountPrice.toLocaleString("vi-VN")}₫
@@ -206,8 +186,7 @@ const HolidayDeals = () => {
               </div>
 
               <span className="text-green-500 text-xs">
-                Giảm {(item.price - item.discountPrice).toLocaleString("vi-VN")}
-                đ
+                Giảm {(item.price - item.discountPrice).toLocaleString("vi-VN")}đ
               </span>
 
               <div className="flex flex-row mt-2">

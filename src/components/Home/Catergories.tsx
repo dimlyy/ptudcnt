@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-import { catergoriesItem } from "@constants";
+import { catergoriesItem } from "../../constants";
 
 const Catergories = () => {
   return (

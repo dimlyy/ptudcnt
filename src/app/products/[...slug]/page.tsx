@@ -1,13 +1,13 @@
 import Link from 'next/link';
 import React from 'react';
 
-import { collectionsItems } from '@constants';
-import Gallery from '@components/SingleProduct/Gallery';
-import { singleProduct } from '@constants';
-import ProductRelate from '@components/SingleProduct/ProductRelate';
-import { promotionData } from '@constants';
-import ProductDescription from '@components/SingleProduct/ProductDescription';
-import ShopCarouselImgs from '@components/Home/shopCarouselImg/shopCarouselImgs';
+import { collectionsItems } from '../../../constants';
+import Gallery from '../../../components/SingleProduct/Gallery';
+import { singleProduct } from '../../../constants';
+import ProductRelate from '../../../components/SingleProduct/ProductRelate';
+import { promotionData } from '../../../constants';
+import ProductDescription from '../../../components/SingleProduct/ProductDescription';
+import ShopCarouselImgs from '../../../components/Home/shopCarouselImg/shopCarouselImgs';
 
 const Products = () => {
   return (

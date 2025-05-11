@@ -1,6 +1,6 @@
 "use client"
 
-import { frameImg, frameVideo } from '@utils'
+import { frameImg, frameVideo } from '../../utils'
 import React, { useEffect, useRef } from 'react'
 import Image from 'next/image'
 import { useGSAP } from '@gsap/react'

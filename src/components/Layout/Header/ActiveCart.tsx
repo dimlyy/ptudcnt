@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-import { cartItems } from "@constants";
+import { cartItems } from "../../../constants";
 
 interface CartItem {
   slug: string;

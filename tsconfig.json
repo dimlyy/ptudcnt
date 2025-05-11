@@ -18,22 +18,16 @@
         "name": "next"
       }
     ],
+    "baseUrl": ".",
     "paths": {
-      "@*": ["./src/*"]
+      "@/*": ["./*"]
     }
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts",
-    "src/components/Home/videoCarousel",
-    "src/constants/index.js",
-    "src/utils/index.js",
-    "src/components/Home/Modal/Modal.jsx",
-    "src/components/Home/Light/Light.jsx",
-    "src/components/Home/Iphone/Iphone.jsx",
-    "src/components/Home/Modal/Modal3D.jsx"
+    ".next/types/**/*.ts"
   ],
   "exclude": ["node_modules"]
 }

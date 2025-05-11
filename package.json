@@ -11,11 +11,13 @@
   "dependencies": {
     "@gsap/react": "^2.1.1",
     "@iconscout/unicons": "^4.2.0",
+    "@nextui-org/react": "^2.6.11",
     "@react-three/drei": "^9.101.0",
     "@react-three/fiber": "^8.17.10",
     "classnames": "^2.5.1",
     "gsap": "^3.12.5",
     "next": "^14.2.22",
+    "next-themes": "^0.4.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.4.0",
