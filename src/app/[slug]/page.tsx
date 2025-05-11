@@ -8,6 +8,11 @@ import { catergoriesSlug, filterItems } from "../../constants";
 import CatergoriesItems from "../../components/Catergories/CatergoriesItems";
 import ShopCarouselImgs from "../../components/Home/shopCarouselImg/shopCarouselImgs";
 
+export async function generateStaticParams() {
+  return catergoriesSlug.navigatorts.map(item => ({
+    slug: item.slug,
+  }));
+}
 
 // Type for Price Range
 type PriceRange = 'all' | 'under10' | '10-16' | '16-22' | 'above22';
