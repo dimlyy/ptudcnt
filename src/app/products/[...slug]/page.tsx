@@ -9,11 +9,20 @@ import { promotionData } from '../../../constants';
 import ProductDescription from '../../../components/SingleProduct/ProductDescription';
 import ShopCarouselImgs from '../../../components/Home/shopCarouselImg/shopCarouselImgs';
 
+interface Params {
+  id: string;
+}
 
-const Products = ({ params }) => {
+interface Product {
+  id: number;
+  varients: Array<{
+    id: number;
+    // Các thuộc tính khác của variant (nếu có)
+  }>;
+}
 
+const Products = ({ params }: { params: Params }) => {
   const { id } = params;
-  
 
   // Tìm sản phẩm theo id trong danh sách giả từ constants
   const variant = singleProduct.varients.find((v) => v.id.toString() === id);
@@ -22,19 +31,18 @@ const Products = ({ params }) => {
     return <div>Sản phẩm không tồn tại</div>; // Trường hợp không tìm thấy sản phẩm
   }
 
-
   return (
     <div>
       {/* Single Product Header */}
-      <div className="container bg-gray-100 h-10 rounded-2xl px-4 mt-2  flex flex-row items-center">
-        <span className='ml-2 text-[var(--title-color)]'>
+      <div className="container bg-gray-100 h-10 rounded-2xl px-4 mt-2 flex flex-row items-center">
+        <span className="ml-2 text-[var(--title-color)]">
           <Link href="/">Trang chủ</Link>
         </span>
         {collectionsItems.map((items, index) => (
           <div key={index}>
-            <span className='ml-2 text-[var(--title-color)]'>/ {items.label}</span>
+            <span className="ml-2 text-[var(--title-color)]">/ {items.label}</span>
             {items.data.map((item) => (
-              <span key={item.id} className='ml-2 text-[var(--title-color)]'>
+              <span key={item.id} className="ml-2 text-[var(--title-color)]">
                 <Link href={`/products/${item.id}`}>/ {item.name}</Link>
               </span>
             ))}
@@ -42,13 +50,13 @@ const Products = ({ params }) => {
         ))}
       </div>
 
-      <Gallery product={singleProduct}/>
+      <Gallery product={singleProduct} />
 
-      <ProductRelate data={promotionData}/>
+      <ProductRelate data={promotionData} />
 
-      <ProductDescription/>
+      <ProductDescription />
 
-      <ShopCarouselImgs/>
+      <ShopCarouselImgs />
     </div>
   );
 };
