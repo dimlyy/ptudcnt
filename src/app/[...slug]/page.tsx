@@ -21,40 +21,40 @@ const Catergories = () => {
   };
 
   // Function to fetch products based on price range
-  const fetchProductsByPriceRange = async (range: PriceRange) => {
-    try {
-      // Close the dropdown after selection
-      setIsOpen(false);
+  // const fetchProductsByPriceRange = async (range: PriceRange) => {
+  //   try {
+  //     // Close the dropdown after selection
+  //     setIsOpen(false);
 
-      // API endpoint - replace with your actual API endpoint
-      const apiUrl = `/api/products?priceRange=${range}`;
+  //     // API endpoint - replace with your actual API endpoint
+  //     const apiUrl = `/api/products?priceRange=${range}`;
       
-      const response = await fetch(apiUrl, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
+  //     const response = await fetch(apiUrl, {
+  //       method: 'GET',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //     });
 
-      if (!response.ok) {
-        throw new Error('Failed to fetch products');
-      }
+  //     if (!response.ok) {
+  //       throw new Error('Failed to fetch products');
+  //     }
 
-      const data = await response.json();
+  //     const data = await response.json();
       
-      // TODO: Handle the returned product data 
-      // For example, you might want to update a state with the products
-      console.log('Fetched products:', data);
-    } catch (error) {
-      console.error('Error fetching products:', error);
-      // TODO: Add error handling (e.g., show error message to user)
-    }
-  };
+  //     // TODO: Handle the returned product data 
+  //     // For example, you might want to update a state with the products
+  //     console.log('Fetched products:', data);
+  //   } catch (error) {
+  //     console.error('Error fetching products:', error);
+  //     // TODO: Add error handling (e.g., show error message to user)
+  //   }
+  // };
 
   // Handler for price range selection
   const handlePriceRangeSelect = (range: PriceRange) => {
     setSelected(range);
-    fetchProductsByPriceRange(range);
+    // fetchProductsByPriceRange(range);
   };
 
   return (
