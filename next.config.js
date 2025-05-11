@@ -6,6 +6,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   output: "standalone",
+  basePath: "/ptudcnt",
 };
 
 module.exports = nextConfig;
