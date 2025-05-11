@@ -2278,4 +2278,3 @@ export const navItems = [
     slug: "#",
   },
 ];
-

@@ -9,7 +9,20 @@ import { promotionData } from '../../../constants';
 import ProductDescription from '../../../components/SingleProduct/ProductDescription';
 import ShopCarouselImgs from '../../../components/Home/shopCarouselImg/shopCarouselImgs';
 
-const Products = () => {
+
+const Products = ({ params }) => {
+
+  const { id } = params;
+  
+
+  // Tìm sản phẩm theo id trong danh sách giả từ constants
+  const variant = singleProduct.varients.find((v) => v.id.toString() === id);
+
+  if (!variant) {
+    return <div>Sản phẩm không tồn tại</div>; // Trường hợp không tìm thấy sản phẩm
+  }
+
+
   return (
     <div>
       {/* Single Product Header */}
